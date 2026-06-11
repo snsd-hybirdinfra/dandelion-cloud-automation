@@ -1,22 +1,22 @@
 # Project Status
 
-Last Updated: 2026-06-11 09:59:10
+Last Updated: 2026-06-11 19:01:53
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 6 | 9 | 67% | 🟡 진행 중 |
+| PM / Architecture | 정주헌 | 3 | 9 | 33% | 🟡 진행 중 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
-| Ansible Automation | 조민석 | 3 | 9 | 33% | 🟡 진행 중 |
-| Monitoring / Backup / Validation | 박재우 | 3 | 9 | 33% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
+| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 12 | 37 | 32% |
+| 3 | 37 | 8% |
 
 ## 3. 상세 파일 상태
 
@@ -26,10 +26,10 @@ Last Updated: 2026-06-11 09:59:10
 |---|---|
 | README.md | ✅ 완료 |
 | docs/architecture.md | ✅ 완료 |
-| docs/team-task-guide.md | ✅ 완료 |
+| docs/team-task-guide.md | 🟡 작성 필요 |
 | docs/pre-run-checklist.md | 🟡 작성 필요 |
-| docs/troubleshooting.md | ✅ 완료 |
-| docs/runbook.md | ✅ 완료 |
+| docs/troubleshooting.md | 🟡 작성 필요 |
+| docs/runbook.md | 🟡 작성 필요 |
 | docs/final-deliverables.md | 🟡 작성 필요 |
 | docs/review-checklist.md | 🟡 작성 필요 |
 | presentation/presentation-outline.md | ✅ 완료 |
@@ -58,9 +58,9 @@ Last Updated: 2026-06-11 09:59:10
 
 | 파일 | 상태 |
 |---|---|
-| ansible/ansible.cfg | ✅ 완료 |
-| ansible/inventory.ini | ✅ 완료 |
-| ansible/site.yml | ✅ 완료 |
+| ansible/ansible.cfg | 🟡 작성 필요 |
+| ansible/inventory.ini | 🟡 작성 필요 |
+| ansible/site.yml | 🟡 작성 필요 |
 | docs/ansible-automation.md | 🟡 작성 필요 |
 | screenshots/ansible/ansible-version.png | ❌ 미완료 |
 | screenshots/ansible/inventory.png | ❌ 미완료 |
@@ -72,9 +72,9 @@ Last Updated: 2026-06-11 09:59:10
 
 | 파일 | 상태 |
 |---|---|
-| scripts/health_check.sh | ✅ 완료 |
-| scripts/backup.sh | ✅ 완료 |
-| scripts/restore.md | ✅ 완료 |
+| scripts/health_check.sh | 🟡 작성 필요 |
+| scripts/backup.sh | 🟡 작성 필요 |
+| scripts/restore.md | 🟡 작성 필요 |
 | docs/validation-report.md | 🟡 작성 필요 |
 | screenshots/validation/health-check.png | ❌ 미완료 |
 | screenshots/validation/docker-status.png | ❌ 미완료 |

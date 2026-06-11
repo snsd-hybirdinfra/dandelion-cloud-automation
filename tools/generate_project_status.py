@@ -97,6 +97,26 @@ def file_status(path_text: str) -> str:
 
     placeholder_keywords = [
         "TBD",
+        "TEMP",
+        "TEMPLATE",
+        "임시",
+        "예시",
+        "기본틀",
+        "기본 예시",
+        "교체 필요",
+        "실제 환경",
+        "실제 서버",
+        "실행 검증 후",
+        "server-ip",
+        "web-node-ip",
+        "backup-node-ip",
+        "10.21.1.11",
+        "10.21.1.12",
+        "192.168.56.11",
+        "192.168.56.12",
+        "~/.ssh/ansible_key",
+        "백업파일명",
+        "Team Dandelion Backup Test",
         "아직 자동 상태가 생성되지 않았습니다",
         "작성 예정",
         "추후 작성",
@@ -250,5 +270,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 

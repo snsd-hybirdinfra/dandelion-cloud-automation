@@ -196,17 +196,17 @@ ansible-playbook site.yml
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 12 | 37 | 32% |
+| 3 | 37 | 8% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 6 | 9 | 67% | 🟡 진행 중 |
+| PM / Architecture | 정주헌 | 3 | 9 | 33% | 🟡 진행 중 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
-| Ansible Automation | 조민석 | 3 | 9 | 33% | 🟡 진행 중 |
-| Monitoring / Backup / Validation | 박재우 | 3 | 9 | 33% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
+| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
 
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
