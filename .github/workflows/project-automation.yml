@@ -35,6 +35,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Update documentation images
+        run: python tools/update_doc_images.py
+
       - name: Generate project status
         run: python tools/generate_project_status.py
 
@@ -50,8 +53,8 @@ jobs:
           if git diff --quiet; then
             echo "No generated report changes."
           else
-            git add README.md docs/project-status.md docs/validation-summary.md
-            git commit -m "Update generated project reports [skip automation]"
+            git add README.md docs/*.md
+            git commit -m "Update generated project documents [skip automation]"
 
             git pull --rebase origin main
             git push origin main
