@@ -130,3 +130,19 @@ Cloud Infrastructure
 정주헌은 이 흐름이 발표와 문서에서 끊기지 않도록 전체 구조를 통합 관리한다.
 
 
+
+---
+
+## System Architecture Diagram
+
+![System Architecture](./assets/system-architecture.png)
+
+본 다이어그램은 Team Dandelion 프로젝트의 전체 시스템 구조를 나타낸다.
+
+- GitHub Repository를 통한 코드 및 문서 관리
+- Google Drive를 통한 중간 산출물 및 최종 제출 자료 관리
+- OpenStack 기반 클라우드 인프라 구성
+- Control Node에서 Ansible 자동화 실행
+- Managed Node에 Docker / Nginx 서비스 배포
+- Health Check, Backup, Restore 기반 운영 검증
+

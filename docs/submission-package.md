@@ -100,3 +100,21 @@ Google Drive는 최종 제출용뿐 아니라 강사님 및 멘토님 확인을 
 | 최종본 | PPTX / PDF / 영상 / ZIP / 작업일지 | 최종 제출 전 |
 
 수시 업로드 자료와 최종 제출본은 구분하여 관리한다.
+
+---
+
+## 7. 수시 갱신 자료 기준
+
+강사님 및 멘토님 확인을 위해 아래 자료는 프로젝트 진행 중 수시로 갱신하고 Google Drive에도 업로드한다.
+
+| 구분 | 파일 | 목적 | 갱신 시점 |
+|---|---|---|---|
+| 프로젝트 요약 | README.md | 프로젝트 전체 개요 확인 | 주요 구조 변경 시 |
+| 진행 상태 | docs/project-status.md | 담당자별 산출물 진행률 확인 | 팀원 push 후 |
+| 자동 검수 | docs/validation-summary.md | 누락 파일 및 민감 파일 여부 확인 | 자동화 실행 후 |
+| 제출 패키지 | docs/submission-package.md | Google Drive 제출 자료 준비 상태 확인 | 제출 자료 변경 시 |
+| 회의록 | submission/meeting-notes.md | 회의 결정사항 및 역할 분담 확인 | 회의 후 |
+| 작업일지 | submission/work-log.md | 날짜별 실제 작업 내역 확인 | 작업일 종료 전 |
+| 발표자료 | presentation/presentation-outline.md | 결과보고서 및 발표 흐름 확인 | 발표 구성 변경 시 |
+
+위 자료는 GitHub에 원본을 유지하고, Google Drive에는 강사님 및 멘토님 확인용으로 수시 업로드한다.
