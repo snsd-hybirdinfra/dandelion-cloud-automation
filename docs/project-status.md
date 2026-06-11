@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-06-11 10:38:00
+Last Updated: 2026-06-11 19:53:52
 
 ## 1. 담당자별 진행 상태
 
@@ -11,12 +11,13 @@ Last Updated: 2026-06-11 10:38:00
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
+| Submission Package | 정주헌 | 2 | 8 | 25% | 🟡 진행 중 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 9 | 37 | 24% |
+| 11 | 45 | 24% |
 
 ## 3. 상세 파일 상태
 
@@ -81,3 +82,16 @@ Last Updated: 2026-06-11 10:38:00
 | screenshots/validation/http-check.png | ❌ 미완료 |
 | screenshots/validation/backup-created.png | ❌ 미완료 |
 | screenshots/validation/recovery-result.png | ❌ 미완료 |
+
+## Submission Package - 정주헌
+
+| 파일 | 상태 |
+|---|---|
+| docs/submission-package.md | ✅ 완료 |
+| presentation/presentation-outline.md | ✅ 완료 |
+| submission/demo-video.md | 🟡 작성 필요 |
+| submission/source-code-zip.md | 🟡 작성 필요 |
+| submission/github-url.txt | 🟡 작성 필요 |
+| submission/work-log.md | 🟡 작성 필요 |
+| submission/meeting-notes.md | 🟡 작성 필요 |
+| submission/google-drive-upload.md | 🟡 작성 필요 |

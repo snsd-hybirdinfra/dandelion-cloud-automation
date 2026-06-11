@@ -1,0 +1,3 @@
+﻿<!-- STATUS: TEMPLATE -->
+
+https://github.com/snsd-hybirdinfra/dandelion-cloud-automation

@@ -71,6 +71,19 @@ CHECK_ITEMS = {
             "screenshots/validation/recovery-result.png",
         ],
     },
+    "Submission Package": {
+        "owner": "정주헌",
+        "files": [
+            "docs/submission-package.md",
+            "presentation/presentation-outline.md",
+            "submission/demo-video.md",
+            "submission/source-code-zip.md",
+            "submission/github-url.txt",
+            "submission/work-log.md",
+            "submission/meeting-notes.md",
+            "submission/google-drive-upload.md",
+        ],
+    },
 }
 
 def file_status(path_text: str) -> str:
@@ -268,6 +281,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+
 
 
 
