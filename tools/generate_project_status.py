@@ -79,11 +79,13 @@ CHECK_ITEMS = {
         "files": [
             "docs/submission-package.md",
             "presentation/presentation-outline.md",
-            "submission/demo-video.md",
+            "submission/result-report-lms.md",`n            "submission/demo-video.md",
             "submission/source-code-zip.md",
             "submission/github-url.txt",
-            "submission/work-logs/work-log-2026-06-11.md",`n            "submission/work-logs/work-log-2026-06-12.md",
-            "submission/meeting-notes/meeting-notes-2026-06-11.md",`n            "submission/meeting-notes/meeting-notes-2026-06-12.md",
+            "submission/work-logs/work-log-2026-06-11.md",
+            "submission/work-logs/work-log-2026-06-12.md",
+            "submission/meeting-notes/meeting-notes-2026-06-11.md",
+            "submission/meeting-notes/meeting-notes-2026-06-12.md",
             "submission/google-drive-upload.md",
         ],
     },
@@ -284,6 +286,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
