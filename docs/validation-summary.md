@@ -1,6 +1,6 @@
 # Validation Summary
 
-Last Updated: 2026-06-11 19:16:23
+Last Updated: 2026-06-11 10:16:37
 
 ## 1. Required Directory Check
 
@@ -56,19 +56,19 @@ No blocked sensitive files detected.
 
 | Document | TBD Count |
 |---|---:|
-| docs\ansible-automation.md | 14 |
-| docs\architecture.md | 0 |
-| docs\final-deliverables.md | 83 |
-| docs\network-design.md | 15 |
-| docs\pre-run-checklist.md | 34 |
-| docs\project-status.md | 0 |
-| docs\review-checklist.md | 50 |
-| docs\runbook.md | 0 |
-| docs\server-setup.md | 9 |
-| docs\team-task-guide.md | 0 |
-| docs\troubleshooting.md | 0 |
-| docs\validation-report.md | 15 |
-| docs\validation-summary.md | 2 |
+| docs/server-setup.md | 9 |
+| docs/runbook.md | 0 |
+| docs/project-status.md | 0 |
+| docs/final-deliverables.md | 83 |
+| docs/architecture.md | 0 |
+| docs/troubleshooting.md | 0 |
+| docs/team-task-guide.md | 0 |
+| docs/review-checklist.md | 50 |
+| docs/ansible-automation.md | 14 |
+| docs/network-design.md | 15 |
+| docs/validation-summary.md | 2 |
+| docs/validation-report.md | 15 |
+| docs/pre-run-checklist.md | 34 |
 
 ## 6. Final Result
 
