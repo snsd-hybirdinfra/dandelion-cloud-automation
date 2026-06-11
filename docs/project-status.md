@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-06-11 17:58:04
+Last Updated: 2026-06-12 03:04:29
 
 ## 1. 담당자별 진행 상태
 
@@ -11,13 +11,13 @@ Last Updated: 2026-06-11 17:58:04
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 16 | 51 | 31% |
+| 17 | 51 | 33% |
 
 ## 3. 상세 파일 상태
 
@@ -100,4 +100,4 @@ Last Updated: 2026-06-11 17:58:04
 | submission/work-logs/work-log-2026-06-12.md | 🟡 작성 필요 |
 | submission/meeting-notes/meeting-notes-2026-06-11.md | ✅ 완료 |
 | submission/meeting-notes/meeting-notes-2026-06-12.md | 🟡 작성 필요 |
-| submission/google-drive-upload.md | 🟡 작성 필요 |
+| submission/google-drive-upload.md | ✅ 완료 |
