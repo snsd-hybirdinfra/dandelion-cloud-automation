@@ -180,3 +180,40 @@ ansible-playbook site.yml
 최종 제출 전 산출물 누락 여부는 아래 문서를 기준으로 확인한다.
 
 - [Final Deliverables Checklist](./docs/final-deliverables.md)
+
+## 검수 기준
+
+팀원 자료 업로드 후 최종 검수는 아래 문서를 기준으로 한다.
+
+- [Review Checklist](./docs/review-checklist.md)
+
+<!-- AUTO_STATUS_START -->
+## 자동 생성 프로젝트 상태
+
+아래 상태는 팀원이 파일을 push할 때 자동으로 갱신된다.
+
+## 2. 전체 진행률
+
+| 완료 | 전체 | 진행률 |
+|---:|---:|---:|
+| 19 | 37 | 51% |
+
+## 담당자별 진행 상태
+
+| 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
+|---|---|---:|---:|---:|---|
+| PM / Architecture | 정주헌 | 9 | 9 | 100% | ✅ 완료 |
+| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | ❌ 미흡 |
+| Server / Virtualization | 이진욱 | 1 | 5 | 20% | ❌ 미흡 |
+| Ansible Automation | 조민석 | 4 | 9 | 44% | ❌ 미흡 |
+| Monitoring / Backup / Validation | 박재우 | 4 | 9 | 44% | ❌ 미흡 |
+
+상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
+
+<!-- AUTO_STATUS_END -->
+
+## 자동 검수 결과
+
+저장소 구조, 필수 파일, 민감정보 파일 여부는 아래 문서에서 확인한다.
+
+- [Validation Summary](./docs/validation-summary.md)
