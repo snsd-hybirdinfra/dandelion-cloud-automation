@@ -145,3 +145,15 @@ dandelion-cloud-automation/
 팀원별 작업 위치와 GitHub 사용 규칙은 아래 문서를 기준으로 한다.
 
 - [Team Task Guide](./docs/team-task-guide.md)
+
+## 실행 전 체크리스트
+
+Ansible 실행 전 서버, SSH, sudo, Python, Inventory 상태는 아래 문서를 기준으로 확인한다.
+
+- [Pre-Run Checklist](./docs/pre-run-checklist.md)
+
+## 문제 해결 문서
+
+실습 중 SSH, Ansible, Docker, HTTP, Backup 오류가 발생하면 아래 문서를 기준으로 확인한다.
+
+- [Troubleshooting Guide](./docs/troubleshooting.md)
