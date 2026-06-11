@@ -82,8 +82,8 @@ CHECK_ITEMS = {
             "submission/demo-video.md",
             "submission/source-code-zip.md",
             "submission/github-url.txt",
-            "submission/work-log.md",
-            "submission/meeting-notes.md",
+            "submission/work-logs/work-log-2026-06-11.md",`n            "submission/work-logs/work-log-2026-06-12.md",
+            "submission/meeting-notes/meeting-notes-2026-06-11.md",`n            "submission/meeting-notes/meeting-notes-2026-06-12.md",
             "submission/google-drive-upload.md",
         ],
     },
@@ -284,6 +284,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 
