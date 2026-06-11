@@ -1,4 +1,5 @@
-﻿# Review Checklist
+﻿<!-- STATUS: COMPLETE -->
+# Review Checklist
 
 ## 1. 목적
 
@@ -264,3 +265,4 @@ README에는 너무 많은 명령어를 넣지 않는다.
 ~~~text
 GitHub 저장소만 봐도 프로젝트 목표, 아키텍처, 실행 방법, 자동화 결과, 검증 결과, 발표 흐름이 확인된다.
 ~~~
+

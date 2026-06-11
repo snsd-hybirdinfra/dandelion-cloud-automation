@@ -1,4 +1,5 @@
-﻿# Pre-Run Checklist
+﻿<!-- STATUS: COMPLETE -->
+# Pre-Run Checklist
 
 ## 1. 목적
 
@@ -156,3 +157,4 @@ Ansible 실행이 실패하면 아래 순서로 확인한다.
 이 체크리스트의 목적은 단순 실행이 아니라, 자동화 실행 전 장애 원인을 줄이는 것이다.
 
 즉, Ansible Playbook 실행 전에 서버, 네트워크, SSH, sudo, Python, Inventory 상태를 먼저 검증한다.
+

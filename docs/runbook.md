@@ -1,4 +1,5 @@
-﻿# Project Runbook
+﻿<!-- STATUS: COMPLETE -->
+# Project Runbook
 
 ## 1. 목적
 
@@ -274,3 +275,4 @@ curl http://localhost
 Ansible로 서버 초기 설정과 Docker 기반 Nginx 배포를 자동화하고,
 Health Check, Backup, Restore 절차로 자동화 결과를 검증한다.
 ~~~
+

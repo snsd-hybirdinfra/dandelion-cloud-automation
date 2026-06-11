@@ -1,4 +1,5 @@
-﻿# Troubleshooting Guide
+﻿<!-- STATUS: COMPLETE -->
+# Troubleshooting Guide
 
 ## 1. 목적
 
@@ -407,3 +408,4 @@ cat /var/www/html/index.html
 Troubleshooting의 핵심은 에러 메시지를 기준으로 원인을 좁히는 것이다.
 
 단순히 명령어를 다시 실행하지 말고, Network → SSH → Ansible → Docker → Service 순서로 확인한다.
+

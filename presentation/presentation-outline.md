@@ -1,4 +1,5 @@
-﻿# Presentation Outline
+﻿<!-- STATUS: COMPLETE -->
+# Presentation Outline
 
 ## 1. 발표 전체 흐름
 
@@ -222,3 +223,4 @@ health_check.sh를 통해 서버 상태, Docker 상태, 컨테이너 상태, HTT
 ~~~
 
 본 프로젝트의 핵심은 수동 서버 구축 작업을 Ansible로 자동화하고, 자동화 결과를 검증 가능한 형태로 정리한 것이다.
+

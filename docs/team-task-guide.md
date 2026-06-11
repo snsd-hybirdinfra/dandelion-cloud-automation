@@ -1,4 +1,5 @@
-﻿# Team Task Guide
+﻿<!-- STATUS: COMPLETE -->
+# Team Task Guide
 
 ## 1. 목적
 
@@ -309,3 +310,4 @@ git push
 - 모니터링 / 백업 / 복구 검증 문서
 - 실행 결과 캡처
 - 발표 흐름 문서
+

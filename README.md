@@ -1,4 +1,5 @@
-﻿# Team Dandelion - Cloud Infrastructure Automation
+﻿<!-- STATUS: COMPLETE -->
+# Team Dandelion - Cloud Infrastructure Automation
 
 ## 1. 프로젝트 주제
 
@@ -217,3 +218,4 @@ ansible-playbook site.yml
 저장소 구조, 필수 파일, 민감정보 파일 여부는 아래 문서에서 확인한다.
 
 - [Validation Summary](./docs/validation-summary.md)
+
