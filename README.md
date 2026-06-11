@@ -64,3 +64,15 @@ dandelion-cloud-automation/
 - 서버 상태 점검 자동화
 - 백업 및 복구 검증
 - 팀 프로젝트 산출물 통합 관리
+
+## 문서 목록
+
+| 문서 | 설명 |
+|---|---|
+| [Architecture](./docs/architecture.md) | 전체 시스템 아키텍처 |
+| [Network Design](./docs/network-design.md) | 클라우드 인프라 및 네트워크 구성 |
+| [Server Setup](./docs/server-setup.md) | 서버 및 Docker 구성 |
+| [Ansible Automation](./docs/ansible-automation.md) | Ansible 자동화 구성 |
+| [Validation Report](./docs/validation-report.md) | 모니터링, 백업, 복구 검증 |
+| [Team Task Guide](./docs/team-task-guide.md) | 팀원별 작업 기준 |
+| [Presentation Outline](./presentation/presentation-outline.md) | 발표 흐름 및 멘트 |
