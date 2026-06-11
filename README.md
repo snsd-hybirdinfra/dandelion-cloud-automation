@@ -155,3 +155,9 @@ OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
+
+## 제출 패키지
+
+Google Drive 최종 제출 산출물 목록은 아래 문서를 기준으로 관리한다.
+
+- [Submission Package](./docs/submission-package.md)
