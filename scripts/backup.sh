@@ -11,5 +11,3 @@ mkdir -p ${BACKUP_DIR}
 tar -czf ${BACKUP_DIR}/${BACKUP_FILE} ${SOURCE_DIR}
 
 echo "Backup completed: ${BACKUP_DIR}/${BACKUP_FILE}"
-
-

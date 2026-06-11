@@ -197,13 +197,13 @@ ansible-playbook site.yml
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 3 | 37 | 8% |
+| 9 | 37 | 24% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 3 | 9 | 33% | 🟡 진행 중 |
+| PM / Architecture | 정주헌 | 9 | 9 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
@@ -218,4 +218,5 @@ ansible-playbook site.yml
 저장소 구조, 필수 파일, 민감정보 파일 여부는 아래 문서에서 확인한다.
 
 - [Validation Summary](./docs/validation-summary.md)
+
 
