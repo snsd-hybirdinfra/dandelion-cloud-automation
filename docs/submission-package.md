@@ -82,3 +82,21 @@ https://github.com/snsd-hybirdinfra/dandelion-cloud-automation
 ~~~
 
 
+
+---
+
+## 6. 수시 업로드 운영 기준
+
+Google Drive는 최종 제출용뿐 아니라 강사님 및 멘토님 확인을 위한 중간 산출물 공유 공간으로도 사용한다.
+
+프로젝트 진행 중 아래 자료를 수시로 업로드한다.
+
+| 구분 | 업로드 자료 | 업로드 시점 |
+|---|---|---|
+| 진행상태 | README.md / project-status.md / validation-summary.md | 주요 변경 발생 시 |
+| 구현 캡처 | 인프라 / 서버 / Ansible / 검증 캡처 | 기능 구현 또는 검증 직후 |
+| 멘토링 자료 | mentoring-brief / mentoring-questions | 멘토링 전 |
+| 발표자료 | 결과보고서 PPT 초안 | 중간 점검 전 |
+| 최종본 | PPTX / PDF / 영상 / ZIP / 작업일지 | 최종 제출 전 |
+
+수시 업로드 자료와 최종 제출본은 구분하여 관리한다.
