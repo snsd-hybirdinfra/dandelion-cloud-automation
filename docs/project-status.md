@@ -1,10 +1,6 @@
 # Project Status
 
-<<<<<<< HEAD
-Last Updated: 2026-06-11 17:38:16
-=======
-Last Updated: 2026-06-12 02:42:31
->>>>>>> c3ee1da (Add mentoring preparation documents)
+Last Updated: 2026-06-11 17:45:27
 
 ## 1. 담당자별 진행 상태
 
