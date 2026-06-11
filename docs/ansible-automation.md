@@ -54,3 +54,109 @@ ansible-playbook site.yml
 - site.yml 캡처
 - ansible all -m ping 성공 캡처
 - ansible-playbook 실행 성공 캡처
+
+## 7. Screenshots
+
+### 7.1 Ansible Version
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ansible-version.png
+~~~
+
+### 7.2 Inventory Configuration
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/inventory.png
+~~~
+
+### 7.3 Ping Test Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ping-test.png
+~~~
+
+### 7.4 Playbook Execution Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/playbook-result.png
+~~~
+
+### 7.5 Nginx Deployment Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/nginx-deploy-result.png
+~~~
+
+## 8. 담당자 제출 체크리스트
+
+| 항목 | 완료 여부 |
+|---|---|
+| Ansible 버전 캡처 | TBD |
+| inventory.ini 작성 | TBD |
+| ansible.cfg 작성 | TBD |
+| site.yml 작성 | TBD |
+| ansible all -m ping 성공 캡처 | TBD |
+| ansible-playbook 실행 성공 캡처 | TBD |
+
+## 7. Screenshots
+
+### 7.1 Ansible Version
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ansible-version.png
+~~~
+
+### 7.2 Inventory Configuration
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/inventory.png
+~~~
+
+### 7.3 Ping Test Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ping-test.png
+~~~
+
+### 7.4 Playbook Execution Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/playbook-result.png
+~~~
+
+### 7.5 Nginx Deployment Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/nginx-deploy-result.png
+~~~
+
+## 8. 담당자 제출 체크리스트
+
+| 항목 | 완료 여부 |
+|---|---|
+| Ansible 버전 캡처 | TBD |
+| inventory.ini 작성 | TBD |
+| ansible.cfg 작성 | TBD |
+| site.yml 작성 | TBD |
+| ansible all -m ping 성공 캡처 | TBD |
+| ansible-playbook 실행 성공 캡처 | TBD |

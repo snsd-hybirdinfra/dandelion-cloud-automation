@@ -33,3 +33,47 @@
 - IP 정보 캡처
 - 보안그룹 캡처
 - SSH 접속 성공 캡처
+
+## 5. Screenshots
+
+### 5.1 Cloud Instance List
+
+이미지 파일 위치:
+
+~~~text
+screenshots/cloud-infra/instance-list.png
+~~~
+
+### 5.2 Network / Subnet Configuration
+
+이미지 파일 위치:
+
+~~~text
+screenshots/cloud-infra/network-subnet.png
+~~~
+
+### 5.3 Security Group Policy
+
+이미지 파일 위치:
+
+~~~text
+screenshots/cloud-infra/security-group.png
+~~~
+
+### 5.4 SSH Connection Test
+
+이미지 파일 위치:
+
+~~~text
+screenshots/cloud-infra/ssh-test.png
+~~~
+
+## 6. 담당자 제출 체크리스트
+
+| 항목 | 완료 여부 |
+|---|---|
+| 클라우드 플랫폼 정리 | TBD |
+| 서버 목록 정리 | TBD |
+| Public IP / Private IP 정리 | TBD |
+| 보안그룹 정책 정리 | TBD |
+| SSH 접속 성공 캡처 | TBD |
