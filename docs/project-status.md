@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-06-11 17:45:27
+Last Updated: 2026-06-12 02:57:40
 
 ## 1. 담당자별 진행 상태
 
@@ -11,13 +11,13 @@ Last Updated: 2026-06-11 17:45:27
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 2 | 8 | 25% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 14 | 48 | 29% |
+| 16 | 51 | 31% |
 
 ## 3. 상세 파일 상태
 
@@ -92,9 +92,12 @@ Last Updated: 2026-06-11 17:45:27
 |---|---|
 | docs/submission-package.md | ✅ 완료 |
 | presentation/presentation-outline.md | ✅ 완료 |
+| submission/result-report-lms.md | 🟡 작성 필요 |
 | submission/demo-video.md | 🟡 작성 필요 |
 | submission/source-code-zip.md | 🟡 작성 필요 |
 | submission/github-url.txt | 🟡 작성 필요 |
-| submission/work-log.md | 🟡 작성 필요 |
-| submission/meeting-notes.md | 🟡 작성 필요 |
+| submission/work-logs/work-log-2026-06-11.md | ✅ 완료 |
+| submission/work-logs/work-log-2026-06-12.md | 🟡 작성 필요 |
+| submission/meeting-notes/meeting-notes-2026-06-11.md | ✅ 완료 |
+| submission/meeting-notes/meeting-notes-2026-06-12.md | 🟡 작성 필요 |
 | submission/google-drive-upload.md | 🟡 작성 필요 |
