@@ -174,3 +174,9 @@ ansible all -m ping
 ansible-playbook --syntax-check site.yml
 ansible-playbook site.yml
 ~~~
+
+## 최종 산출물 체크리스트
+
+최종 제출 전 산출물 누락 여부는 아래 문서를 기준으로 확인한다.
+
+- [Final Deliverables Checklist](./docs/final-deliverables.md)
