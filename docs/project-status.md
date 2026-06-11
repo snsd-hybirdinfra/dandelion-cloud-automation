@@ -1,12 +1,16 @@
 # Project Status
 
+<<<<<<< HEAD
 Last Updated: 2026-06-11 17:38:16
+=======
+Last Updated: 2026-06-12 02:42:31
+>>>>>>> c3ee1da (Add mentoring preparation documents)
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 9 | 9 | 100% | ✅ 완료 |
+| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
@@ -17,7 +21,7 @@ Last Updated: 2026-06-11 17:38:16
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 11 | 45 | 24% |
+| 14 | 48 | 29% |
 
 ## 3. 상세 파일 상태
 
@@ -33,6 +37,9 @@ Last Updated: 2026-06-11 17:38:16
 | docs/runbook.md | ✅ 완료 |
 | docs/final-deliverables.md | ✅ 완료 |
 | docs/review-checklist.md | ✅ 완료 |
+| docs/scope-control.md | ✅ 완료 |
+| docs/mentoring-brief.md | ✅ 완료 |
+| docs/mentoring-questions.md | ✅ 완료 |
 | presentation/presentation-outline.md | ✅ 완료 |
 
 ## Cloud Infrastructure - 백서빈

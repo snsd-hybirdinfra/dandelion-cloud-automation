@@ -88,6 +88,9 @@ dandelion-cloud-automation/
 | [Pre-Run Checklist](./docs/pre-run-checklist.md) | 실행 전 점검 기준 |
 | [Troubleshooting Guide](./docs/troubleshooting.md) | 문제 해결 기준 |
 | [Project Runbook](./docs/runbook.md) | 실행 절차 |
+| [Scope Control Policy](./docs/scope-control.md) | 필수 구현 / 선택 확장 / 제외 범위 기준 |
+| [Mentoring Brief](./docs/mentoring-brief.md) | 멘토링용 프로젝트 현황 요약 |
+| [Mentoring Questions](./docs/mentoring-questions.md) | 멘토링 질문 목록 |
 | [Final Deliverables Checklist](./docs/final-deliverables.md) | 최종 산출물 체크리스트 |
 | [Review Checklist](./docs/review-checklist.md) | 팀원 자료 검수 기준 |
 | [Project Status](./docs/project-status.md) | 자동 생성 프로젝트 상태 |
@@ -123,13 +126,13 @@ OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 11 | 45 | 24% |
+| 14 | 48 | 29% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 9 | 9 | 100% | ✅ 완료 |
+| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
@@ -145,4 +148,6 @@ OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
 Google Drive 최종 제출 산출물 목록은 아래 문서를 기준으로 관리한다.
 
 - [Submission Package](./docs/submission-package.md)
+
+
 

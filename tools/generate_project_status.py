@@ -20,6 +20,9 @@ CHECK_ITEMS = {
             "docs/runbook.md",
             "docs/final-deliverables.md",
             "docs/review-checklist.md",
+            "docs/scope-control.md",
+            "docs/mentoring-brief.md",
+            "docs/mentoring-questions.md",
             "presentation/presentation-outline.md",
         ],
     },
@@ -281,6 +284,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
