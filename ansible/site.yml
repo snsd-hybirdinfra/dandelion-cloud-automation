@@ -1,0 +1,49 @@
+﻿---
+- name: Configure all managed servers
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: true
+
+    - name: Install basic packages
+      apt:
+        name:
+          - curl
+          - wget
+          - git
+          - vim
+          - net-tools
+          - docker.io
+        state: present
+
+    - name: Enable and start Docker
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+
+- name: Deploy nginx container on web node
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Pull nginx image
+      shell: docker pull nginx
+
+    - name: Remove existing nginx container
+      shell: docker rm -f web-test
+      ignore_errors: true
+
+    - name: Run nginx container
+      shell: docker run -d --name web-test -p 80:80 nginx
+
+    - name: Check running containers
+      shell: docker ps
+      register: docker_ps
+
+    - name: Print container result
+      debug:
+        var: docker_ps.stdout
