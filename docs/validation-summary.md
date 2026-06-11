@@ -1,10 +1,6 @@
 # Validation Summary
 
-<<<<<<< HEAD
-Last Updated: 2026-06-11 11:04:55
-=======
-Last Updated: 2026-06-12 02:32:59
->>>>>>> 116c829 (Add system architecture diagram)
+Last Updated: 2026-06-11 17:34:39
 
 ## 1. Required Directory Check
 
@@ -60,38 +56,21 @@ No blocked sensitive files detected.
 
 | Document | TBD Count |
 |---|---:|
-<<<<<<< HEAD
-| docs/server-setup.md | 9 |
-| docs/submission-package.md | 0 |
 | docs/runbook.md | 0 |
+| docs/pre-run-checklist.md | 34 |
+| docs/validation-report.md | 15 |
 | docs/project-status.md | 0 |
-| docs/final-deliverables.md | 83 |
-| docs/architecture.md | 0 |
+| docs/network-design.md | 15 |
+| docs/scope-control.md | 0 |
+| docs/validation-summary.md | 2 |
 | docs/troubleshooting.md | 0 |
 | docs/team-task-guide.md | 0 |
-| docs/review-checklist.md | 50 |
+| docs/server-setup.md | 9 |
+| docs/final-deliverables.md | 83 |
 | docs/ansible-automation.md | 14 |
-| docs/network-design.md | 15 |
-| docs/validation-summary.md | 2 |
-| docs/validation-report.md | 15 |
-| docs/pre-run-checklist.md | 34 |
-=======
-| docs\ansible-automation.md | 14 |
-| docs\architecture.md | 0 |
-| docs\final-deliverables.md | 83 |
-| docs\network-design.md | 15 |
-| docs\pre-run-checklist.md | 34 |
-| docs\project-status.md | 0 |
-| docs\review-checklist.md | 50 |
-| docs\runbook.md | 0 |
-| docs\scope-control.md | 0 |
-| docs\server-setup.md | 9 |
-| docs\submission-package.md | 0 |
-| docs\team-task-guide.md | 0 |
-| docs\troubleshooting.md | 0 |
-| docs\validation-report.md | 15 |
-| docs\validation-summary.md | 2 |
->>>>>>> 116c829 (Add system architecture diagram)
+| docs/architecture.md | 0 |
+| docs/submission-package.md | 0 |
+| docs/review-checklist.md | 50 |
 
 ## 6. Final Result
 

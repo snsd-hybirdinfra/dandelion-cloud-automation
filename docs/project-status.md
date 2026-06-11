@@ -1,10 +1,6 @@
 # Project Status
 
-<<<<<<< HEAD
-Last Updated: 2026-06-11 11:04:55
-=======
-Last Updated: 2026-06-12 02:32:57
->>>>>>> 116c829 (Add system architecture diagram)
+Last Updated: 2026-06-11 17:34:39
 
 ## 1. 담당자별 진행 상태
 
