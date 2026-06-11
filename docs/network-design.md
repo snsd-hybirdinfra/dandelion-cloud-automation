@@ -1,4 +1,6 @@
-﻿# Network Design
+﻿# TEMP: 팀원 실제 작업 결과 반영 필요
+
+# Network Design
 
 ## 1. Cloud Environment
 
@@ -77,3 +79,4 @@ screenshots/cloud-infra/ssh-test.png
 | Public IP / Private IP 정리 | TBD |
 | 보안그룹 정책 정리 | TBD |
 | SSH 접속 성공 캡처 | TBD |
+

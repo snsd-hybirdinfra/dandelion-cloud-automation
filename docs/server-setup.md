@@ -1,4 +1,6 @@
-﻿# Server Setup
+﻿# TEMP: 팀원 실제 작업 결과 반영 필요
+
+# Server Setup
 
 ## 1. OS Information
 
@@ -86,3 +88,4 @@ screenshots/server/curl-result.png
 | Docker 서비스 상태 캡처 | TBD |
 | Nginx 컨테이너 실행 캡처 | TBD |
 | curl 접속 결과 캡처 | TBD |
+

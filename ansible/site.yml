@@ -1,4 +1,5 @@
-﻿---
+﻿# TEMP: 기본 예시 Playbook. 실제 서버 환경에서 실행 후 결과 캡처 필요
+---
 - name: Configure all managed servers
   hosts: all
   become: true
@@ -47,3 +48,4 @@
     - name: Print container result
       debug:
         var: docker_ps.stdout
+

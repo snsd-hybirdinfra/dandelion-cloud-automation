@@ -1,4 +1,6 @@
-﻿# Validation Report
+﻿# TEMP: 팀원 실제 작업 결과 반영 필요
+
+# Validation Report
 
 ## 1. Validation Scope
 
@@ -51,3 +53,4 @@
 - Nginx 접속 캡처
 - 백업 파일 생성 캡처
 - 복구 성공 캡처
+

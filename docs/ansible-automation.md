@@ -1,4 +1,6 @@
-﻿# Ansible Automation
+﻿# TEMP: 팀원 실제 작업 결과 반영 필요
+
+# Ansible Automation
 
 ## 1. Control Node Environment
 
@@ -160,3 +162,4 @@ screenshots/ansible/nginx-deploy-result.png
 | site.yml 작성 | TBD |
 | ansible all -m ping 성공 캡처 | TBD |
 | ansible-playbook 실행 성공 캡처 | TBD |
+
