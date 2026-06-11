@@ -1,71 +1,112 @@
 ﻿# Team Dandelion - Cloud Infrastructure Automation
 
-## 프로젝트 주제
+## 1. 프로젝트 주제
 
 Ansible 기반 클라우드 인프라 자동화 및 운영 최적화 시스템 구축
 
-## 프로젝트 목표
+## 2. 프로젝트 목표
 
 본 프로젝트는 Ansible을 활용하여 클라우드 서버의 초기 설정, Docker 기반 서비스 배포, 상태 점검, 백업 및 복구 검증을 자동화하는 것을 목표로 한다.
 
-## 팀 구성
+단순히 서버를 수동으로 구축하는 것이 아니라, 반복적인 인프라 운영 작업을 Ansible Playbook으로 자동화하고, 자동화 결과를 모니터링, 백업, 복구 검증까지 연결하는 것이 핵심이다.
 
-| 이름 | 역할 |
-|---|---|
-| 박재우 | 모니터링 / 백업 / 검증 |
-| 백서빈 | 클라우드 인프라 |
-| 이진욱 | 서버 / 가상화 |
-| 정주헌 | PM / 아키텍처 |
-| 조민석 | Ansible 자동화 |
+## 3. 팀 구성
 
-## 시스템 아키텍처
+| 이름 | 역할 | 담당 영역 |
+|---|---|---|
+| 박재우 | 모니터링 / 백업 / 검증 | 상태 점검, 백업 스크립트, 복구 테스트 |
+| 백서빈 | 클라우드 인프라 | 서버 생성, 네트워크, 보안그룹, SSH 접속 |
+| 이진욱 | 서버 / 가상화 | Linux 기본 설정, Docker 설치, Nginx 컨테이너 |
+| 정주헌 | PM / 아키텍처 | 전체 구조 설계, 문서 통합, 발표 흐름 정리 |
+| 조민석 | Ansible 자동화 | inventory, ansible.cfg, playbook 작성 및 실행 |
 
-Control Node에서 Ansible Playbook을 실행하고, SSH Key 기반으로 Managed Node에 접속하여 서버 설정, Docker 설치, 서비스 배포, 상태 점검 작업을 수행한다.
+## 4. 시스템 아키텍처
 
 ~~~text
+[PM / Architecture: 정주헌]
+        |
+        v
 [Control Node: Ansible 실행 서버]
         |
         | SSH Key 기반 자동화
         v
-[Managed Nodes]
-        |
-        |-- Web Node
-        |-- Docker Node
-        |-- Backup / Validation Target
++-------------------------------+
+| Managed Nodes                 |
+|                               |
+| - Web Node                    |
+| - Docker Node                 |
+| - Backup / Validation Target  |
++-------------------------------+
 ~~~
 
-## 작업 흐름
+## 5. 구성 요소
 
-1. 클라우드 인프라 구성
-2. 서버 접속 환경 구성
-3. Linux / Docker 환경 구성
-4. Ansible Inventory 작성
-5. Ansible Playbook 실행
-6. 서비스 배포
-7. 모니터링 / 백업 / 복구 검증
-8. 캡처 / 문서 / 발표자료 정리
+| 구성 요소 | 설명 |
+|---|---|
+| Control Node | Ansible을 설치하고 Playbook을 실행하는 서버 |
+| Managed Node | Ansible에 의해 설정되는 대상 서버 |
+| Inventory | 관리 대상 서버 정보를 정의하는 파일 |
+| Playbook | 서버 설정, Docker 설치, 서비스 배포 자동화 파일 |
+| Docker | Nginx 웹 서비스를 컨테이너로 실행 |
+| Health Check | 서버 및 서비스 상태 점검 |
+| Backup / Restore | 웹 데이터 백업 및 복구 검증 |
 
-## 디렉터리 구조
+## 6. 작업 흐름
+
+~~~text
+클라우드 인프라 준비
+→ 서버 접속 환경 구성
+→ Linux / Docker 환경 구성
+→ Ansible Inventory 작성
+→ Ansible Playbook 실행
+→ Docker 기반 Nginx 서비스 배포
+→ 상태 점검
+→ 백업 / 복구 검증
+→ 문서 및 발표자료 정리
+~~~
+
+## 7. 디렉터리 구조
 
 ~~~text
 dandelion-cloud-automation/
 ├── README.md
 ├── docs/
+│   ├── architecture.md
+│   ├── network-design.md
+│   ├── server-setup.md
+│   ├── ansible-automation.md
+│   ├── validation-report.md
+│   └── team-task-guide.md
 ├── ansible/
+│   ├── ansible.cfg
+│   ├── inventory.ini
+│   └── site.yml
 ├── scripts/
+│   ├── health_check.sh
+│   ├── backup.sh
+│   └── restore.md
 ├── screenshots/
+│   ├── cloud-infra/
+│   ├── server/
+│   ├── ansible/
+│   └── validation/
 └── presentation/
+    └── presentation-outline.md
 ~~~
 
-## 핵심 결과
+## 8. 주요 자동화 범위
 
-- Ansible 기반 서버 초기 설정 자동화
-- Docker 기반 Nginx 서비스 배포
-- 서버 상태 점검 자동화
-- 백업 및 복구 검증
-- 팀 프로젝트 산출물 통합 관리
+| 작업 | 자동화 여부 | 담당 |
+|---|---|---|
+| 서버 기본 패키지 설치 | Yes | Ansible |
+| Docker 설치 | Yes | Ansible |
+| Docker 서비스 실행 | Yes | Ansible |
+| Nginx 컨테이너 배포 | Yes | Ansible |
+| 서버 상태 점검 | Script | Monitoring |
+| 백업 생성 | Script | Backup |
+| 복구 검증 | Manual / Script | Validation |
 
-## 문서 목록
+## 9. 문서 목록
 
 | 문서 | 설명 |
 |---|---|
@@ -76,3 +117,25 @@ dandelion-cloud-automation/
 | [Validation Report](./docs/validation-report.md) | 모니터링, 백업, 복구 검증 |
 | [Team Task Guide](./docs/team-task-guide.md) | 팀원별 작업 기준 |
 | [Presentation Outline](./presentation/presentation-outline.md) | 발표 흐름 및 멘트 |
+
+## 10. 최종 결과
+
+본 프로젝트를 통해 다음 결과를 확인한다.
+
+- 클라우드 서버 인프라 구성
+- SSH 기반 Ansible 원격 제어 구성
+- Ansible Playbook 기반 서버 초기 설정 자동화
+- Docker 기반 Nginx 서비스 배포
+- 서버 및 서비스 상태 점검
+- 백업 파일 생성
+- 복구 테스트 및 검증
+- 팀 프로젝트 산출물 통합 관리
+
+## 11. 프로젝트 핵심 요약
+
+이 프로젝트의 핵심은 다음과 같다.
+
+~~~text
+수동 서버 구축 작업을 Ansible로 자동화했다.
+자동화 결과를 모니터링, 백업, 복구 검증으로 확인했다.
+~~~
