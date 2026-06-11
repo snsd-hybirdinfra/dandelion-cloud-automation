@@ -1,0 +1,35 @@
+﻿# Network Design
+
+## 1. Cloud Environment
+
+| 항목 | 내용 |
+|---|---|
+| Cloud Platform | TBD |
+| Region / Zone | TBD |
+| VPC / Network CIDR | TBD |
+| Subnet | TBD |
+
+## 2. Server List
+
+| 서버명 | 역할 | Public IP | Private IP | 비고 |
+|---|---|---|---|---|
+| control-node | Ansible Control Node | TBD | TBD | Ansible 실행 |
+| web-node | Web Service Node | TBD | TBD | Docker / Nginx |
+| backup-node | Backup / Validation Node | TBD | TBD | 백업 / 복구 검증 |
+
+## 3. Security Group / Firewall Policy
+
+| 포트 | 프로토콜 | 용도 | 허용 대상 |
+|---:|---|---|---|
+| 22 | TCP | SSH / Ansible | 관리자 IP |
+| 80 | TCP | HTTP / Nginx | 전체 또는 테스트 IP |
+| 9100 | TCP | Node Exporter | Control / Monitoring Node |
+| 9090 | TCP | Prometheus | 관리자 IP |
+| 3000 | TCP | Grafana | 관리자 IP |
+
+## 4. Evidence
+
+- 인스턴스 생성 화면 캡처
+- IP 정보 캡처
+- 보안그룹 캡처
+- SSH 접속 성공 캡처
