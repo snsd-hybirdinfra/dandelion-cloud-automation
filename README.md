@@ -6,68 +6,79 @@
 
 Ansible 기반 클라우드 인프라 자동화 및 운영 최적화 시스템 구축
 
-## 2. 프로젝트 목표
+## 2. 프로젝트 방향
 
-본 프로젝트는 Ansible을 활용하여 클라우드 서버의 초기 설정, Docker 기반 서비스 배포, 상태 점검, 백업 및 복구 검증을 자동화하는 것을 목표로 한다.
+본 프로젝트는 OpenStack 기반 클라우드 인프라 환경에서 서버 구성, Ansible 기반 IaC 자동화, Docker 기반 서비스 배포, 상태 점검, 백업 및 복구 검증을 하나의 운영 흐름으로 연결하는 것을 목표로 한다.
 
-단순히 서버를 수동으로 구축하는 것이 아니라, 반복적인 인프라 운영 작업을 Ansible Playbook으로 자동화하고, 자동화 결과를 모니터링, 백업, 복구 검증까지 연결하는 것이 핵심이다.
+단순한 서버 생성이나 애플리케이션 배포가 아니라, 반복적인 인프라 운영 작업을 코드화하고, 자동화 결과를 검증 가능한 형태로 남기는 데 중점을 둔다.
 
-## 3. 팀 구성
+## 3. 평가 기준 대응 전략
+
+| 평가항목 | 배점 | 프로젝트 대응 방향 |
+|---|---:|---|
+| 전문성 | 25 | OpenStack 인프라, Ansible IaC, Docker 서비스 배포, 모니터링/검증 활용 |
+| 차별성 | 25 | 수동 운영 편차 문제를 Ansible 표준화와 GitHub 자동 상태 관리로 개선 |
+| 완성도 | 25 | SSH 접속, Ansible ping, Playbook 실행, Docker/Nginx, Backup/Restore 성공 검증 |
+| 프로젝트 관리 | 15 | GitHub Repository, 문서화, 팀원별 산출물 분리, GitHub Actions 자동 상태 갱신 |
+| 발표 및 시연 | 10 | 인프라 구현 → 자동화 → 서비스 배포 → 검증 흐름 중심 시연 |
+
+## 4. 팀 구성
 
 | 이름 | 역할 | 담당 영역 |
 |---|---|---|
 | 박재우 | 모니터링 / 백업 / 검증 | 상태 점검, 백업 스크립트, 복구 테스트 |
-| 백서빈 | 클라우드 인프라 | 서버 생성, 네트워크, 보안그룹, SSH 접속 |
+| 백서빈 | 클라우드 인프라 | OpenStack 서버 생성, 네트워크, 보안그룹, SSH 접속 |
 | 이진욱 | 서버 / 가상화 | Linux 기본 설정, Docker 설치, Nginx 컨테이너 |
-| 정주헌 | PM / 아키텍처 | 전체 구조 설계, 문서 통합, 발표 흐름 정리 |
+| 정주헌 | PM / 아키텍처 | 전체 구조 설계, GitHub 관리, 문서 통합, 발표 흐름 정리 |
 | 조민석 | Ansible 자동화 | inventory, ansible.cfg, playbook 작성 및 실행 |
 
-## 4. 시스템 아키텍처
+## 5. 시스템 아키텍처
 
 ~~~text
 [PM / Architecture: 정주헌]
+        |
+        v
+[OpenStack Cloud Infrastructure]
         |
         v
 [Control Node: Ansible 실행 서버]
         |
         | SSH Key 기반 자동화
         v
-+-------------------------------+
-| Managed Nodes                 |
-|                               |
-| - Web Node                    |
-| - Docker Node                 |
-| - Backup / Validation Target  |
-+-------------------------------+
++------------------------------------------------+
+| Managed Nodes                                  |
+|                                                |
+| - Web Node: Docker / Nginx 배포 대상           |
+| - Backup Node: 상태 점검 / 백업 / 복구 검증    |
++------------------------------------------------+
 ~~~
 
-## 5. 구성 요소
-
-| 구성 요소 | 설명 |
-|---|---|
-| Control Node | Ansible을 설치하고 Playbook을 실행하는 서버 |
-| Managed Node | Ansible에 의해 설정되는 대상 서버 |
-| Inventory | 관리 대상 서버 정보를 정의하는 파일 |
-| Playbook | 서버 설정, Docker 설치, 서비스 배포 자동화 파일 |
-| Docker | Nginx 웹 서비스를 컨테이너로 실행 |
-| Health Check | 서버 및 서비스 상태 점검 |
-| Backup / Restore | 웹 데이터 백업 및 복구 검증 |
-
-## 6. 작업 흐름
+## 6. 핵심 구현 흐름
 
 ~~~text
-클라우드 인프라 준비
-→ 서버 접속 환경 구성
-→ Linux / Docker 환경 구성
+OpenStack 인프라 구성
+→ 네트워크 / 보안그룹 / 인스턴스 준비
+→ SSH 접속 환경 구성
 → Ansible Inventory 작성
 → Ansible Playbook 실행
 → Docker 기반 Nginx 서비스 배포
 → 상태 점검
 → 백업 / 복구 검증
-→ 문서 및 발표자료 정리
+→ GitHub 기반 산출물 관리
 ~~~
 
-## 7. 디렉터리 구조
+## 7. 주요 기능
+
+| 구분 | 구현 내용 | 평가 연결 |
+|---|---|---|
+| 인프라 구성 | OpenStack 인스턴스, 네트워크, 보안그룹 구성 | 전문성 |
+| IaC 자동화 | Ansible inventory / ansible.cfg / site.yml 구성 | 전문성 / 완성도 |
+| 서비스 배포 | Docker 기반 Nginx 컨테이너 실행 | 전문성 |
+| 상태 점검 | health_check.sh 기반 서버 및 서비스 확인 | 완성도 |
+| 백업 / 복구 | backup.sh 및 restore 절차 검증 | 완성도 |
+| 프로젝트 관리 | GitHub Actions 기반 상태 자동 갱신 | 프로젝트 관리 / 차별성 |
+
+## 8. 디렉터리 구조
 
 ~~~text
 dandelion-cloud-automation/
@@ -77,22 +88,9 @@ dandelion-cloud-automation/
 ├── scripts/
 ├── screenshots/
 ├── presentation/
-└── tools/
+├── tools/
+└── .github/workflows/
 ~~~
-
-## 8. 주요 자동화 범위
-
-| 작업 | 방식 | 담당 |
-|---|---|---|
-| 서버 기본 패키지 설치 | Ansible Playbook | 조민석 |
-| Docker 설치 | Ansible Playbook | 조민석 |
-| Docker 서비스 실행 | Ansible Playbook | 조민석 |
-| Nginx 컨테이너 배포 | Ansible Playbook | 조민석 |
-| 서버 상태 점검 | Shell Script | 박재우 |
-| 백업 생성 | Shell Script | 박재우 |
-| 복구 검증 | Manual / Script | 박재우 |
-| 프로젝트 상태 갱신 | GitHub Actions | 정주헌 |
-| 문서 이미지 자동 반영 | GitHub Actions | 정주헌 |
 
 ## 9. 문서 목록
 
@@ -113,26 +111,24 @@ dandelion-cloud-automation/
 | [Validation Summary](./docs/validation-summary.md) | 자동 검수 결과 |
 | [Presentation Outline](./presentation/presentation-outline.md) | 발표 흐름 및 멘트 |
 
-## 10. 최종 결과
+## 10. 최종 성공 기준
 
-본 프로젝트를 통해 다음 결과를 확인한다.
+| 단계 | 성공 기준 |
+|---|---|
+| 인프라 | OpenStack 인스턴스 및 보안그룹 구성 완료 |
+| 접속 | Control Node에서 Managed Node SSH 접속 성공 |
+| Ansible | ansible all -m ping 성공 |
+| 자동화 | ansible-playbook site.yml 실행 성공 |
+| 서비스 | Docker / Nginx 컨테이너 실행 및 HTTP 응답 성공 |
+| 검증 | health check, backup, restore 결과 확인 |
+| 관리 | GitHub 상태표 및 산출물 자동 갱신 확인 |
 
-- 클라우드 서버 인프라 구성
-- SSH 기반 Ansible 원격 제어 구성
-- Ansible Playbook 기반 서버 초기 설정 자동화
-- Docker 기반 Nginx 서비스 배포
-- 서버 및 서비스 상태 점검
-- 백업 파일 생성
-- 복구 테스트 및 검증
-- GitHub Actions 기반 프로젝트 상태 자동 갱신
-- 팀 프로젝트 산출물 통합 관리
-
-## 11. 프로젝트 핵심 요약
+## 11. 프로젝트 핵심 메시지
 
 ~~~text
-수동 서버 구축 작업을 Ansible로 자동화했다.
-자동화 결과를 모니터링, 백업, 복구 검증으로 확인했다.
-팀원별 산출물 상태는 GitHub Actions로 자동 갱신한다.
+OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
+상태 점검, 백업/복구 검증, GitHub 기반 산출물 관리까지
+하나의 인프라 운영 자동화 흐름으로 연결한다.
 ~~~
 
 <!-- AUTO_STATUS_START -->
