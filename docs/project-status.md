@@ -1,6 +1,10 @@
 # Project Status
 
+<<<<<<< HEAD
 Last Updated: 2026-06-11 09:18:23
+=======
+Last Updated: 2026-06-11 18:21:18
+>>>>>>> 8bccb7b (Fix validation required files)
 
 ## 1. 담당자별 진행 상태
 

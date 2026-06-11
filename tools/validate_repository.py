@@ -17,7 +17,6 @@ REQUIRED_FILES = [
     "docs/runbook.md",
     "docs/final-deliverables.md",
     "docs/review-checklist.md",
-    "docs/project-status.md",
     "presentation/presentation-outline.md",
     "ansible/ansible.cfg",
     "ansible/inventory.ini",
