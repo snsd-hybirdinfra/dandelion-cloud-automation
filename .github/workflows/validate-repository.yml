@@ -26,19 +26,22 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Generate project status before validation
+        run: python tools/generate_project_status.py
+
       - name: Validate repository
         run: python tools/validate_repository.py
 
-      - name: Commit validation summary
+      - name: Commit generated reports
         if: github.event_name == 'push'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           if git diff --quiet; then
-            echo "No validation summary changes."
+            echo "No generated report changes."
           else
-            git add docs/validation-summary.md
-            git commit -m "Update validation summary [skip status]"
+            git add README.md docs/project-status.md docs/validation-summary.md
+            git commit -m "Update generated project reports [skip status]"
             git push
           fi
