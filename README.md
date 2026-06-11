@@ -139,3 +139,9 @@ dandelion-cloud-automation/
 수동 서버 구축 작업을 Ansible로 자동화했다.
 자동화 결과를 모니터링, 백업, 복구 검증으로 확인했다.
 ~~~
+
+## 팀 작업 기준
+
+팀원별 작업 위치와 GitHub 사용 규칙은 아래 문서를 기준으로 한다.
+
+- [Team Task Guide](./docs/team-task-guide.md)
