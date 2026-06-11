@@ -1,6 +1,10 @@
 # Project Status
 
+<<<<<<< HEAD
 Last Updated: 2026-06-11 09:27:53
+=======
+Last Updated: 2026-06-11 18:33:14
+>>>>>>> 1871aa8 (Relax validation failure conditions)
 
 ## 1. 담당자별 진행 상태
 

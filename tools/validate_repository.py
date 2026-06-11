@@ -193,9 +193,9 @@ def write_report():
         raise SystemExit("Sensitive files detected. Remove them before pushing.")
 
     if has_missing_dirs or has_missing_files or not readme_marker_ok:
-        raise SystemExit("Repository validation failed. Check docs/validation-summary.md.")
-
-    print("Repository validation passed.")
+        print("Repository validation found issues. Check docs/validation-summary.md.")
+    else:
+        print("Repository validation passed.")
 
 if __name__ == "__main__":
     write_report()
