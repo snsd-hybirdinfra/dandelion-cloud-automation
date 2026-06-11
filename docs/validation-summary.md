@@ -1,6 +1,6 @@
 # Validation Summary
 
-Last Updated: 2026-06-11 18:09:27
+Last Updated: 2026-06-11 18:13:58
 
 ## 1. Required Directory Check
 
@@ -69,6 +69,7 @@ No blocked sensitive files detected.
 | docs\team-task-guide.md | 0 |
 | docs\troubleshooting.md | 0 |
 | docs\validation-report.md | 15 |
+| docs\validation-summary.md | 2 |
 
 ## 6. Final Result
 
