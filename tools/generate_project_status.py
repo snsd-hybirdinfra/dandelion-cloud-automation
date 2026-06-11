@@ -75,16 +75,42 @@ CHECK_ITEMS = {
 
 def file_status(path_text: str) -> str:
     path = ROOT / path_text
-    if path.exists() and path.is_file() and path.stat().st_size > 0:
-        return "완료"
-    if path.exists():
+
+    if not path.exists():
+        return "미완료"
+
+    if not path.is_file():
         return "파일 있음"
-    return "미완료"
+
+    if path.stat().st_size == 0:
+        return "미완료"
+
+    # Screenshot files are judged only by existence and size.
+    if path.suffix.lower() in [".png", ".jpg", ".jpeg"]:
+        return "완료"
+
+    # Markdown / config / script files are checked for placeholder content.
+    try:
+        content = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return "완료"
+
+    placeholder_keywords = [
+        "TBD",
+        "아직 자동 상태가 생성되지 않았습니다",
+        "작성 예정",
+        "추후 작성",
+    ]
+
+    if any(keyword in content for keyword in placeholder_keywords):
+        return "작성 필요"
+
+    return "완료"
 
 def status_icon(status: str) -> str:
     if status == "완료":
         return "✅"
-    if status == "파일 있음":
+    if status in ["파일 있음", "작성 필요"]:
         return "🟡"
     return "❌"
 
@@ -133,10 +159,10 @@ def build_status_markdown() -> str:
 
         if percent == 100:
             area_status = "✅ 완료"
-        elif percent >= 50:
+        elif percent > 0:
             area_status = "🟡 진행 중"
         else:
-            area_status = "❌ 미흡"
+            area_status = "❌ 미착수"
 
         lines.append(f"| {area} | {owner} | {done} | {count} | {percent}% | {area_status} |")
 
@@ -224,3 +250,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
