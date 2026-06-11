@@ -1,5 +1,109 @@
 ﻿<!-- STATUS: TEMPLATE -->
 
-# Submission Check
+# Team Dandelion 회의록
 
-현재 준비 중입니다.
+## 2026-06-11 회의록
+
+## 1. 회의 정보
+
+| 구분 | 내용 |
+|---|---|
+| 회의 일자 | 2026-06-11 |
+| 회의 장소 | ZEP 팀 회의실 / Discord |
+| 작성자 | 정주헌 |
+| 참석자 | 정주헌, 백서빈, 이진욱, 조민석, 박재우 |
+
+---
+
+## 2. 회의 목적
+
+- 1차 기본 프로젝트 팀명 확정
+- 프로젝트 주제 확정
+- 팀원별 역할 분담
+- 협업 및 산출물 관리 방식 논의
+- 향후 프로젝트 진행 방향 정리
+
+---
+
+## 3. 결정 사항
+
+| 구분 | 결정 내용 |
+|---|---|
+| 팀명 | Dandelion |
+| 프로젝트 주제 | Ansible 기반 클라우드 인프라 자동화 및 운영 최적화 시스템 구축 |
+| 프로젝트 방향 | OpenStack 기반 클라우드 인프라 구성 후 Ansible을 활용하여 서버 설정, Docker 서비스 배포, 상태 점검, 백업 및 복구 검증을 자동화하는 방향으로 진행 |
+| 산출물 관리 | GitHub Repository를 기준으로 문서, 코드, 스크립트, 캡처 자료를 관리 |
+| 제출 자료 관리 | Google Drive에는 강사님 및 멘토님 확인을 위해 중간 산출물과 최종 제출 자료를 수시로 업로드 |
+| 최종 제출 자료 | 결과보고서 PPT/PDF, 시연 영상, 소스코드, 작업일지, 회의록, 구현 캡처 자료를 준비 |
+
+---
+
+## 4. 팀원 역할 분담
+
+| 이름 | 역할 | 담당 업무 |
+|---|---|---|
+| 정주헌 | PM / 아키텍처 | 전체 구조 설계, GitHub 관리, README 및 문서 통합, 발표자료 구성 |
+| 백서빈 | 클라우드 인프라 | OpenStack 인스턴스, 네트워크, 보안그룹 구성 |
+| 이진욱 | 서버 / 가상화 | Linux 서버 환경 구성, Docker 설치, Nginx 컨테이너 실행 |
+| 조민석 | Ansible 자동화 | ansible.cfg, inventory.ini, site.yml 작성 및 Ansible 실행 |
+| 박재우 | 모니터링 / 백업 / 검증 | health_check, backup, restore 검증 및 결과 정리 |
+
+---
+
+## 5. 논의 내용
+
+### 5.1 프로젝트 주제 선정
+
+팀 프로젝트 주제는 클라우드 인프라 자동화와 운영 최적화를 중심으로 정하였다.  
+단순한 서버 생성이나 서비스 배포가 아니라, 인프라 구성 이후 반복적인 운영 작업을 자동화하고 검증 가능한 산출물로 남기는 것을 목표로 하였다.
+
+### 5.2 기술 구성 방향
+
+프로젝트는 다음 흐름을 기준으로 진행하기로 하였다.
+
+~~~text
+OpenStack 인프라 구성
+→ SSH 접속 환경 구성
+→ Ansible Inventory 작성
+→ Ansible Playbook 실행
+→ Docker / Nginx 서비스 배포
+→ 상태 점검
+→ 백업 / 복구 검증
+→ 결과 문서화
+~~~
+
+### 5.3 협업 방식
+
+프로젝트 시간에는 ZEP 팀 회의실을 활용하고, 자료 공유와 비동기 소통은 Discord 팀 채널을 활용하기로 하였다.  
+산출물은 GitHub Repository에 업로드하고, 강사님 및 멘토님 확인을 위한 자료는 Google Drive에도 정리하기로 하였다.
+
+### 5.4 산출물 관리 방식
+
+| 담당 영역 | GitHub 산출물 위치 |
+|---|---|
+| 클라우드 인프라 | docs/network-design.md, screenshots/cloud-infra/ |
+| 서버 / 가상화 | docs/server-setup.md, screenshots/server/ |
+| Ansible 자동화 | ansible/, docs/ansible-automation.md, screenshots/ansible/ |
+| 모니터링 / 백업 / 검증 | scripts/, docs/validation-report.md, screenshots/validation/ |
+| PM / 아키텍처 | README.md, docs/, presentation/, submission/ |
+
+---
+
+## 6. 향후 작업 계획
+
+| 담당자 | 다음 작업 |
+|---|---|
+| 정주헌 | GitHub Repository 구조 생성, README 작성, 역할별 작업 기준 정리 |
+| 백서빈 | OpenStack 인프라 구성 방식 검토 |
+| 이진욱 | 서버 구성 및 Docker 배포 방식 검토 |
+| 조민석 | Ansible 자동화 파일 구조 검토 |
+| 박재우 | 상태 점검, 백업, 복구 검증 방식 검토 |
+
+---
+
+## 7. 회의 결과 요약
+
+2026년 6월 11일 회의에서는 팀명과 프로젝트 주제를 확정하고, 팀원별 역할을 분담하였다.  
+또한 GitHub를 중심으로 산출물을 관리하고, Google Drive를 통해 강사님 및 멘토님 확인용 자료와 최종 제출 자료를 정리하기로 결정하였다.
+
+본 회의는 프로젝트 초기 방향을 확정하기 위한 킥오프 회의로 진행되었다.
