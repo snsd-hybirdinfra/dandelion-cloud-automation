@@ -151,3 +151,48 @@ Google Drive 최종 제출 산출물 목록은 아래 문서를 기준으로 관
 
 
 
+
+## Service Deployment Direction
+
+This project uses a **custom WordPress container image** based on the official Docker Hub WordPress image.
+
+서비스 계층은 단순 Nginx 컨테이너가 아니라, WordPress와 MariaDB를 Docker Compose로 구성한 최소 웹서비스 구조로 설계한다.
+
+### Service Components
+
+| Component | Description |
+|---|---|
+| Custom WordPress Image | Docker Hub 공식 WordPress 이미지를 기반으로 생성한 커스텀 이미지 |
+| MariaDB Container | WordPress 데이터 저장을 위한 DB 컨테이너 |
+| Docker Compose | WordPress와 MariaDB를 함께 배포하기 위한 서비스 정의 |
+| Docker Volumes | WordPress 파일과 MariaDB 데이터를 저장 |
+| Backup Script | DB dump와 WordPress 파일 백업 생성 |
+| Validation Node | 백업본 보관, 상태 점검, 복구 절차 검증 |
+
+### Deployment Flow
+
+~~~text
+OpenStack Infrastructure
+→ Ansible Automation
+→ Docker Installation
+→ Custom WordPress Image Build
+→ WordPress + MariaDB Deployment
+→ Health Check
+→ Backup
+→ Restore Procedure Validation
+~~~
+
+### Project Boundary
+
+This project does not focus on WordPress feature development.
+
+본 프로젝트에서 WordPress는 웹 개발 대상이 아니라, Ansible 기반 배포 자동화와 백업/복구 검증을 위한 컨테이너 서비스 대상이다.
+
+Excluded items:
+
+- WordPress plugin development
+- WordPress theme development
+- Custom PHP application development
+- DB replication
+- DB clustering
+- Production-level WordPress hardening
