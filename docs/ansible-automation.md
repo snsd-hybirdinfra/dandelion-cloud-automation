@@ -1,53 +1,194 @@
-﻿# Ansible Automation
+﻿<!-- STATUS: TEMPLATE -->
+# TEMP: 팀원 실제 작업 결과 반영 필요
 
-## 1. 목표
+# Ansible Automation
 
-이 문서는 Control Node에서 Ansible을 사용해 Managed Node에 대한 자동화를 실행하는 흐름을 정리한다.
-
-## 2. 실행 환경
+## 1. Control Node Environment
 
 | 항목 | 내용 |
 |---|---|
-| Ansible Version | 설치 후 확인 필요 |
-| Python Version | 설치 후 확인 필요 |
+| Ansible Version | TBD |
+| Python Version | TBD |
 | Inventory File | ansible/inventory.ini |
 | Playbook File | ansible/site.yml |
 
-## 3. 주요 실행 명령
+## 2. Ansible Project Structure
 
-```bash
+~~~text
+ansible/
+├── ansible.cfg
+├── inventory.ini
+└── site.yml
+~~~
+
+## 3. Connection Test
+
+~~~bash
 ansible all -m ping
+~~~
+
+Expected Result:
+
+~~~text
+pong
+~~~
+
+## 4. Playbook Execution
+
+~~~bash
 ansible-playbook site.yml
-```
+~~~
 
-## 4. 자동화 범위
+## 5. Automation Scope
 
-| 작업 | 상태 |
+| 작업 | 자동화 여부 |
 |---|---|
-| 패키지 업데이트 | 자동화 대상 |
-| 기본 패키지 설치 | 자동화 대상 |
-| Docker 설치 | 자동화 대상 |
-| Docker 서비스 시작 | 자동화 대상 |
-| Nginx 컨테이너 배포 | 자동화 대상 |
+| apt cache update | Yes |
+| basic package install | Yes |
+| Docker install | Yes |
+| Docker service start | Yes |
+| Nginx container deploy | Yes |
 
-## 5. 제출용 증빙 자료
+## 6. Evidence
 
-- ansible 버전 캡처
+- ansible --version 캡처
 - inventory.ini 캡처
 - ansible.cfg 캡처
 - site.yml 캡처
-- ping 성공 결과 캡처
-- playbook 실행 결과 캡처
+- ansible all -m ping 성공 캡처
+- ansible-playbook 실행 성공 캡처
 
-## 6. 체크리스트
+## 7. Screenshots
 
-| 항목 | 상태 |
+### 7.1 Ansible Version
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ansible-version.png
+~~~
+
+### 7.2 Inventory Configuration
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/inventory.png
+~~~
+
+### 7.3 Ping Test Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ping-test.png
+~~~
+
+### 7.4 Playbook Execution Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/playbook-result.png
+~~~
+
+### 7.5 Nginx Deployment Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/nginx-deploy-result.png
+~~~
+
+## 8. 담당자 제출 체크리스트
+
+| 항목 | 완료 여부 |
 |---|---|
-| Ansible 버전 확인 | 진행 필요 |
-| inventory 작성 | 진행 필요 |
-| playbook 작성 | 진행 필요 |
-| ping 성공 확인 | 진행 필요 |
-| playbook 실행 확인 | 진행 필요 |
+| Ansible 버전 캡처 | TBD |
+| inventory.ini 작성 | TBD |
+| ansible.cfg 작성 | TBD |
+| site.yml 작성 | TBD |
+| ansible all -m ping 성공 캡처 | TBD |
+| ansible-playbook 실행 성공 캡처 | TBD |
+
+## 7. Screenshots
+
+### 7.1 Ansible Version
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ansible-version.png
+~~~
+
+### 7.2 Inventory Configuration
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/inventory.png
+~~~
+
+### 7.3 Ping Test Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/ping-test.png
+~~~
+
+### 7.4 Playbook Execution Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/playbook-result.png
+~~~
+
+### 7.5 Nginx Deployment Result
+
+이미지 파일 위치:
+
+~~~text
+screenshots/ansible/nginx-deploy-result.png
+~~~
+
+## 8. 담당자 제출 체크리스트
+
+| 항목 | 완료 여부 |
+|---|---|
+| Ansible 버전 캡처 | TBD |
+| inventory.ini 작성 | TBD |
+| ansible.cfg 작성 | TBD |
+| site.yml 작성 | TBD |
+| ansible all -m ping 성공 캡처 | TBD |
+| ansible-playbook 실행 성공 캡처 | TBD |
+
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
+
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
+
+### Ansible Version
+
+../screenshots/ansible/ansible-version.png 이미지가 아직 업로드되지 않았다.
+
+### Inventory Configuration
+
+../screenshots/ansible/inventory.png 이미지가 아직 업로드되지 않았다.
+
+### Ping Test Result
+
+../screenshots/ansible/ping-test.png 이미지가 아직 업로드되지 않았다.
+
+### Playbook Execution Result
+
+../screenshots/ansible/playbook-result.png 이미지가 아직 업로드되지 않았다.
+
+### Nginx Deployment Result
+
+../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->
 
 
 
