@@ -103,7 +103,24 @@ screenshots/cloud-infra/ssh-test.png
 ../screenshots/cloud-infra/ssh-test.png 이미지가 아직 업로드되지 않았다.
 <!-- AUTO_IMAGES_END -->
 
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
 
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
 
+### Cloud Instance List
 
+../screenshots/cloud-infra/instance-list.png 이미지가 아직 업로드되지 않았다.
 
+### Network / Subnet Configuration
+
+../screenshots/cloud-infra/network-subnet.png 이미지가 아직 업로드되지 않았다.
+
+### Security Group Policy
+
+../screenshots/cloud-infra/security-group.png 이미지가 아직 업로드되지 않았다.
+
+### SSH Connection Test
+
+../screenshots/cloud-infra/ssh-test.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->

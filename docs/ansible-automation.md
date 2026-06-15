@@ -190,7 +190,28 @@ screenshots/ansible/nginx-deploy-result.png
 ../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
 <!-- AUTO_IMAGES_END -->
 
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
 
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
 
+### Ansible Version
 
+../screenshots/ansible/ansible-version.png 이미지가 아직 업로드되지 않았다.
 
+### Inventory Configuration
+
+../screenshots/ansible/inventory.png 이미지가 아직 업로드되지 않았다.
+
+### Ping Test Result
+
+../screenshots/ansible/ping-test.png 이미지가 아직 업로드되지 않았다.
+
+### Playbook Execution Result
+
+../screenshots/ansible/playbook-result.png 이미지가 아직 업로드되지 않았다.
+
+### Nginx Deployment Result
+
+../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->
