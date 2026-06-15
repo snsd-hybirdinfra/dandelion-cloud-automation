@@ -214,4 +214,3 @@ screenshots/ansible/nginx-deploy-result.png
 ### Nginx Deployment Result
 
 ../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
-<!-- AUTO_IMAGES_END -->

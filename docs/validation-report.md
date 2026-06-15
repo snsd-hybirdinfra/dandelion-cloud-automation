@@ -57,7 +57,6 @@
 
 <!-- AUTO_IMAGES_START -->
 ## 자동 반영 이미지
-<<<<<<< HEAD
 
 아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
 
@@ -106,4 +105,3 @@
 ### Recovery Test Result
 
 ../screenshots/validation/recovery-result.png 이미지가 아직 업로드되지 않았다.
-<!-- AUTO_IMAGES_END -->

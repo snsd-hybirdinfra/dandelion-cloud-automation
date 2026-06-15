@@ -1,6 +1,6 @@
 # Validation Summary
 
-Last Updated: 2026-06-15 03:24:16
+Last Updated: 2026-06-15 05:09:03
 
 ## 1. Required Directory Check
 
@@ -58,17 +58,17 @@ No blocked sensitive files detected.
 |---|---:|
 | docs/runbook.md | 0 |
 | docs/pre-run-checklist.md | 34 |
-| docs/validation-report.md | 0 |
+| docs/validation-report.md | 15 |
 | docs/project-status.md | 0 |
-| docs/network-design.md | 0 |
+| docs/network-design.md | 15 |
 | docs/mentoring-questions.md | 0 |
 | docs/scope-control.md | 0 |
 | docs/validation-summary.md | 2 |
 | docs/troubleshooting.md | 0 |
 | docs/team-task-guide.md | 0 |
-| docs/server-setup.md | 0 |
+| docs/server-setup.md | 9 |
 | docs/final-deliverables.md | 83 |
-| docs/ansible-automation.md | 0 |
+| docs/ansible-automation.md | 14 |
 | docs/architecture.md | 0 |
 | docs/mentoring-brief.md | 0 |
 | docs/submission-package.md | 0 |

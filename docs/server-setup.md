@@ -132,4 +132,3 @@ screenshots/server/curl-result.png
 ### HTTP Test Result
 
 ../screenshots/server/curl-result.png 이미지가 아직 업로드되지 않았다.
-<!-- AUTO_IMAGES_END -->
