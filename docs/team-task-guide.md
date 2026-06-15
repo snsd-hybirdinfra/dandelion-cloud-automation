@@ -312,3 +312,18 @@ git push
 - 발표 흐름 문서
 
 
+
+---
+
+## 백서빈 추가 작업: Ubuntu 인스턴스 구성
+
+| 구분 | 작업 내용 | 산출물 |
+|---|---|---|
+| Image | Ubuntu 이미지 확인 | image list 캡처 |
+| Instance | Ubuntu 인스턴스 생성 | instance 생성 캡처 |
+| Status | 인스턴스 ACTIVE 상태 확인 | server list 캡처 |
+| Network | Floating IP 연결 | FIP 연결 캡처 |
+| Access | SSH 접속 확인 | ssh 접속 성공 캡처 |
+| OS Check | Ubuntu 버전 확인 | lsb_release 또는 /etc/os-release 캡처 |
+
+Ubuntu 인스턴스는 Ansible 자동화와 Docker 기반 WordPress/MariaDB 서비스 배포의 기본 실행 환경으로 사용한다.
