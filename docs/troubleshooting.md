@@ -265,7 +265,7 @@ sudo docker ps
 
 ---
 
-## 10. Nginx 컨테이너 실행 실패
+## 10. Custom WordPress 및 MariaDB 컨테이너 실행 실패
 
 ### 증상
 
@@ -291,7 +291,7 @@ sudo ss -tulnp | grep :80
 다시 실행한다.
 
 ~~~bash
-sudo docker run -d --name web-test -p 80:80 nginx
+sudo docker run -d --name web-test -p 80:80 wordpress
 ~~~
 
 ---
@@ -310,7 +310,7 @@ Connection timed out
 
 | 원인 | 확인 명령어 | 해결 |
 |---|---|---|
-| 컨테이너 미실행 | docker ps | nginx 컨테이너 실행 |
+| 컨테이너 미실행 | docker ps | Custom WordPress 및 MariaDB 컨테이너 실행 |
 | 80번 포트 미오픈 | ss -tulnp | 포트 확인 |
 | 보안그룹 80번 미허용 | Cloud Console | TCP 80 허용 |
 | 잘못된 IP 접속 | ip addr | 올바른 IP 사용 |
@@ -397,7 +397,7 @@ cat /var/www/html/index.html
 8. inventory.ini 문법이 맞는가?
 9. site.yml 문법이 맞는가?
 10. Docker가 실행 중인가?
-11. Nginx 컨테이너가 실행 중인가?
+11. Custom WordPress 컨테이너가 실행 중인가?
 12. HTTP 접속이 가능한가?
 ~~~
 
@@ -408,5 +408,7 @@ cat /var/www/html/index.html
 Troubleshooting의 핵심은 에러 메시지를 기준으로 원인을 좁히는 것이다.
 
 단순히 명령어를 다시 실행하지 말고, Network → SSH → Ansible → Docker → Service 순서로 확인한다.
+
+
 
 

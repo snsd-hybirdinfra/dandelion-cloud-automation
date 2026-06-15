@@ -192,3 +192,4 @@ Cloud Infrastructure
 - Control Node에서 Ansible 자동화 실행
 - Web Node에 Custom WordPress + MariaDB 서비스 배포
 - Backup / Validation Node를 통한 Health Check, Backup, Restore 기반 운영 검증
+

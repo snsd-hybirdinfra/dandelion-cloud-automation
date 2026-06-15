@@ -57,7 +57,7 @@ CHECK_ITEMS = {
             "screenshots/ansible/inventory.png",
             "screenshots/ansible/ping-test.png",
             "screenshots/ansible/playbook-result.png",
-            "screenshots/ansible/nginx-deploy-result.png",
+            "screenshots/ansible/wordpress-deploy-result.png",
         ],
     },
     "Monitoring / Backup / Validation": {
@@ -287,6 +287,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 
 
 

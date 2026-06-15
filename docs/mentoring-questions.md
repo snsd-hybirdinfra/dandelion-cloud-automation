@@ -13,7 +13,7 @@ OpenStack 인프라 구성
 → SSH 접속
 → Ansible ping
 → Playbook 실행
-→ Docker / Nginx 배포
+→ Docker / WordPress 배포
 → Health Check
 → Backup / Restore 검증
 → 산출물 정리
@@ -41,7 +41,7 @@ OpenStack 인프라 구성
 
 ~~~text
 Control Node: Ansible 실행 서버
-Web Node: Docker / Nginx 서비스 대상
+Web Node: Docker Compose 기반 WordPress/MariaDB 서비스 대상
 Backup or Validation Node: 백업 / 복구 / 검증 대상
 ~~~
 
@@ -59,9 +59,9 @@ Backup or Validation Node: 백업 / 복구 / 검증 대상
 
 ## 3. Ansible 자동화 관련 질문
 
-### Q5. Ansible Playbook 범위는 Docker/Nginx 배포까지가 적절한가?
+### Q5. Ansible Playbook 범위는 Docker/WordPress 배포까지가 적절한가?
 
-현재 site.yml은 Docker 설치와 Nginx 컨테이너 실행까지 자동화하는 것을 목표로 한다.
+현재 site.yml은 Docker 설치와 Custom WordPress 및 MariaDB 컨테이너 실행까지 자동화하는 것을 목표로 한다.
 
 추가로 health_check, backup까지 Ansible Playbook에 포함하는 것이 좋은지, 아니면 스크립트로 분리하는 것이 좋은지 확인하고 싶다.
 
@@ -85,7 +85,7 @@ Backup or Validation Node: 백업 / 복구 / 검증 대상
 문제 정의
 → OpenStack 인프라 구성
 → Ansible 자동화
-→ Docker / Nginx 배포
+→ Docker / WordPress 배포
 → 상태 점검
 → 백업 / 복구 검증
 → GitHub / Google Drive 산출물 관리
@@ -116,3 +116,4 @@ Backup or Validation Node: 백업 / 복구 / 검증 대상
 ### Q10. 현재 프로젝트에서 추가하면 평가에 도움이 될 최소 기능이 있는가?
 
 A급 구현 완료 후 시간이 남는 경우, 가장 효과적인 추가 기능이 무엇인지 확인받고 싶다.
+

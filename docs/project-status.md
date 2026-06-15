@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-06-15 09:18:34
+Last Updated: 2026-06-15 18:28:51
 
 ## 1. 담당자별 진행 상태
 
@@ -70,7 +70,7 @@ Last Updated: 2026-06-15 09:18:34
 | screenshots/ansible/inventory.png | ❌ 미완료 |
 | screenshots/ansible/ping-test.png | ❌ 미완료 |
 | screenshots/ansible/playbook-result.png | ❌ 미완료 |
-| screenshots/ansible/nginx-deploy-result.png | ❌ 미완료 |
+| screenshots/ansible/wordpress-deploy-result.png | ❌ 미완료 |
 
 ## Monitoring / Backup / Validation - 박재우
 

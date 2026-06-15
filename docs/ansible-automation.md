@@ -47,7 +47,7 @@ ansible-playbook site.yml
 | basic package install | Yes |
 | Docker install | Yes |
 | Docker service start | Yes |
-| Nginx container deploy | Yes |
+| wordpress/mariadb compose deploy | Yes |
 
 ## 6. Evidence
 
@@ -92,12 +92,12 @@ screenshots/ansible/ping-test.png
 screenshots/ansible/playbook-result.png
 ~~~
 
-### 7.5 Nginx Deployment Result
+### 7.5 WordPress/MariaDB Deployment Result
 
 이미지 파일 위치:
 
 ~~~text
-screenshots/ansible/nginx-deploy-result.png
+screenshots/ansible/wordpress-deploy-result.png
 ~~~
 
 ## 8. 담당자 제출 체크리스트
@@ -145,12 +145,12 @@ screenshots/ansible/ping-test.png
 screenshots/ansible/playbook-result.png
 ~~~
 
-### 7.5 Nginx Deployment Result
+### 7.5 WordPress/MariaDB Deployment Result
 
 이미지 파일 위치:
 
 ~~~text
-screenshots/ansible/nginx-deploy-result.png
+screenshots/ansible/wordpress-deploy-result.png
 ~~~
 
 ## 8. 담당자 제출 체크리스트
@@ -185,9 +185,9 @@ screenshots/ansible/nginx-deploy-result.png
 
 ../screenshots/ansible/playbook-result.png 이미지가 아직 업로드되지 않았다.
 
-### Nginx Deployment Result
+### WordPress/MariaDB Deployment Result
 
-../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
+../screenshots/ansible/wordpress-deploy-result.png 이미지가 아직 업로드되지 않았다.
 <!-- AUTO_IMAGES_END -->
 
 <!-- AUTO_IMAGES_START -->
@@ -211,6 +211,7 @@ screenshots/ansible/nginx-deploy-result.png
 
 ../screenshots/ansible/playbook-result.png 이미지가 아직 업로드되지 않았다.
 
-### Nginx Deployment Result
+### WordPress/MariaDB Deployment Result
 
-../screenshots/ansible/nginx-deploy-result.png 이미지가 아직 업로드되지 않았다.
+../screenshots/ansible/wordpress-deploy-result.png 이미지가 아직 업로드되지 않았다.
+

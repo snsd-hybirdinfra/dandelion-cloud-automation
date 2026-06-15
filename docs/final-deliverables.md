@@ -101,7 +101,7 @@ dandelion-cloud-automation/
 | 기본 패키지 설치 결과 | docs/server-setup.md | TBD |
 | Docker 설치 결과 | docs/server-setup.md | TBD |
 | Docker 서비스 상태 | docs/server-setup.md | TBD |
-| Nginx 컨테이너 실행 결과 | docs/server-setup.md | TBD |
+| WordPress/MariaDB 컨테이너 실행 결과 | docs/server-setup.md | TBD |
 | OS 정보 캡처 | screenshots/server/os-info.png | TBD |
 | Docker 상태 캡처 | screenshots/server/docker-status.png | TBD |
 | docker ps 캡처 | screenshots/server/docker-ps.png | TBD |
@@ -124,7 +124,7 @@ dandelion-cloud-automation/
 | Inventory 캡처 | screenshots/ansible/inventory.png | TBD |
 | Ping 테스트 캡처 | screenshots/ansible/ping-test.png | TBD |
 | Playbook 실행 캡처 | screenshots/ansible/playbook-result.png | TBD |
-| Nginx 배포 결과 캡처 | screenshots/ansible/nginx-deploy-result.png | TBD |
+| WordPress/MariaDB 배포 결과 캡처 | screenshots/ansible/wordpress-deploy-result.png | TBD |
 
 ---
 
@@ -177,7 +177,7 @@ dandelion-cloud-automation/
 | Ansible Ping 성공 | ansible all -m ping | TBD |
 | Playbook 실행 성공 | ansible-playbook site.yml | TBD |
 | Docker 서비스 실행 | systemctl status docker | TBD |
-| Nginx 컨테이너 실행 | docker ps | TBD |
+| Custom WordPress 및 MariaDB 컨테이너 실행 | docker ps | TBD |
 | HTTP 응답 성공 | curl -I http://server-ip | TBD |
 | 백업 파일 생성 성공 | ls -lh /backup | TBD |
 | 복구 테스트 성공 | cat /var/www/html/index.html | TBD |
@@ -200,5 +200,6 @@ dandelion-cloud-automation/
 ~~~
 
 최종 제출 시에는 기능 구현 결과뿐 아니라, 각 단계별 캡처와 문서가 함께 정리되어 있어야 한다.
+
 
 

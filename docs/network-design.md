@@ -17,7 +17,7 @@
 | 서버명 | 역할 | Public IP | Private IP | 비고 |
 |---|---|---|---|---|
 | control-node | Ansible Control Node | TBD | TBD | Ansible 실행 |
-| web-node | Web Service Node | TBD | TBD | Docker / Nginx |
+| web-node | Web Service Node | TBD | TBD | Docker / WordPress |
 | backup-node | Backup / Validation Node | TBD | TBD | 백업 / 복구 검증 |
 
 ## 3. Security Group / Firewall Policy
@@ -25,7 +25,7 @@
 | 포트 | 프로토콜 | 용도 | 허용 대상 |
 |---:|---|---|---|
 | 22 | TCP | SSH / Ansible | 관리자 IP |
-| 80 | TCP | HTTP / Nginx | 전체 또는 테스트 IP |
+| 80 | TCP | HTTP / WordPress | 전체 또는 테스트 IP |
 | 9100 | TCP | Node Exporter | Control / Monitoring Node |
 | 9090 | TCP | Prometheus | 관리자 IP |
 | 3000 | TCP | Grafana | 관리자 IP |
@@ -123,3 +123,4 @@ screenshots/cloud-infra/ssh-test.png
 ### SSH Connection Test
 
 ../screenshots/cloud-infra/ssh-test.png 이미지가 아직 업로드되지 않았다.
+

@@ -12,7 +12,7 @@ IMAGE_SECTIONS = {
     "docs/server-setup.md": [
         ("OS Information", "../screenshots/server/os-info.png"),
         ("Docker Service Status", "../screenshots/server/docker-status.png"),
-        ("Nginx Container Running", "../screenshots/server/docker-ps.png"),
+        ("WordPress/MariaDB Containers Running", "../screenshots/server/docker-ps.png"),
         ("HTTP Test Result", "../screenshots/server/curl-result.png"),
     ],
     "docs/ansible-automation.md": [
@@ -20,7 +20,7 @@ IMAGE_SECTIONS = {
         ("Inventory Configuration", "../screenshots/ansible/inventory.png"),
         ("Ping Test Result", "../screenshots/ansible/ping-test.png"),
         ("Playbook Execution Result", "../screenshots/ansible/playbook-result.png"),
-        ("Nginx Deployment Result", "../screenshots/ansible/nginx-deploy-result.png"),
+        ("WordPress/MariaDB Deployment Result", "../screenshots/ansible/wordpress-deploy-result.png"),
     ],
     "docs/validation-report.md": [
         ("Host Health Check", "../screenshots/validation/health-check.png"),
@@ -86,3 +86,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

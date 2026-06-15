@@ -89,7 +89,7 @@ screenshots/server/
 | 기본 패키지 설치 기록 | apt install 명령어 포함 | TBD |
 | Docker 설치 기록 | docker.io 또는 Docker CE 설치 결과 | TBD |
 | Docker 서비스 상태 | active 상태 확인 | TBD |
-| Nginx 컨테이너 실행 | docker ps 결과 | TBD |
+| Custom WordPress 및 MariaDB 컨테이너 실행 | docker ps 결과 | TBD |
 | HTTP 접속 확인 | curl 결과 포함 | TBD |
 
 ### 확인할 캡처
@@ -121,13 +121,13 @@ screenshots/ansible/
 |---|---|---|
 | ansible.cfg 존재 | inventory 경로와 privilege 설정 포함 | TBD |
 | inventory.ini 존재 | 실제 IP와 사용자 계정 반영 | TBD |
-| site.yml 존재 | 패키지, Docker, Nginx 자동화 포함 | TBD |
+| site.yml 존재 | 패키지, Docker, wordpress 자동화 포함 | TBD |
 | Ansible 버전 작성 | ansible --version 결과 | TBD |
 | Python 버전 작성 | python3 --version 결과 | TBD |
 | Ping 테스트 성공 | ansible all -m ping 결과 pong | TBD |
 | Syntax Check 성공 | ansible-playbook --syntax-check site.yml | TBD |
 | Playbook 실행 성공 | failed=0 결과 | TBD |
-| Nginx 자동 배포 확인 | docker ps 또는 curl 결과 | TBD |
+| WordPress/MariaDB 자동 배포 확인 | docker ps 또는 curl 결과 | TBD |
 
 ### 확인할 캡처
 
@@ -136,7 +136,7 @@ screenshots/ansible/ansible-version.png
 screenshots/ansible/inventory.png
 screenshots/ansible/ping-test.png
 screenshots/ansible/playbook-result.png
-screenshots/ansible/nginx-deploy-result.png
+screenshots/ansible/wordpress-deploy-result.png
 ~~~
 
 ---
@@ -265,5 +265,6 @@ README에는 너무 많은 명령어를 넣지 않는다.
 ~~~text
 GitHub 저장소만 봐도 프로젝트 목표, 아키텍처, 실행 방법, 자동화 결과, 검증 결과, 발표 흐름이 확인된다.
 ~~~
+
 
 

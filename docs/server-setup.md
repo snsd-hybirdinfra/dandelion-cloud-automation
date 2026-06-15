@@ -29,10 +29,10 @@ sudo systemctl status docker
 docker --version
 ~~~
 
-## 4. Nginx Container Test
+## 4. WordPress/MariaDB Container Test
 
 ~~~bash
-docker run -d --name web-test -p 80:80 nginx
+docker compose up -d
 docker ps
 curl http://localhost
 ~~~
@@ -42,7 +42,7 @@ curl http://localhost
 - OS 정보 캡처
 - Docker 설치 캡처
 - Docker 서비스 상태 캡처
-- Nginx 컨테이너 실행 캡처
+- Custom WordPress 및 MariaDB 컨테이너 실행 캡처
 - curl 접속 결과 캡처
 
 ## 6. Screenshots
@@ -63,7 +63,7 @@ screenshots/server/os-info.png
 screenshots/server/docker-status.png
 ~~~
 
-### 6.3 Nginx Container Running
+### 6.3 WordPress/MariaDB Containers Running
 
 이미지 파일 위치:
 
@@ -87,7 +87,7 @@ screenshots/server/curl-result.png
 | Kernel 정보 정리 | TBD |
 | Docker 설치 명령어 정리 | TBD |
 | Docker 서비스 상태 캡처 | TBD |
-| Nginx 컨테이너 실행 캡처 | TBD |
+| Custom WordPress 및 MariaDB 컨테이너 실행 캡처 | TBD |
 | curl 접속 결과 캡처 | TBD |
 
 <!-- AUTO_IMAGES_START -->
@@ -103,7 +103,7 @@ screenshots/server/curl-result.png
 
 ../screenshots/server/docker-status.png 이미지가 아직 업로드되지 않았다.
 
-### Nginx Container Running
+### WordPress/MariaDB Containers Running
 
 ../screenshots/server/docker-ps.png 이미지가 아직 업로드되지 않았다.
 
@@ -125,10 +125,12 @@ screenshots/server/curl-result.png
 
 ../screenshots/server/docker-status.png 이미지가 아직 업로드되지 않았다.
 
-### Nginx Container Running
+### WordPress/MariaDB Containers Running
 
 ../screenshots/server/docker-ps.png 이미지가 아직 업로드되지 않았다.
 
 ### HTTP Test Result
 
 ../screenshots/server/curl-result.png 이미지가 아직 업로드되지 않았다.
+
+

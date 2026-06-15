@@ -30,7 +30,7 @@
 
 | 구분 | 결정 내용 |
 |---|---|
-| A급 필수 구현 | OpenStack, SSH, Ansible, Docker/Nginx, Health Check, Backup/Restore, 산출물 정리 |
+| A급 필수 구현 | OpenStack, SSH, Ansible, Docker/WordPress, Health Check, Backup/Restore, 산출물 정리 |
 | B급 선택 확장 | node_exporter, Prometheus, Grafana, Playbook 역할 분리 |
 | C급 제외 범위 | Docker Swarm, Kubernetes, Kolla-Ansible 전체 구축, 오토스케일링, 멀티노드 HA |
 | 산출물 기준 | 담당자별 문서와 캡처 파일명을 고정하여 관리 |
@@ -44,7 +44,7 @@
 |---|---|---|
 | 정주헌 | PM / 아키텍처 | 문서, 발표자료, 제출 패키지, 멘토링 자료 |
 | 백서빈 | 클라우드 인프라 | OpenStack 인스턴스, 네트워크, 보안그룹, SSH 캡처 |
-| 이진욱 | 서버 / 가상화 | OS 확인, Docker 설치, Nginx 컨테이너 실행 |
+| 이진욱 | 서버 / 가상화 | OS 확인, Docker 설치, Custom WordPress 및 MariaDB 컨테이너 실행 |
 | 조민석 | Ansible 자동화 | inventory, ansible.cfg, site.yml, ping/playbook 캡처 |
 | 박재우 | 모니터링 / 백업 / 검증 | health_check, backup, restore 검증 |
 
@@ -64,9 +64,10 @@
 
 | 구분 | 목표 완료일 | 내용 |
 |---|---|---|
-| A급 필수 구현 | 2026-06-26 | OpenStack 인프라 구성, Ansible 자동화, Docker/Nginx 배포, 상태 점검, 백업/복구 검증 완료 |
+| A급 필수 구현 | 2026-06-26 | OpenStack 인프라 구성, Ansible 자동화, Docker/WordPress 배포, 상태 점검, 백업/복구 검증 완료 |
 | B급 선택 확장 | 2026-07-10 | HTTPS, Cinder/NFS, node_exporter, Prometheus/Grafana, Playbook 개선 중 가능한 항목 진행 |
 | 최종 발표 / 제출 | 2026-07-14 | 결과보고서, 시연 영상, 소스코드, 작업일지, 회의록, Google Drive 최종 산출물 정리 |
 
 A급 필수 구현이 완료되지 않으면 B급 확장 작업은 진행하지 않는다.  
 B급 확장 작업은 2026-07-10까지만 진행하고, 이후에는 발표자료와 제출자료 정리에 집중한다.
+

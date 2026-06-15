@@ -42,7 +42,7 @@
 |---|---|
 | SSH 접속 확인 | TBD |
 | Docker 설치 확인 | TBD |
-| Nginx 컨테이너 실행 확인 | TBD |
+| Custom WordPress 및 MariaDB 컨테이너 실행 확인 | TBD |
 | HTTP 접속 확인 | TBD |
 | 백업 생성 확인 | TBD |
 | 복구 성공 확인 | TBD |
@@ -51,7 +51,7 @@
 
 - 서버 상태 점검 캡처
 - Docker 상태 캡처
-- Nginx 접속 캡처
+- WordPress 접속 캡처
 - 백업 파일 생성 캡처
 - 복구 성공 캡처
 
@@ -105,3 +105,4 @@
 ### Recovery Test Result
 
 ../screenshots/validation/recovery-result.png 이미지가 아직 업로드되지 않았다.
+

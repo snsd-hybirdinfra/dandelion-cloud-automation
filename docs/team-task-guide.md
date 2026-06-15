@@ -144,7 +144,7 @@ screenshots/server/
 - 기본 패키지 설치 결과
 - Docker 설치 결과
 - Docker 서비스 상태
-- Nginx 컨테이너 실행 결과
+- WordPress/MariaDB 컨테이너 실행 결과
 - curl 접속 결과
 
 ### 권장 캡처 파일명
@@ -184,7 +184,7 @@ screenshots/ansible/
 - site.yml
 - ansible all -m ping 성공 결과
 - ansible-playbook 실행 결과
-- Docker / Nginx 자동 배포 결과
+- Docker / WordPress 자동 배포 결과
 
 ### 권장 캡처 파일명
 
@@ -193,7 +193,7 @@ screenshots/ansible/ansible-version.png
 screenshots/ansible/inventory.png
 screenshots/ansible/ping-test.png
 screenshots/ansible/playbook-result.png
-screenshots/ansible/nginx-deploy-result.png
+screenshots/ansible/wordpress-deploy-result.png
 ~~~
 
 ---
@@ -219,7 +219,7 @@ screenshots/validation/
 
 - 서버 상태 점검 결과
 - Docker 상태 확인 결과
-- Nginx HTTP 접속 결과
+- WordPress HTTP 접속 결과
 - 백업 스크립트 실행 결과
 - 백업 파일 생성 결과
 - 복구 테스트 결과
@@ -327,3 +327,4 @@ git push
 | OS Check | Ubuntu 버전 확인 | lsb_release 또는 /etc/os-release 캡처 |
 
 Ubuntu 인스턴스는 Ansible 자동화와 Docker 기반 WordPress/MariaDB 서비스 배포의 기본 실행 환경으로 사용한다.
+

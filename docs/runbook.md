@@ -5,7 +5,7 @@
 
 이 문서는 Team Dandelion 프로젝트의 실행 절차를 정리한다.
 
-본 프로젝트는 Ansible Control Node에서 Managed Node로 SSH 접속하여 서버 초기 설정, Docker 설치, Nginx 컨테이너 배포, 상태 점검, 백업 및 복구 검증을 수행한다.
+본 프로젝트는 Ansible Control Node에서 Managed Node로 SSH 접속하여 서버 초기 설정, Docker 설치, Custom WordPress 컨테이너 배포, 상태 점검, 백업 및 복구 검증을 수행한다.
 
 ---
 
@@ -19,7 +19,7 @@
 5. Ansible Ping Test
 6. Playbook Syntax Check
 7. Playbook 실행
-8. Docker / Nginx 확인
+8. Docker / WordPress 확인
 9. Health Check 실행
 10. Backup / Restore 검증
 ~~~
@@ -136,13 +136,13 @@ Playbook에서 수행하는 작업:
 | basic package install | all |
 | docker.io install | all |
 | docker service enable/start | all |
-| nginx image pull | web |
-| nginx container deploy | web |
+| wordpress image build | web |
+| wordpress/mariadb compose deploy | web |
 | docker ps 확인 | web |
 
 ---
 
-## 9. Docker / Nginx 확인
+## 9. Docker / WordPress 확인
 
 Web Node에서 확인:
 
@@ -262,7 +262,7 @@ curl http://localhost
 | Ansible Ping 성공 | pong |
 | Playbook 실행 성공 | failed=0 |
 | Docker 서비스 실행 | active |
-| Nginx 컨테이너 실행 | docker ps 확인 |
+| Custom WordPress 및 MariaDB 컨테이너 실행 | docker ps 확인 |
 | HTTP 응답 성공 | HTTP/1.1 200 OK |
 | 백업 파일 생성 | /backup 디렉터리 확인 |
 | 복구 성공 | index.html 복구 확인 |
@@ -272,8 +272,9 @@ curl http://localhost
 ## 15. 핵심 요약
 
 ~~~text
-Ansible로 서버 초기 설정과 Docker 기반 Nginx 배포를 자동화하고,
+Ansible로 서버 초기 설정과 Docker Compose 기반 WordPress/MariaDB 배포를 자동화하고,
 Health Check, Backup, Restore 절차로 자동화 결과를 검증한다.
 ~~~
+
 
 

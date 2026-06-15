@@ -45,7 +45,7 @@
 |---|---|---|
 | 정주헌 | PM / 아키텍처 | 전체 구조 설계, GitHub 관리, README 및 문서 통합, 발표자료 구성 |
 | 백서빈 | 클라우드 인프라 | OpenStack 인스턴스, 네트워크, 보안그룹 구성 |
-| 이진욱 | 서버 / 가상화 | Linux 서버 환경 구성, Docker 설치, Nginx 컨테이너 실행 |
+| 이진욱 | 서버 / 가상화 | Linux 서버 환경 구성, Docker 설치, Custom WordPress 및 MariaDB 컨테이너 실행 |
 | 조민석 | Ansible 자동화 | ansible.cfg, inventory.ini, site.yml 작성 및 Ansible 실행 |
 | 박재우 | 모니터링 / 백업 / 검증 | health_check, backup, restore 검증 및 결과 정리 |
 
@@ -68,7 +68,7 @@ OpenStack 인프라 구성
 → SSH 접속 환경 구성
 → Ansible Inventory 작성
 → Ansible Playbook 실행
-→ Docker / Nginx 서비스 배포
+→ Docker / WordPress 서비스 배포
 → 상태 점검
 → 백업 / 복구 검증
 → 결과 문서화
@@ -101,3 +101,4 @@ OpenStack 인프라 구성
 또한 GitHub를 중심으로 산출물을 관리하고, Google Drive를 통해 강사님 및 멘토님 확인용 자료와 최종 제출 자료를 정리하기로 결정하였다.
 
 본 회의는 프로젝트 초기 방향을 확정하기 위한 킥오프 회의로 진행되었다.
+

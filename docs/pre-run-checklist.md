@@ -159,3 +159,4 @@ Ansible 실행이 실패하면 아래 순서로 확인한다.
 즉, Ansible Playbook 실행 전에 서버, 네트워크, SSH, sudo, Python, Inventory 상태를 먼저 검증한다.
 
 
+
