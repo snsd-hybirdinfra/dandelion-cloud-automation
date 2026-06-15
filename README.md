@@ -140,7 +140,7 @@ OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 17 | 51 | 33% |
+| 20 | 51 | 39% |
 
 ## 담당자별 진행 상태
 
@@ -148,9 +148,9 @@ OpenStack 인프라 구성부터 Ansible 자동화, Docker 서비스 배포,
 |---|---|---:|---:|---:|---|
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
-| Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
-| Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
-| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
+| Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Monitoring / Backup / Validation | 박재우 | 1 | 9 | 11% | 🟡 진행 중 |
 | Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
 
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.

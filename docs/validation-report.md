@@ -44,7 +44,28 @@
 - 백업 파일 생성 캡처
 - 복구 성공 캡처
 
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
 
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
 
+### Host Health Check
 
+../screenshots/validation/health-check.png 이미지가 아직 업로드되지 않았다.
 
+### Docker Status Check
+
+../screenshots/validation/docker-status.png 이미지가 아직 업로드되지 않았다.
+
+### HTTP Service Check
+
+../screenshots/validation/http-check.png 이미지가 아직 업로드되지 않았다.
+
+### Backup File Created
+
+../screenshots/validation/backup-created.png 이미지가 아직 업로드되지 않았다.
+
+### Recovery Test Result
+
+../screenshots/validation/recovery-result.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->
