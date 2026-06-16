@@ -292,6 +292,7 @@ dandelion-cloud-automation/
 | [Troubleshooting Guide](./docs/troubleshooting.md) | 문제 해결 기준 |
 | [Project Runbook](./docs/runbook.md) | 실행 절차 |
 | [Scope Control Policy](./docs/scope-control.md) | 필수 구현 / 선택 확장 / 제외 범위 기준 |
+| [Implementation Roadmap](./docs/implementation-roadmap.md) | A급 / B급 / B+ 구현 순서 및 확장 기준 |
 | [Mentoring Brief](./docs/mentoring-brief.md) | 멘토링용 프로젝트 현황 요약 |
 | [Mentoring Questions](./docs/mentoring-questions.md) | 멘토링 질문 목록 |
 | [Final Deliverables Checklist](./docs/final-deliverables.md) | 최종 산출물 체크리스트 |
@@ -363,3 +364,4 @@ GitHub 기반 산출물 관리까지 하나의 인프라 운영 자동화 흐름
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
+
