@@ -184,7 +184,7 @@ Phase 3 검증 기준은 다음과 같다.
 | 공통 DB 연결 | 두 Web Node가 동일 DB Node MariaDB 서비스 사용 |
 | 장애 테스트 | Web Node 1 중지 시 Web Node 2 응답 확인 |
 
-WordPress files 자동 동기화, DB Replication, DB Clustering, OpenStack LBaaS / Octavia는 Phase 3에서도 제외한다.
+WordPress files 자동 동기화, DB Clustering, OpenStack LBaaS / Octavia는 Phase 3 구현 범위에서 제외한다. 단, DB Replication / DB Node 이중화 및 DB Node 이중화는 멘토링 이후 추후 확장 방향으로 검토한다.
 
 ---
 
@@ -461,4 +461,53 @@ Phase 3 확장 시 전체 예상 리소스는 다음과 같다.
 | RAM | 13 GB |
 
 리소스 산정표는 별도 문서인 docs/resource-plan.md에 정리하고, README.md 및 docs/architecture.md에서 참조하도록 한다.
+
+
+
+---
+
+## 15. 추가 결정 사항: 멘토링 결과 기반 DB Node 이중화 확장 방향
+
+멘토링 진행 결과, 현재 프로젝트의 기본 구현 범위에서는 단일 DB Node를 유지하되, 추후 확장 방향으로 DB Node 이중화를 검토하기로 하였다.
+
+현재 Phase 기준에서 DB Node는 MariaDB를 직접 설치하여 systemd 서비스로 운영하는 단일 DB 구조이다.
+
+다만 서비스 안정성 및 운영 확장성을 고려할 경우, 향후에는 DB Node를 이중화하여 장애 발생 시 데이터 계층의 가용성을 높이는 방향이 필요하다는 피드백을 반영하였다.
+
+| 구분 | 현재 기준 | 추후 확장 방향 |
+|---|---|---|
+| DB 구성 | 단일 DB Node | DB Node 이중화 |
+| DB 서비스 | MariaDB 직접 설치 + systemd Service | MariaDB Replication 또는 Primary / Replica 구조 |
+| 장애 대응 | DB Node 장애 시 수동 복구 | Replica DB 또는 Failover 구조 검토 |
+| 백업 | MariaDB dump 기반 백업 | Dump 백업 + 이중화 기반 복구 전략 |
+| 프로젝트 반영 | Phase 1 필수 범위 | Post-Phase 확장 방향 |
+
+본 프로젝트에서는 일정과 구현 안정성을 고려하여 Phase 1~3 범위에서는 단일 DB Node 구조를 유지한다.
+
+단, 발표 및 최종 문서에서는 “현재 한계 및 향후 개선 방향” 항목에 DB Node 이중화를 포함하여, 단일 DB 구조의 한계와 확장 가능성을 설명하기로 하였다.
+
+향후 DB 이중화 후보 구조는 다음과 같다.
+
+| 확장 방식 | 설명 |
+|---|---|
+| MariaDB Primary / Replica | Primary DB에서 Replica DB로 데이터 복제 |
+| Backup 기반 복구 고도화 | MariaDB dump와 restore 절차를 자동화하여 복구 시간 단축 |
+| DB Failover 구조 검토 | 장애 시 Replica 또는 대체 DB Node로 전환하는 구조 검토 |
+| Monitoring 연계 | DB 상태를 Prometheus / Grafana와 연계하여 장애 감지 |
+
+최종 정리 기준은 다음과 같다.
+
+~~~text
+Phase 1:
+단일 DB Node + MariaDB Service + Backup / Restore 검증
+
+Phase 2:
+Monitoring 및 Backup 고도화
+
+Phase 3:
+Web Node 2대 + HAProxy Load Balancing
+
+Post-Phase Extension:
+DB Node 이중화 / MariaDB Replication / DB Failover 검토
+~~~
 
