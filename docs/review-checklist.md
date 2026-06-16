@@ -93,7 +93,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 | [ ] | Control Node 구성 | Ansible 실행 가능 |
 | [ ] | Proxy Node 구성 | HAProxy HTTP Reverse Proxy 실행 |
 | [ ] | Web Node 구성 | Custom WordPress 컨테이너 실행 |
-| [ ] | DB Node 구성 | MariaDB 컨테이너 실행 |
+| [ ] | DB Node 구성 | MariaDB 서비스 실행 |
 | [ ] | Backup / Validation Node 구성 | health_check / backup / restore 검증 가능 |
 | [ ] | SSH 접속 확인 | Control Node에서 각 노드 접속 |
 | [ ] | Ansible ping 확인 | 모든 Managed Node SUCCESS |
@@ -125,7 +125,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 | [ ] | Docker | docker compose version |
 | [ ] | Proxy | HAProxy 컨테이너 running |
 | [ ] | Web | WordPress 컨테이너 running |
-| [ ] | DB | MariaDB 컨테이너 running |
+| [ ] | DB | MariaDB 서비스 running |
 | [ ] | Port | ss -tulnp |
 | [ ] | HTTP | Proxy Node 경유 WordPress 접속 |
 | [ ] | DB | Web Node → DB Node 3306 연결 |
@@ -197,7 +197,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|
 | [ ] | Docker 설치 | Proxy / Web / DB Node에서 Docker 확인 |
 | [ ] | Compose 설치 | docker compose version 확인 |
-| [ ] | MariaDB | dandelion-mariadb running |
+| [ ] | MariaDB | mariadb service active |
 | [ ] | WordPress | dandelion-wordpress running |
 | [ ] | HAProxy | dandelion-haproxy running |
 | [ ] | DB Port | DB Node 3306 listening |
@@ -214,7 +214,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|
 | [ ] | health_check.sh | 실행 결과 확보 |
 | [ ] | backup.sh | 실행 결과 확보 |
-| [ ] | MariaDB dump | wordpress_db.sql 생성 |
+| [ ] | mysqldump 기반 MariaDB dump | wordpress_db.sql 생성 |
 | [ ] | WordPress files archive | wordpress_files.tar.gz 생성 |
 | [ ] | Backup file size | 0 byte 아님 |
 | [ ] | Backup path | backup/ 또는 /backup 경로 정리 |
@@ -340,7 +340,7 @@ Auto Scaling
 | [ ] | Phase 1 필수 캡처 확보 |
 | [ ] | 필수 문서 작성 완료 |
 | [ ] | Ansible 실행 결과 확보 |
-| [ ] | WordPress / MariaDB / HAProxy 실행 결과 확보 |
+| [ ] | WordPress / HAProxy 컨테이너 및 MariaDB 서비스 실행 결과 확보 |
 | [ ] | Proxy Node 경유 WordPress 접속 확인 |
 | [ ] | Web Node → DB Node 연결 확인 |
 | [ ] | Health Check 결과 확보 |
@@ -388,3 +388,4 @@ Health Check, Backup, Restore, Troubleshooting 증거가 모두 확보되어야 
 
 Phase 2와 Phase 3은 추가 완성도를 보여주는 선택 산출물로 검수한다.
 ~~~
+

@@ -131,7 +131,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|---|
 | [ ] | Docker 설치 결과 | docker --version |
 | [ ] | Docker Compose 결과 | docker compose version |
-| [ ] | MariaDB 컨테이너 결과 | DB Node에서 dandelion-mariadb running |
+| [ ] | MariaDB 서비스 결과 | DB Node에서 mariadb service active |
 | [ ] | WordPress 컨테이너 결과 | Web Node에서 dandelion-wordpress running |
 | [ ] | HAProxy 컨테이너 결과 | Proxy Node에서 dandelion-haproxy running |
 | [ ] | 포트 확인 결과 | ss -tulnp |
@@ -146,7 +146,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|---|
 | [ ] | health_check.sh 실행 결과 | Proxy / Web / DB 상태 확인 |
 | [ ] | backup.sh 실행 결과 | DB dump 및 WordPress files archive 생성 |
-| [ ] | MariaDB dump 파일 | wordpress_db.sql |
+| [ ] | mysqldump 기반 MariaDB dump 파일 | wordpress_db.sql |
 | [ ] | WordPress files archive | wordpress_files.tar.gz |
 | [ ] | restore.md | DB / files 복구 절차 정리 |
 | [ ] | Restore 검증 결과 | 절차 검증 또는 테스트 결과 |
@@ -240,7 +240,7 @@ Auto Scaling
 | 3 | SSH 또는 Ansible 접속 구조 설명 |
 | 4 | ansible all -m ping |
 | 5 | ansible-playbook site.yml 실행 결과 |
-| 6 | DB Node MariaDB 컨테이너 확인 |
+| 6 | DB Node MariaDB 서비스 확인 |
 | 7 | Web Node WordPress 컨테이너 확인 |
 | 8 | Proxy Node HAProxy 컨테이너 확인 |
 | 9 | Proxy Node 경유 WordPress HTTP 접속 |
@@ -325,9 +325,10 @@ git status
 최종 제출 패키지는 Phase 1 필수 운영 흐름의 완성도와 검증 증거를 중심으로 구성한다.
 
 OpenStack 인프라 구성, Ansible 자동화, Proxy/Web/DB/Backup Node 분리,
-HAProxy/WordPress/MariaDB 배포, Proxy 경유 접속,
+HAProxy/WordPress/MariaDB 설치 및 구성, Proxy 경유 접속,
 Health Check, Backup, Restore, Troubleshooting 자료가 모두 연결되어야 한다.
 
 Phase 2와 Phase 3은 추가 확장 결과로 제출하며,
 필수 제출 범위는 Phase 1 기준으로 완성한다.
 ~~~
+

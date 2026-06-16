@@ -126,7 +126,7 @@ openstack server list
 | [ ] | Proxy Node | Web Node | 80 | HAProxy backend |
 | [ ] | Web Node | DB Node | 3306 | WordPress DB connection |
 | [ ] | Backup / Validation Node | Web Node | 80 | Health check / file backup |
-| [ ] | Backup / Validation Node | DB Node | 3306 | MariaDB dump |
+| [ ] | Backup / Validation Node | DB Node | 3306 | mysqldump 기반 MariaDB dump |
 | [ ] | Backup / Validation Node | Proxy Node | 80 | Proxy health check |
 
 DB Node의 3306 포트는 전체 공개하지 않는다.
@@ -220,7 +220,7 @@ Proxy Node, Web Node, DB Node에서 Docker가 정상 동작해야 한다.
 
 ## 10. DB Node 실행 전 점검
 
-DB Node는 MariaDB 컨테이너를 실행한다.
+DB Node는 MariaDB 서비스를 실행한다.
 
 | 체크 | 항목 | 확인 기준 |
 |---|---|---|
@@ -237,7 +237,7 @@ DB Node 실행 후 확인 명령어:
 ~~~bash
 docker ps
 sudo ss -tulnp | grep ':3306'
-docker logs dandelion-mariadb --tail 50
+docker logs mariadb --tail 50
 ~~~
 
 ---
@@ -441,3 +441,4 @@ Phase 1이 안정화되기 전에는 HTTPS, Cinder, Prometheus/Grafana, Web Node
 
 최종 발표는 Phase 1 필수 구성과 검증 결과만으로도 성립해야 한다.
 ~~~
+

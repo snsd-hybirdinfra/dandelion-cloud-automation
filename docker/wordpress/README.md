@@ -18,7 +18,7 @@ Custom WordPress Image는 Phase 1 필수 구성에서 Web Node에 배포된다.
 Client
 → Proxy Node / HAProxy HTTP Reverse Proxy
 → Web Node / Custom WordPress Container
-→ DB Node / MariaDB Container
+→ DB Node / MariaDB Service
 ~~~
 
 WordPress는 다음 검증을 위해 사용한다.
@@ -138,7 +138,7 @@ WordPress는 Web Node 내부 DB를 사용하지 않고 DB Node의 MariaDB에 연
 Web Node
 → Custom WordPress Container
 → DB Node:3306
-→ MariaDB Container
+→ MariaDB Service
 ~~~
 
 필수 환경변수:
@@ -316,3 +316,4 @@ Proxy Node의 HAProxy를 통해 외부 접속을 검증한다.
 이후 WordPress files 백업과 Restore 절차를 통해
 서비스 운영 검증 흐름을 완성한다.
 ~~~
+

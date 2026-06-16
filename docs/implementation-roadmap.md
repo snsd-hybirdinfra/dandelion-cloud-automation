@@ -70,12 +70,12 @@ Client
    └── Custom WordPress Container
 
 → DB Node
-   └── MariaDB Container
+   └── MariaDB Service
 
 → Backup / Validation Node
    ├── health_check.sh
    ├── backup.sh
-   ├── MariaDB dump
+   ├── mysqldump 기반 MariaDB dump
    ├── WordPress files archive
    └── restore.md 검증
 
@@ -145,12 +145,12 @@ Phase 1은 단일 Web/DB 통합 구조가 아니라, Proxy 계층, Web 계층, D
 | 9 | inventory.ini 작성 | Ansible Automation | Proxy / Web / DB / Backup Node 등록 |
 | 10 | Ansible ping 테스트 | Ansible Automation | ansible all -m ping 성공 |
 | 11 | Docker 설치 자동화 | Ansible / Server | 대상 노드 Docker 설치 완료 |
-| 12 | DB Node MariaDB 배포 | Server / Ansible | MariaDB 컨테이너 running |
+| 12 | DB Node MariaDB 설치 및 구성 | Server / Ansible | MariaDB 서비스 running |
 | 13 | Web Node Custom WordPress 배포 | Server / Ansible | WordPress 컨테이너 running |
 | 14 | Web Node → DB Node 연결 확인 | Server / Validation | WordPress가 DB Node MariaDB에 연결 |
 | 15 | Proxy Node HAProxy HTTP Reverse Proxy 구성 | Server / Ansible | Proxy Node 80 → Web Node 80 연결 |
 | 16 | Proxy Node 경유 WordPress HTTP 접속 확인 | Validation | curl 또는 브라우저 접속 성공 |
-| 17 | docker ps 상태 확인 | Validation | WordPress / MariaDB / HAProxy 컨테이너 running |
+| 17 | docker ps 상태 확인 | Validation | WordPress / HAProxy 컨테이너 및 MariaDB 서비스 running |
 | 18 | ss -tulnp 또는 포트 확인 | Validation | 서비스 포트 listening 확인 |
 | 19 | health_check.sh 실행 | Monitoring / Validation | 상태 점검 결과 확보 |
 | 20 | backup.sh 실행 | Backup / Validation | DB dump 및 WordPress files archive 생성 |
@@ -171,13 +171,13 @@ Phase 1은 단일 Web/DB 통합 구조가 아니라, Proxy 계층, Web 계층, D
 | Ansible | ansible all -m ping 성공 |
 | 자동화 | site.yml 또는 playbook 실행 성공 |
 | Docker | Docker 설치 및 Docker Compose 실행 가능 |
-| DB | DB Node에서 MariaDB 컨테이너 running |
+| DB | DB Node에서 MariaDB 서비스 running |
 | Web | Web Node에서 Custom WordPress 컨테이너 running |
 | Proxy | Proxy Node에서 HAProxy HTTP Reverse Proxy 동작 |
 | 연결 | Web Node WordPress가 DB Node MariaDB에 연결 |
 | 접속 검증 | Proxy Node 경유 WordPress HTTP 응답 확인 |
 | 상태 점검 | health_check.sh 실행 결과 확보 |
-| 백업 | MariaDB dump 및 WordPress files archive 생성 |
+| 백업 | mysqldump 기반 MariaDB dump 및 WordPress files archive 생성 |
 | 복구 | restore.md 기반 복구 절차 검증 |
 | 장애 대응 | 최소 장애 상황 1개와 복구 절차 정리 |
 | 문서 | 필수 문서, 캡처, 회의록, 작업일지 정리 |
@@ -194,13 +194,13 @@ Phase 1은 단일 Web/DB 통합 구조가 아니라, Proxy 계층, Web 계층, D
 | Ansible | ansible all -m ping 결과 |
 | Playbook | site.yml 또는 playbook 실행 결과 |
 | Docker | docker version, docker compose version |
-| DB Node | MariaDB 컨테이너 running |
+| DB Node | MariaDB 서비스 running |
 | Web Node | WordPress 컨테이너 running |
 | Proxy Node | HAProxy 컨테이너 running |
 | HTTP 검증 | Proxy Node 경유 WordPress 접속 |
 | 포트 검증 | ss -tulnp 또는 포트 확인 결과 |
 | 상태 점검 | health_check.sh 실행 결과 |
-| 백업 | MariaDB dump, WordPress files archive |
+| 백업 | mysqldump 기반 MariaDB dump, WordPress files archive |
 | 복구 | restore 절차 검증 결과 |
 | 트러블슈팅 | 장애 상황 및 복구 과정 |
 
@@ -272,7 +272,7 @@ DB Node
 Backup / Validation Node
 → Cinder Volume attach
 → /backup mount
-→ MariaDB dump 및 WordPress files backup 저장
+→ mysqldump 기반 MariaDB dump 및 WordPress files backup 저장
 ~~~
 
 DB Node의 MariaDB 원본 데이터를 Cinder Volume에 직접 올리는 방식은 이번 범위에서 제외한다.
@@ -378,7 +378,7 @@ Phase 1. 필수 구성 및 기본 검증
 5. Ansible inventory 구성
 6. ansible ping 성공
 7. Docker 설치 playbook 실행
-8. DB Node MariaDB 배포
+8. DB Node MariaDB 설치 및 구성
 9. Web Node WordPress 배포
 10. Web Node → DB Node 연결 확인
 11. Proxy Node HAProxy HTTP Reverse Proxy 구성
@@ -424,3 +424,4 @@ Phase 2는 Phase 1이 안정화된 이후 추가하는 운영 확장 및 검증 
 Phase 3은 도전 확장 단계이다. Web Node 2대와 HAProxy Load Balancing을 통해 확장성을 검증하되, WordPress files 자동 동기화나 OpenStack LBaaS/Octavia는 제외한다.
 
 Out of Scope 항목은 프로젝트 기간과 팀 구현 안정성을 고려하여 이번 구현 범위에서 제외한다.
+

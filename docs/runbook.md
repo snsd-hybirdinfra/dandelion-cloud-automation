@@ -6,7 +6,7 @@
 
 본 문서는 Team Dandelion 프로젝트의 실행 절차를 정의한다.
 
-본 프로젝트는 OpenStack 기반 Ubuntu 인스턴스 위에서 Ansible을 활용하여 Proxy Node, Web Node, DB Node, Backup / Validation Node를 구성하고, Docker Compose 기반 WordPress/MariaDB/HAProxy 서비스를 배포한 뒤 상태 점검, 백업, 복구 검증을 수행한다.
+본 프로젝트는 OpenStack 기반 Ubuntu 인스턴스 위에서 Ansible을 활용하여 Proxy Node, Web Node, DB Node, Backup / Validation Node를 구성하고, Docker Compose 기반 WordPress와 DB Node MariaDB 서비스/HAProxy 서비스를 배포한 뒤 상태 점검, 백업, 복구 검증을 수행한다.
 
 본 Runbook은 Phase 1 필수 구성 및 기본 검증을 기준으로 작성한다.
 
@@ -305,19 +305,19 @@ ansible backup -m ping
 |---|---|
 | Proxy Node | Docker 설치 및 HAProxy 컨테이너 실행 |
 | Web Node | Docker 설치 및 WordPress 컨테이너 실행 |
-| DB Node | Docker 설치 및 MariaDB 컨테이너 실행 |
+| DB Node | Docker 설치 및 MariaDB 서비스 실행 |
 | Backup Node | health_check.sh / backup.sh 실행 준비 |
 
 ---
 
 ## 9. DB Node 검증
 
-DB Node에서 MariaDB 컨테이너를 확인한다.
+DB Node에서 MariaDB 서비스를 확인한다.
 
 ~~~bash
 docker ps
 sudo ss -tulnp | grep ':3306'
-docker logs dandelion-mariadb --tail 50
+docker logs mariadb --tail 50
 ~~~
 
 Web Node에서 DB 연결을 확인한다.
@@ -330,7 +330,7 @@ nc -zv DB_NODE_PRIVATE_IP 3306
 
 | 항목 | 기준 |
 |---|---|
-| Container | dandelion-mariadb running |
+| Container | mariadb service active |
 | Port | 3306 listening |
 | Access | Web Node에서 DB Node 3306 접근 가능 |
 | Security | DB Node 3306 전체 공개 금지 |
@@ -499,7 +499,7 @@ find backup/ -type f -name "*.tar.gz"
 
 | 항목 | 기준 |
 |---|---|
-| DB Restore | MariaDB dump import 절차 존재 |
+| DB Restore | mysqldump 기반 MariaDB dump import 절차 존재 |
 | Files Restore | WordPress files archive 복원 절차 존재 |
 | 주의사항 | 기존 데이터 덮어쓰기 위험 명시 |
 | 검증 결과 | 복구 절차 검토 또는 테스트 결과 기록 |
@@ -682,7 +682,7 @@ screenshots/phase3/
 | 2 | Control Node에서 모든 Managed Node SSH 접속 성공 |
 | 3 | ansible all -m ping 성공 |
 | 4 | ansible-playbook site.yml 실행 성공 |
-| 5 | DB Node MariaDB 컨테이너 running |
+| 5 | DB Node MariaDB 서비스 running |
 | 6 | Web Node WordPress 컨테이너 running |
 | 7 | Proxy Node HAProxy 컨테이너 running |
 | 8 | Proxy Node 경유 WordPress HTTP 접속 성공 |
@@ -707,3 +707,4 @@ Proxy Node 경유 WordPress 접속, DB 연결, Health Check, Backup, Restore 순
 Phase 1 결과만으로도 최종 발표가 가능하도록 구성하고,
 Phase 2와 Phase 3은 시간이 남을 경우에만 확장한다.
 ~~~
+

@@ -357,7 +357,7 @@ nc -zv DB_NODE_PRIVATE_IP 3306
 
 | 증상 |
 |---|
-| MariaDB 컨테이너가 실행되지 않음 |
+| MariaDB 서비스가 실행되지 않음 |
 | Web Node에서 DB 연결 실패 |
 | 3306 포트가 열려 있지 않음 |
 | WordPress database connection error |
@@ -370,9 +370,9 @@ nc -zv DB_NODE_PRIVATE_IP 3306
 ~~~bash
 docker ps
 docker ps -a
-docker logs dandelion-mariadb --tail 100
+docker logs mariadb --tail 100
 sudo ss -tulnp | grep ':3306'
-docker exec -it dandelion-mariadb mariadb -u root -p
+docker exec -it mariadb mariadb -u root -p
 ~~~
 
 Web Node에서 확인:
@@ -393,7 +393,7 @@ nc -zv DB_NODE_PRIVATE_IP 3306
 
 | 원인 | 조치 |
 |---|---|
-| MariaDB 컨테이너 미실행 | docker compose up -d 재실행 |
+| MariaDB 서비스 미실행 | docker compose up -d 재실행 |
 | 환경변수 오류 | MYSQL_DATABASE / MYSQL_USER / MYSQL_PASSWORD 확인 |
 | volume 권한 문제 | Docker volume 재확인 |
 | 3306 미오픈 | ports 설정 및 ss 확인 |
@@ -409,7 +409,7 @@ nc -zv DB_NODE_PRIVATE_IP 3306
 | 증상 |
 |---|
 | backup.sh 실행 실패 |
-| MariaDB dump 파일 생성 실패 |
+| mysqldump 기반 MariaDB dump 파일 생성 실패 |
 | WordPress files archive 생성 실패 |
 | 백업 파일 크기가 0 byte |
 | 백업 저장 경로 없음 |
@@ -432,7 +432,7 @@ curl -I http://WEB_NODE_PRIVATE_IP
 DB Node에서 dump 확인:
 
 ~~~bash
-docker exec dandelion-mariadb mariadb-dump -u root -p wordpress > wordpress_db.sql
+docker exec mariadb mariadb-dump -u root -p wordpress > wordpress_db.sql
 ~~~
 
 ---
@@ -709,3 +709,4 @@ Phase 1 필수 구성의 안정성을 우선한다.
 Phase 1이 안정화되지 않으면 Phase 2와 Phase 3 확장은 중단하고,
 최종 발표 가능한 기본 운영 흐름을 먼저 완성한다.
 ~~~
+
