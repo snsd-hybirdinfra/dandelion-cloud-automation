@@ -31,6 +31,37 @@ Phase 3에서는 Web Node를 2대로 확장하고 HAProxy Load Balancing을 통�
 
 ---
 
+
+## 최종 아키텍처 완성본
+
+![Final Phase 3 Architecture](./assets/final-phase3-architecture.png)
+
+## Phase별 아키텍처 다이어그램
+
+### Phase 1 - Infrastructure View
+
+![Phase 1 Infrastructure View](./assets/phase1-infrastructure-view.png)
+
+### Phase 1 - Service View
+
+![Phase 1 Service View](./assets/phase1-service-view.png)
+
+### Phase 2 - Infrastructure View
+
+![Phase 2 Infrastructure View](./assets/phase2-infrastructure-view.png)
+
+### Phase 2 - Service View
+
+![Phase 2 Service View](./assets/phase2-service-view.png)
+
+### Phase 3 - Infrastructure View
+
+![Phase 3 Infrastructure View](./assets/phase3-infrastructure-view.png)
+
+### Phase 3 - Service View
+
+![Phase 3 Service View](./assets/phase3-service-view.png)
+
 ## 3. Phase 1 기본 아키텍처
 
 ## 3.1 전체 구조
@@ -400,5 +431,6 @@ Ansible을 통해 Docker 기반 WordPress, MariaDB, HAProxy HTTP Reverse Proxy�
 이후 상태 점검, 백업, 복구 절차 검증을 통해
 단순 서비스 배포가 아닌 인프라 운영 자동화 흐름을 완성한다.
 ~~~
+
 
 

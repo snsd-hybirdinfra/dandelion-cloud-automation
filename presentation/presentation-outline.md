@@ -539,6 +539,17 @@ Phase 3는 도전 확장으로 Web Node를 2대로 늘리고 HAProxy roundrobin 
 
 ---
 
+
+## 발표자료 이미지 배치 기준
+
+| Slide | Image |
+|---|---|
+| Slide 5. 전체 시스템 아키텍처 | `docs/assets/final-phase3-architecture.png` |
+| Slide 6. Phase 1 인프라 구조 | `docs/assets/phase1-infrastructure-view.png` |
+| Slide 7. Phase 1 서비스 구조 | `docs/assets/phase1-service-view.png` |
+| Slide 13. Phase 2 운영 확장 | `docs/assets/phase2-infrastructure-view.png` 또는 `docs/assets/phase2-service-view.png` |
+| Slide 14. Phase 3 도전 확장 | `docs/assets/phase3-infrastructure-view.png` 또는 `docs/assets/phase3-service-view.png` |
+
 ## 20. 시연 순서
 
 최종 시연은 다음 순서로 진행한다.
@@ -604,5 +615,6 @@ Proxy, Web, DB, Backup 계층을 분리하고,
 서비스 배포 이후 상태 점검, 백업, 복구 절차까지 검증함으로써
 기본 클라우드 인프라 운영 자동화의 전체 흐름을 완성했습니다.
 ~~~
+
 
 
