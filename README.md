@@ -54,7 +54,7 @@ OpenStack 인프라 구성
 ## 5. 팀 구성
 
 | 이름 | 역할 | 담당 영역 |
-|---|---|---|
+|-----|---|-------|
 | 정주헌 | PM / 아키텍처 | 전체 구조 설계, GitHub 관리, 문서 통합, 발표 흐름 정리 |
 | 백서빈 | 클라우드 인프라 | OpenStack 인스턴스, Ubuntu 이미지, 네트워크, 보안그룹, Floating IP 또는 포트포워딩 접속 구성 |
 | 이진욱 | 서버 / 가상화 | Linux 기본 설정, Docker 설치, Custom WordPress / MariaDB 컨테이너 구성 |
@@ -114,7 +114,7 @@ Monitoring Node
 본 프로젝트는 Docker Hub 공식 WordPress 이미지를 기반으로 커스텀 이미지를 생성하고, MariaDB와 함께 Docker Compose로 배포한다.
 
 | Component | Description |
-|---|---|
+|------|-----|
 | Custom WordPress Image | Docker Hub 공식 WordPress 이미지를 기반으로 생성한 커스텀 이미지 |
 | MariaDB Container | WordPress 데이터 저장을 위한 DB 컨테이너 |
 | Docker Compose | WordPress와 MariaDB를 함께 배포하기 위한 서비스 정의 |
