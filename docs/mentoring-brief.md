@@ -166,7 +166,7 @@ DB Node
 Backup / Validation Node
 → Cinder Volume attach
 → /backup mount
-→ mysqldump 기반 mysqldump 기반 MariaDB dump 및 WordPress files backup 저장
+→ mysqldump 기반  MariaDB dump 및 WordPress files backup 저장
 ~~~
 
 MariaDB 원본 데이터를 Cinder Volume에 직접 올리는 방식은 Docker Volume 경로, DB 권한, mount 안정성, 장애 시 복구 절차가 복잡해질 수 있으므로 이번 범위에서는 제외하려고 한다.
