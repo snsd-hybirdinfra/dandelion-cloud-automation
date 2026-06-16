@@ -1,104 +1,103 @@
-﻿# Project Status
+# Project Status
 
-Last Updated: 2026-06-16 08:35:51
+Last Updated: 2026-06-16 08:38:57
 
-## 1. ?대떦?먮퀎 吏꾪뻾 ?곹깭
+## 1. 담당자별 진행 상태
 
-| ?곸뿭 | ?대떦??| ?꾨즺 | ?꾩껜 | 吏꾪뻾瑜?| ?곹깭 |
+| 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | ?뺤＜??| 12 | 12 | 100% | ???꾨즺 |
-| Cloud Infrastructure | 諛깆꽌鍮?| 1 | 5 | 20% | ?윞 吏꾪뻾 以?|
-| Server / Virtualization | ?댁쭊??| 1 | 5 | 20% | ?윞 吏꾪뻾 以?|
-| Ansible Automation | 議곕???| 1 | 9 | 11% | ?윞 吏꾪뻾 以?|
-| Monitoring / Backup / Validation | 諛뺤옱??| 0 | 9 | 0% | ??誘몄갑??|
-| Submission Package | ?뺤＜??| 5 | 11 | 45% | ?윞 吏꾪뻾 以?|
+| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
+| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | 🟡 진행 중 |
+| Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
+| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
 
-## 2. ?꾩껜 吏꾪뻾瑜?
+## 2. 전체 진행률
 
-| ?꾨즺 | ?꾩껜 | 吏꾪뻾瑜?|
+| 완료 | 전체 | 진행률 |
 |---:|---:|---:|
 | 20 | 51 | 39% |
 
-## 3. ?곸꽭 ?뚯씪 ?곹깭
+## 3. 상세 파일 상태
 
-## PM / Architecture - ?뺤＜??
+## PM / Architecture - 정주헌
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| README.md | ???꾨즺 |
-| docs/architecture.md | ???꾨즺 |
-| docs/team-task-guide.md | ???꾨즺 |
-| docs/pre-run-checklist.md | ???꾨즺 |
-| docs/troubleshooting.md | ???꾨즺 |
-| docs/runbook.md | ???꾨즺 |
-| docs/final-deliverables.md | ???꾨즺 |
-| docs/review-checklist.md | ???꾨즺 |
-| docs/scope-control.md | ???꾨즺 |
-| docs/mentoring-brief.md | ???꾨즺 |
-| docs/mentoring-questions.md | ???꾨즺 |
-| presentation/presentation-outline.md | ???꾨즺 |
+| README.md | ✅ 완료 |
+| docs/architecture.md | ✅ 완료 |
+| docs/team-task-guide.md | ✅ 완료 |
+| docs/pre-run-checklist.md | ✅ 완료 |
+| docs/troubleshooting.md | ✅ 완료 |
+| docs/runbook.md | ✅ 완료 |
+| docs/final-deliverables.md | ✅ 완료 |
+| docs/review-checklist.md | ✅ 완료 |
+| docs/scope-control.md | ✅ 완료 |
+| docs/mentoring-brief.md | ✅ 완료 |
+| docs/mentoring-questions.md | ✅ 완료 |
+| presentation/presentation-outline.md | ✅ 완료 |
 
-## Cloud Infrastructure - 諛깆꽌鍮?
+## Cloud Infrastructure - 백서빈
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| docs/network-design.md | ???꾨즺 |
-| screenshots/cloud-infra/instance-list.png | ??誘몄셿猷?|
-| screenshots/cloud-infra/network-subnet.png | ??誘몄셿猷?|
-| screenshots/cloud-infra/security-group.png | ??誘몄셿猷?|
-| screenshots/cloud-infra/ssh-test.png | ??誘몄셿猷?|
+| docs/network-design.md | ✅ 완료 |
+| screenshots/cloud-infra/instance-list.png | ❌ 미완료 |
+| screenshots/cloud-infra/network-subnet.png | ❌ 미완료 |
+| screenshots/cloud-infra/security-group.png | ❌ 미완료 |
+| screenshots/cloud-infra/ssh-test.png | ❌ 미완료 |
 
-## Server / Virtualization - ?댁쭊??
+## Server / Virtualization - 이진욱
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| docs/server-setup.md | ???꾨즺 |
-| screenshots/server/os-info.png | ??誘몄셿猷?|
-| screenshots/server/docker-status.png | ??誘몄셿猷?|
-| screenshots/server/docker-ps.png | ??誘몄셿猷?|
-| screenshots/server/curl-result.png | ??誘몄셿猷?|
+| docs/server-setup.md | ✅ 완료 |
+| screenshots/server/os-info.png | ❌ 미완료 |
+| screenshots/server/docker-status.png | ❌ 미완료 |
+| screenshots/server/docker-ps.png | ❌ 미완료 |
+| screenshots/server/curl-result.png | ❌ 미완료 |
 
-## Ansible Automation - 議곕???
+## Ansible Automation - 조민석
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| ansible/ansible.cfg | ?윞 ?묒꽦 ?꾩슂 |
-| ansible/inventory.ini | ?윞 ?묒꽦 ?꾩슂 |
-| ansible/site.yml | ?윞 ?묒꽦 ?꾩슂 |
-| docs/ansible-automation.md | ???꾨즺 |
-| screenshots/ansible/ansible-version.png | ??誘몄셿猷?|
-| screenshots/ansible/inventory.png | ??誘몄셿猷?|
-| screenshots/ansible/ping-test.png | ??誘몄셿猷?|
-| screenshots/ansible/playbook-result.png | ??誘몄셿猷?|
-| screenshots/ansible/wordpress-deploy-result.png | ??誘몄셿猷?|
+| ansible/ansible.cfg | 🟡 작성 필요 |
+| ansible/inventory.ini | 🟡 작성 필요 |
+| ansible/site.yml | 🟡 작성 필요 |
+| docs/ansible-automation.md | ✅ 완료 |
+| screenshots/ansible/ansible-version.png | ❌ 미완료 |
+| screenshots/ansible/inventory.png | ❌ 미완료 |
+| screenshots/ansible/ping-test.png | ❌ 미완료 |
+| screenshots/ansible/playbook-result.png | ❌ 미완료 |
+| screenshots/ansible/wordpress-deploy-result.png | ❌ 미완료 |
 
-## Monitoring / Backup / Validation - 諛뺤옱??
+## Monitoring / Backup / Validation - 박재우
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| scripts/health_check.sh | ?윞 ?묒꽦 ?꾩슂 |
-| scripts/backup.sh | ?윞 ?묒꽦 ?꾩슂 |
-| scripts/restore.md | ?윞 ?묒꽦 ?꾩슂 |
-| docs/validation-report.md | ?윞 ?묒꽦 ?꾩슂 |
-| screenshots/validation/health-check.png | ??誘몄셿猷?|
-| screenshots/validation/docker-status.png | ??誘몄셿猷?|
-| screenshots/validation/http-check.png | ??誘몄셿猷?|
-| screenshots/validation/backup-created.png | ??誘몄셿猷?|
-| screenshots/validation/recovery-result.png | ??誘몄셿猷?|
+| scripts/health_check.sh | 🟡 작성 필요 |
+| scripts/backup.sh | 🟡 작성 필요 |
+| scripts/restore.md | 🟡 작성 필요 |
+| docs/validation-report.md | 🟡 작성 필요 |
+| screenshots/validation/health-check.png | ❌ 미완료 |
+| screenshots/validation/docker-status.png | ❌ 미완료 |
+| screenshots/validation/http-check.png | ❌ 미완료 |
+| screenshots/validation/backup-created.png | ❌ 미완료 |
+| screenshots/validation/recovery-result.png | ❌ 미완료 |
 
-## Submission Package - ?뺤＜??
+## Submission Package - 정주헌
 
-| ?뚯씪 | ?곹깭 |
+| 파일 | 상태 |
 |---|---|
-| docs/submission-package.md | ???꾨즺 |
-| presentation/presentation-outline.md | ???꾨즺 |
-| submission/result-report-lms.md | ?윞 ?묒꽦 ?꾩슂 |
-| submission/demo-video.md | ?윞 ?묒꽦 ?꾩슂 |
-| submission/source-code-zip.md | ?윞 ?묒꽦 ?꾩슂 |
-| submission/github-url.txt | ?윞 ?묒꽦 ?꾩슂 |
-| submission/work-logs/work-log-2026-06-11.md | ???꾨즺 |
-| submission/work-logs/work-log-2026-06-12.md | ?윞 ?묒꽦 ?꾩슂 |
-| submission/meeting-notes/meeting-notes-2026-06-11.md | ???꾨즺 |
-| submission/meeting-notes/meeting-notes-2026-06-12.md | ?윞 ?묒꽦 ?꾩슂 |
-| submission/google-drive-upload.md | ???꾨즺 |
-
+| docs/submission-package.md | ✅ 완료 |
+| presentation/presentation-outline.md | ✅ 완료 |
+| submission/result-report-lms.md | 🟡 작성 필요 |
+| submission/demo-video.md | 🟡 작성 필요 |
+| submission/source-code-zip.md | 🟡 작성 필요 |
+| submission/github-url.txt | 🟡 작성 필요 |
+| submission/work-logs/work-log-2026-06-11.md | ✅ 완료 |
+| submission/work-logs/work-log-2026-06-12.md | 🟡 작성 필요 |
+| submission/meeting-notes/meeting-notes-2026-06-11.md | ✅ 완료 |
+| submission/meeting-notes/meeting-notes-2026-06-12.md | 🟡 작성 필요 |
+| submission/google-drive-upload.md | ✅ 완료 |
