@@ -27,7 +27,7 @@ DB Node
 Backup / Validation Node
 → health_check.sh 배치
 → backup.sh 배치
-→ mysqldump 기반 백업 준비
+→ MariaDB dump 백업 준비
 ~~~
 
 ---
@@ -524,7 +524,7 @@ Phase 1에서 필수로 확인할 항목:
 | 항목 | 기준 |
 |---|---|
 | health_check.sh | Proxy / Web / DB 상태 확인 |
-| backup.sh | mysqldump 기반 MariaDB dump 및 WordPress files archive 생성 |
+| backup.sh | MariaDB dump 및 WordPress files archive 생성 |
 | restore.md | 복구 절차 문서화 및 검증 |
 
 backup.sh는 DB Node의 MariaDB 서비스에 접속하여 mysqldump를 수행해야 한다.
@@ -669,3 +669,4 @@ Phase 3에서는 Web Node 2대와 HAProxy Load Balancing을 자동화 확장 대
 
 ../screenshots/ansible/wordpress-deploy-result.png 이미지가 아직 업로드되지 않았다.
 <!-- AUTO_IMAGES_END -->
+

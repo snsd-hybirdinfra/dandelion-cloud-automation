@@ -188,7 +188,7 @@ Client
 → Backup / Validation Node
    ├── health_check.sh
    ├── backup.sh
-   ├── mysqldump 기반 mysqldump 기반 MariaDB dump
+   ├── MariaDB dump
    ├── WordPress files archive
    └── restore.md 검증
 
@@ -378,7 +378,7 @@ Phase 1 검증에서는 OpenStack 인스턴스 상태, SSH 접속, Ansible ping,
 | 항목 | 내용 |
 |---|---|
 | Health Check | Proxy / Web / DB 상태 확인 |
-| DB Backup | mysqldump 기반 mysqldump 기반 MariaDB dump 생성 |
+| DB Backup | MariaDB dump 생성 |
 | Files Backup | WordPress files archive 생성 |
 | Restore | restore.md 기반 복구 절차 검증 |
 | Evidence | 실행 결과 캡처 및 문서화 |
@@ -386,7 +386,7 @@ Phase 1 검증에서는 OpenStack 인스턴스 상태, SSH 접속, Ansible ping,
 ## 발표 멘트
 
 ~~~text
-서비스 실행 이후에는 health_check.sh로 Proxy, Web, DB 상태를 점검하고, backup.sh를 통해 mysqldump 기반 mysqldump 기반 MariaDB dump와 WordPress files archive를 생성했습니다. 복구는 restore.md 기준으로 절차를 검증했습니다.
+서비스 실행 이후에는 health_check.sh로 Proxy, Web, DB 상태를 점검하고, backup.sh를 통해 MariaDB dump와 WordPress files archive를 생성했습니다. 복구는 restore.md 기준으로 절차를 검증했습니다.
 ~~~
 
 ---
@@ -526,7 +526,7 @@ Phase 3는 도전 확장으로 Web Node를 2대로 늘리고 HAProxy roundrobin 
 | 자동화 | Ansible 기반 서버 설정 및 서비스 배포 |
 | 서비스 | HAProxy / WordPress / MariaDB 구성 |
 | 검증 | Proxy 접속, DB 연결, Health Check |
-| 백업 | mysqldump 기반 mysqldump 기반 MariaDB dump, WordPress files archive |
+| 백업 | MariaDB dump, WordPress files archive |
 | 복구 | restore.md 기반 절차 검증 |
 | 운영 | 장애 대응 및 트러블슈팅 문서화 |
 | 관리 | GitHub 및 Google Drive 산출물 관리 |
@@ -615,6 +615,7 @@ Proxy, Web, DB, Backup 계층을 분리하고,
 서비스 배포 이후 상태 점검, 백업, 복구 절차까지 검증함으로써
 기본 클라우드 인프라 운영 자동화의 전체 흐름을 완성했습니다.
 ~~~
+
 
 
 

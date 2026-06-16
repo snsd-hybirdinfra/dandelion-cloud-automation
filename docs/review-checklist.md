@@ -214,7 +214,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|
 | [ ] | health_check.sh | 실행 결과 확보 |
 | [ ] | backup.sh | 실행 결과 확보 |
-| [ ] | mysqldump 기반 mysqldump 기반 MariaDB dump | wordpress_db.sql 생성 |
+| [ ] | MariaDB dump | wordpress_db.sql 생성 |
 | [ ] | WordPress files archive | wordpress_files.tar.gz 생성 |
 | [ ] | Backup file size | 0 byte 아님 |
 | [ ] | Backup path | backup/ 또는 /backup 경로 정리 |
@@ -388,5 +388,6 @@ Health Check, Backup, Restore, Troubleshooting 증거가 모두 확보되어야 
 
 Phase 2와 Phase 3은 추가 완성도를 보여주는 선택 산출물로 검수한다.
 ~~~
+
 
 

@@ -75,7 +75,7 @@ Client
 → Backup / Validation Node
    ├── health_check.sh
    ├── backup.sh
-   ├── mysqldump 기반 mysqldump 기반 MariaDB dump
+   ├── MariaDB dump
    ├── WordPress files archive
    └── restore.md 검증
 
@@ -177,7 +177,7 @@ Phase 1은 단일 Web/DB 통합 구조가 아니라, Proxy 계층, Web 계층, D
 | 연결 | Web Node WordPress가 DB Node MariaDB에 연결 |
 | 접속 검증 | Proxy Node 경유 WordPress HTTP 응답 확인 |
 | 상태 점검 | health_check.sh 실행 결과 확보 |
-| 백업 | mysqldump 기반 mysqldump 기반 MariaDB dump 및 WordPress files archive 생성 |
+| 백업 | MariaDB dump 및 WordPress files archive 생성 |
 | 복구 | restore.md 기반 복구 절차 검증 |
 | 장애 대응 | 최소 장애 상황 1개와 복구 절차 정리 |
 | 문서 | 필수 문서, 캡처, 회의록, 작업일지 정리 |
@@ -200,7 +200,7 @@ Phase 1은 단일 Web/DB 통합 구조가 아니라, Proxy 계층, Web 계층, D
 | HTTP 검증 | Proxy Node 경유 WordPress 접속 |
 | 포트 검증 | ss -tulnp 또는 포트 확인 결과 |
 | 상태 점검 | health_check.sh 실행 결과 |
-| 백업 | mysqldump 기반 mysqldump 기반 MariaDB dump, WordPress files archive |
+| 백업 | MariaDB dump, WordPress files archive |
 | 복구 | restore 절차 검증 결과 |
 | 트러블슈팅 | 장애 상황 및 복구 과정 |
 
@@ -272,7 +272,7 @@ DB Node
 Backup / Validation Node
 → Cinder Volume attach
 → /backup mount
-→ mysqldump 기반 mysqldump 기반 MariaDB dump 및 WordPress files backup 저장
+→ MariaDB dump 및 WordPress files backup 저장
 ~~~
 
 DB Node의 MariaDB 원본 데이터를 Cinder Volume에 직접 올리는 방식은 이번 범위에서 제외한다.
@@ -424,5 +424,6 @@ Phase 2는 Phase 1이 안정화된 이후 추가하는 운영 확장 및 검증 
 Phase 3은 도전 확장 단계이다. Web Node 2대와 HAProxy Load Balancing을 통해 확장성을 검증하되, WordPress files 자동 동기화나 OpenStack LBaaS/Octavia는 제외한다.
 
 Out of Scope 항목은 프로젝트 기간과 팀 구현 안정성을 고려하여 이번 구현 범위에서 제외한다.
+
 
 
