@@ -126,7 +126,7 @@ openstack server list
 | [ ] | Proxy Node | Web Node | 80 | HAProxy backend |
 | [ ] | Web Node | DB Node | 3306 | WordPress DB connection |
 | [ ] | Backup / Validation Node | Web Node | 80 | Health check / file backup |
-| [ ] | Backup / Validation Node | DB Node | 3306 | mysqldump 기반 MariaDB dump |
+| [ ] | Backup / Validation Node | DB Node | 3306 | mysqldump 기반 mysqldump 기반 MariaDB dump |
 | [ ] | Backup / Validation Node | Proxy Node | 80 | Proxy health check |
 
 DB Node의 3306 포트는 전체 공개하지 않는다.
@@ -224,8 +224,8 @@ DB Node는 MariaDB 서비스를 실행한다.
 
 | 체크 | 항목 | 확인 기준 |
 |---|---|---|
-| [ ] | DB compose 파일 준비 | docker/compose/db/docker-compose.yml 존재 |
-| [ ] | MariaDB 이미지 기준 | mariadb:10.11 |
+| [ ] | MariaDB service configuration 파일 준비 | DB Node MariaDB package configuration/docker-compose.yml 존재 |
+| [ ] | MariaDB 이미지 기준 | mariadb-server package |
 | [ ] | DB 이름 확인 | wordpress |
 | [ ] | DB 사용자 확인 | wordpress |
 | [ ] | DB 비밀번호 확인 | 공개 문서에 실제 비밀번호 노출 금지 |
@@ -325,7 +325,7 @@ bash scripts/backup.sh
 | [ ] | Control Node에서 SSH 접속 확인 |
 | [ ] | ansible all -m ping 성공 |
 | [ ] | site.yml syntax check 통과 |
-| [ ] | DB Node MariaDB compose 준비 |
+| [ ] | DB Node MariaMariaDB service configuration 준비 |
 | [ ] | Web Node WordPress compose 준비 |
 | [ ] | Proxy Node HAProxy compose 준비 |
 | [ ] | health_check.sh 준비 |
@@ -441,4 +441,5 @@ Phase 1이 안정화되기 전에는 HTTPS, Cinder, Prometheus/Grafana, Web Node
 
 최종 발표는 Phase 1 필수 구성과 검증 결과만으로도 성립해야 한다.
 ~~~
+
 

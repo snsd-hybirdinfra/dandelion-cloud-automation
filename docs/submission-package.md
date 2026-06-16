@@ -146,7 +146,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|---|
 | [ ] | health_check.sh 실행 결과 | Proxy / Web / DB 상태 확인 |
 | [ ] | backup.sh 실행 결과 | DB dump 및 WordPress files archive 생성 |
-| [ ] | mysqldump 기반 MariaDB dump 파일 | wordpress_db.sql |
+| [ ] | mysqldump 기반 mysqldump 기반 MariaDB dump 파일 | wordpress_db.sql |
 | [ ] | WordPress files archive | wordpress_files.tar.gz |
 | [ ] | restore.md | DB / files 복구 절차 정리 |
 | [ ] | Restore 검증 결과 | 절차 검증 또는 테스트 결과 |
@@ -325,10 +325,11 @@ git status
 최종 제출 패키지는 Phase 1 필수 운영 흐름의 완성도와 검증 증거를 중심으로 구성한다.
 
 OpenStack 인프라 구성, Ansible 자동화, Proxy/Web/DB/Backup Node 분리,
-HAProxy/WordPress/MariaDB 설치 및 구성, Proxy 경유 접속,
+HAProxy/WordPress와 MariaDB 설치 및 구성, Proxy 경유 접속,
 Health Check, Backup, Restore, Troubleshooting 자료가 모두 연결되어야 한다.
 
 Phase 2와 Phase 3은 추가 확장 결과로 제출하며,
 필수 제출 범위는 Phase 1 기준으로 완성한다.
 ~~~
+
 

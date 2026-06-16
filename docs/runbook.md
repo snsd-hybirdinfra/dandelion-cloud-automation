@@ -499,7 +499,7 @@ find backup/ -type f -name "*.tar.gz"
 
 | 항목 | 기준 |
 |---|---|
-| DB Restore | mysqldump 기반 MariaDB dump import 절차 존재 |
+| DB Restore | mysqldump 기반 mysqldump 기반 MariaDB dump import 절차 존재 |
 | Files Restore | WordPress files archive 복원 절차 존재 |
 | 주의사항 | 기존 데이터 덮어쓰기 위험 명시 |
 | 검증 결과 | 복구 절차 검토 또는 테스트 결과 기록 |
@@ -707,4 +707,5 @@ Proxy Node 경유 WordPress 접속, DB 연결, Health Check, Backup, Restore 순
 Phase 1 결과만으로도 최종 발표가 가능하도록 구성하고,
 Phase 2와 Phase 3은 시간이 남을 경우에만 확장한다.
 ~~~
+
 

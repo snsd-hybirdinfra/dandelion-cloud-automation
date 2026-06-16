@@ -184,7 +184,7 @@ External Client
 | Proxy Node | Web Node | 80 | TCP | HAProxy backend |
 | Web Node | DB Node | 3306 | TCP | WordPress MariaDB connection |
 | Backup / Validation Node | Web Node | 80 | TCP | Health check / file backup |
-| Backup / Validation Node | DB Node | 3306 | TCP | mysqldump 기반 MariaDB dump |
+| Backup / Validation Node | DB Node | 3306 | TCP | mysqldump 기반 mysqldump 기반 MariaDB dump |
 | Backup / Validation Node | Proxy Node | 80 | TCP | Proxy health check |
 
 ---
@@ -253,7 +253,7 @@ Phase 3에서 Web Node 2대를 구성할 경우, Proxy Node가 Web Node 1과 Web
 | Direction | Source | Port | Purpose |
 |---|---|---:|---|
 | Inbound | Web Node | 3306 | WordPress DB connection |
-| Inbound | Backup / Validation Node | 3306 | mysqldump 기반 MariaDB dump |
+| Inbound | Backup / Validation Node | 3306 | mysqldump 기반 mysqldump 기반 MariaDB dump |
 | Inbound | Control Node | 22 | SSH / Ansible |
 | Outbound | Internal Network | Any required | Package update / response traffic |
 
@@ -267,7 +267,7 @@ DB Node의 3306 포트는 전체 공개하지 않는다.
 |---|---|---:|---|
 | Inbound | Control Node | 22 | SSH / Ansible |
 | Outbound | Web Node | 80 | Health check / file backup |
-| Outbound | DB Node | 3306 | mysqldump 기반 MariaDB dump |
+| Outbound | DB Node | 3306 | mysqldump 기반 mysqldump 기반 MariaDB dump |
 | Outbound | Proxy Node | 80 | Proxy health check |
 
 ---
@@ -457,3 +457,4 @@ DB Node는 외부에 직접 노출하지 않으며,
 
 ../screenshots/cloud-infra/ssh-test.png 이미지가 아직 업로드되지 않았다.
 <!-- AUTO_IMAGES_END -->
+

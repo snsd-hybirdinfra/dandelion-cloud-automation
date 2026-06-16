@@ -67,7 +67,7 @@ Nginx
 nginx
 web-test
 docker run 기반 단순 배포
-단일 서버 WordPress/MariaDB 통합 구조
+단일 서버 WordPress와 MariaDB 통합 구조
 OpenStack LBaaS 필수 구현
 Octavia 필수 구현
 Kubernetes 필수 구현
@@ -187,7 +187,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 | [ ] | Playbook 실행 | ansible-playbook site.yml | 실패 없음 |
 | [ ] | Proxy 배포 | ansible proxy -a "docker ps" | HAProxy running |
 | [ ] | Web 배포 | ansible web -a "docker ps" | WordPress running |
-| [ ] | DB 배포 | ansible db -a "docker ps" | MariaDB running |
+| [ ] | DB 배포 | ansible db -a "systemctl status mariadb running |
 
 ---
 
@@ -214,7 +214,7 @@ Phase 1은 최종 제출의 핵심 기준이다.
 |---|---|
 | [ ] | health_check.sh | 실행 결과 확보 |
 | [ ] | backup.sh | 실행 결과 확보 |
-| [ ] | mysqldump 기반 MariaDB dump | wordpress_db.sql 생성 |
+| [ ] | mysqldump 기반 mysqldump 기반 MariaDB dump | wordpress_db.sql 생성 |
 | [ ] | WordPress files archive | wordpress_files.tar.gz 생성 |
 | [ ] | Backup file size | 0 byte 아님 |
 | [ ] | Backup path | backup/ 또는 /backup 경로 정리 |
@@ -285,7 +285,7 @@ Auto Scaling
 | [ ] | docs/ | 주요 문서 존재 |
 | [ ] | ansible/ | ansible.cfg, inventory.ini, site.yml 존재 |
 | [ ] | docker/wordpress/ | Dockerfile, custom.ini 존재 |
-| [ ] | docker/compose/ | Web / DB compose 파일 존재 |
+| [ ] | docker/compose/ | Web / MariaDB service configuration 파일 존재 |
 | [ ] | docker/proxy/ | HAProxy compose 및 haproxy.cfg 존재 |
 | [ ] | scripts/ | health_check.sh, backup.sh 존재 |
 | [ ] | screenshots/ | 검증 캡처 정리 |
@@ -383,9 +383,10 @@ git status
 최종 검수의 핵심은 기능 개수보다 Phase 1 필수 운영 흐름의 완성도이다.
 
 OpenStack 인프라 구성, Ansible 자동화, Proxy/Web/DB/Backup Node 분리,
-WordPress/MariaDB/HAProxy 실행, Proxy 경유 접속,
+WordPress와 MariaDB/HAProxy 실행, Proxy 경유 접속,
 Health Check, Backup, Restore, Troubleshooting 증거가 모두 확보되어야 한다.
 
 Phase 2와 Phase 3은 추가 완성도를 보여주는 선택 산출물로 검수한다.
 ~~~
+
 
