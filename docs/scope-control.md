@@ -81,7 +81,7 @@ Client
 → Backup / Validation Node
    ├── health_check.sh
    ├── backup.sh
-   ├── mysqldump 기반 mysqldump 기반 MariaDB dump
+   ├── mysqldump 기반 MariaDB dump
    ├── WordPress files archive
    └── restore.md 검증
 
