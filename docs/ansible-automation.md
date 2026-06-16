@@ -643,3 +643,29 @@ Phase 2에서는 backup/restore playbook화와 roles 구조 분리를 통해 자
 
 Phase 3에서는 Web Node 2대와 HAProxy Load Balancing을 자동화 확장 대상으로 검토한다.
 ~~~
+
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
+
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
+
+### Ansible Version
+
+../screenshots/ansible/ansible-version.png 이미지가 아직 업로드되지 않았다.
+
+### Inventory Configuration
+
+../screenshots/ansible/inventory.png 이미지가 아직 업로드되지 않았다.
+
+### Ping Test Result
+
+../screenshots/ansible/ping-test.png 이미지가 아직 업로드되지 않았다.
+
+### Playbook Execution Result
+
+../screenshots/ansible/playbook-result.png 이미지가 아직 업로드되지 않았다.
+
+### WordPress/MariaDB Deployment Result
+
+../screenshots/ansible/wordpress-deploy-result.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->
