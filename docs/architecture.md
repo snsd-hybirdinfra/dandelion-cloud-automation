@@ -268,7 +268,7 @@ Backup / Validation Node는 상태 점검, 백업, 복구 검증을 담당한다
 | Proxy Node | Web Node | 80 | HAProxy backend |
 | Web Node | DB Node | 3306 | WordPress database connection |
 | Backup / Validation Node | Web Node | 80 | Health check / file backup |
-| Backup / Validation Node | DB Node | 3306 | mysqldump 기반 mysqldump 기반 MariaDB dump |
+| Backup / Validation Node | DB Node | 3306 | mysqldump 기반 MariaDB dump |
 | Admin / Control | Monitoring Node | 9090 / 3000 | Phase 2 monitoring access |
 
 ---
