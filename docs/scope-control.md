@@ -121,7 +121,7 @@ Control Node
 | 검증 | Web Node에서 DB Node MariaDB 연결 확인 |
 | 상태 점검 | health_check.sh 실행 |
 | 백업 | backup.sh 실행 |
-| 백업 | DB Node mysqldump 기반 mysqldump 기반 MariaDB dump 파일 생성 |
+| 백업 | DB Node mysqldump 기반 MariaDB dump 파일 생성 |
 | 백업 | Web Node WordPress files archive 생성 |
 | 복구 | restore.md 기반 복구 절차 정리 |
 | 복구 | Restore 절차 검증 |
