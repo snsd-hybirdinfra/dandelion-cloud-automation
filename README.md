@@ -347,7 +347,7 @@ GitHub 기반 산출물 관리까지 하나의 인프라 운영 자동화 흐름
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 17 | 51 | 33% |
+| 16 | 51 | 31% |
 
 ## 담당자별 진행 상태
 
@@ -358,7 +358,7 @@ GitHub 기반 산출물 관리까지 하나의 인프라 운영 자동화 흐름
 | Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
 | Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
