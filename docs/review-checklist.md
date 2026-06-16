@@ -1,270 +1,390 @@
 ﻿<!-- STATUS: COMPLETE -->
+
 # Review Checklist
 
-## 1. 목적
+## 1. 문서 목적
 
-이 문서는 팀원들이 GitHub에 업로드한 문서, 설정 파일, 스크립트, 캡처 자료를 검수하기 위한 기준이다.
+본 문서는 Team Dandelion 프로젝트의 최종 제출 전 검수 기준을 정의한다.
 
-정주헌은 PM / 아키텍처 담당으로서 각 담당자의 결과물이 전체 프로젝트 흐름에 맞게 정리되었는지 확인한다.
-
----
-
-## 2. 전체 검수 흐름
+본 프로젝트는 Phase 기반 구현 로드맵을 사용한다.
 
 ~~~text
-GitHub 최신화 확인
-→ 담당자별 파일 확인
-→ 문서 내용 확인
-→ 설정 파일 확인
-→ 캡처 파일 확인
-→ 실행 결과 확인
-→ README / 발표자료 반영
+Phase 1: 필수 구성 및 기본 검증 단계
+Phase 2: 운영 확장 및 검증 고도화 단계
+Phase 3: 도전 확장 단계
+Out of Scope: 제외 범위
 ~~~
+
+최종 검수의 목적은 Phase 1 필수 구성과 검증 산출물이 누락되지 않았는지 확인하고, 문서 전체의 용어, 구조, 범위, 산출물 기준이 일관되게 정리되었는지 확인하는 것이다.
 
 ---
 
-## 3. 공통 검수 기준
+## 2. 최종 검수 원칙
 
-| 검수 항목 | 기준 | 상태 |
+최종 제출 전에는 다음 기준을 우선 확인한다.
+
+~~~text
+1. Phase 1 필수 구성 완료 여부
+2. 필수 캡처 확보 여부
+3. Ansible / Docker / Proxy / Web / DB / Backup 흐름 검증 여부
+4. Backup / Restore 절차 검증 여부
+5. 문서 내 오래된 용어 제거 여부
+6. Out of Scope 항목 명확화 여부
+7. GitHub Repository와 Google Drive 제출자료 일치 여부
+~~~
+
+Phase 2와 Phase 3은 선택 또는 도전 확장 항목이므로, Phase 1 필수 검증이 완료된 이후에만 최종 산출물에 포함한다.
+
+---
+
+## 3. 용어 검수
+
+| 체크 | 검수 항목 | 기준 |
 |---|---|---|
-| 담당 파일 위치가 맞는가 | 지정된 docs, ansible, scripts, screenshots 폴더 사용 | TBD |
-| 문서가 비어 있지 않은가 | TBD 또는 빈 항목 최소화 | TBD |
-| 명령어가 포함되어 있는가 | 사용한 명령어 기록 | TBD |
-| 실행 결과가 포함되어 있는가 | 성공 결과 또는 캡처 포함 | TBD |
-| 캡처 파일명이 맞는가 | 지정된 파일명 기준 | TBD |
-| 민감정보가 없는가 | SSH Key, 비밀번호, pem 파일 제외 | TBD |
-| 발표에 쓸 수 있는가 | 설명 가능한 결과물인지 확인 | TBD |
+| [ ] | Phase 1 용어 사용 | 필수 구성 및 기본 검증 단계 |
+| [ ] | Phase 2 용어 사용 | 운영 확장 및 검증 고도화 단계 |
+| [ ] | Phase 3 용어 사용 | 도전 확장 단계 |
+| [ ] | Out of Scope 용어 사용 | 제외 범위 |
+| [ ] | 오래된 등급 표현 제거 | A급 / B급 / B+ / C급 표현 제거 |
+| [ ] | 서비스 명칭 통일 | WordPress / MariaDB / HAProxy |
+| [ ] | 노드 명칭 통일 | Control / Proxy / Web / DB / Backup Node |
+| [ ] | WordPress 역할 명확화 | 웹 개발 대상이 아니라 운영 서비스 대상 |
+| [ ] | Cinder 역할 명확화 | DB 원본 저장소가 아니라 Backup Volume |
+| [ ] | LB 역할 명확화 | Phase 1은 Reverse Proxy, Phase 3는 Load Balancing |
 
 ---
 
-## 4. 백서빈 - Cloud Infrastructure 검수
+## 4. 금지 표현 검수
 
-### 대상 파일
+문서 전체에서 다음 표현이 남아 있지 않은지 확인한다.
 
 ~~~text
-docs/network-design.md
-screenshots/cloud-infra/
+A급
+B급
+B+
+C급
+Nginx
+nginx
+web-test
+docker run 기반 단순 배포
+단일 서버 WordPress/MariaDB 통합 구조
+OpenStack LBaaS 필수 구현
+Octavia 필수 구현
+Kubernetes 필수 구현
+Docker Swarm 필수 구현
 ~~~
 
-### 검수 항목
+검수 명령어:
 
-| 항목 | 확인 기준 | 상태 |
+~~~powershell
+Select-String -Path README.md, docs\*.md, presentation\*.md -Pattern "A급|B급|B\+|C급|Nginx|nginx|web-test|docker run"
+~~~
+
+---
+
+## 5. Phase 1 구성 검수
+
+Phase 1은 최종 제출의 핵심 기준이다.
+
+| 체크 | 검수 항목 | 완료 기준 |
 |---|---|---|
-| 클라우드 플랫폼 명시 | OpenStack, AWS 등 사용 환경 작성 | TBD |
-| 리전 / 존 작성 | 사용 위치 또는 Zone 작성 | TBD |
-| 서버 목록 작성 | control-node, web-node, backup-node | TBD |
-| IP 정보 작성 | Public IP / Private IP 구분 | TBD |
-| 네트워크 구성 작성 | Subnet, Router, Security Group 등 | TBD |
-| 보안그룹 정책 작성 | 22, 80 포트 기준 | TBD |
-| SSH 접속 결과 | 접속 성공 캡처 포함 | TBD |
-| 캡처 파일 위치 | screenshots/cloud-infra/ | TBD |
-
-### 확인할 캡처
-
-~~~text
-screenshots/cloud-infra/instance-list.png
-screenshots/cloud-infra/network-subnet.png
-screenshots/cloud-infra/security-group.png
-screenshots/cloud-infra/ssh-test.png
-~~~
+| [ ] | OpenStack 인프라 구성 | 인스턴스 / 네트워크 / 라우터 / 서브넷 확인 |
+| [ ] | Ubuntu 인스턴스 생성 | 필요한 노드 ACTIVE |
+| [ ] | Control Node 구성 | Ansible 실행 가능 |
+| [ ] | Proxy Node 구성 | HAProxy HTTP Reverse Proxy 실행 |
+| [ ] | Web Node 구성 | Custom WordPress 컨테이너 실행 |
+| [ ] | DB Node 구성 | MariaDB 컨테이너 실행 |
+| [ ] | Backup / Validation Node 구성 | health_check / backup / restore 검증 가능 |
+| [ ] | SSH 접속 확인 | Control Node에서 각 노드 접속 |
+| [ ] | Ansible ping 확인 | 모든 Managed Node SUCCESS |
+| [ ] | Playbook 실행 확인 | site.yml 실행 성공 |
+| [ ] | Proxy 접속 확인 | Proxy Node 경유 WordPress HTTP 응답 |
+| [ ] | DB 연결 확인 | Web Node에서 DB Node 3306 연결 |
+| [ ] | Health Check 확인 | health_check.sh 실행 결과 확보 |
+| [ ] | Backup 확인 | backup.sh 실행 결과 확보 |
+| [ ] | Restore 확인 | restore.md 기반 복구 절차 검증 |
+| [ ] | 장애 상황 정리 | 최소 1개 이상 장애 및 복구 기록 |
 
 ---
 
-## 5. 이진욱 - Server / Virtualization 검수
+## 6. Phase 1 캡처 검수
 
-### 대상 파일
-
-~~~text
-docs/server-setup.md
-screenshots/server/
-~~~
-
-### 검수 항목
-
-| 항목 | 확인 기준 | 상태 |
+| 체크 | 캡처 영역 | 필수 캡처 |
 |---|---|---|
-| OS 정보 작성 | cat /etc/os-release 결과 | TBD |
-| Kernel 정보 작성 | uname -r 결과 | TBD |
-| 사용자 계정 작성 | whoami 결과 | TBD |
-| 기본 패키지 설치 기록 | apt install 명령어 포함 | TBD |
-| Docker 설치 기록 | docker.io 또는 Docker CE 설치 결과 | TBD |
-| Docker 서비스 상태 | active 상태 확인 | TBD |
-| Custom WordPress 및 MariaDB 컨테이너 실행 | docker ps 결과 | TBD |
-| HTTP 접속 확인 | curl 결과 포함 | TBD |
-
-### 확인할 캡처
-
-~~~text
-screenshots/server/os-info.png
-screenshots/server/docker-status.png
-screenshots/server/docker-ps.png
-screenshots/server/curl-result.png
-~~~
+| [ ] | OpenStack | 인스턴스 목록 |
+| [ ] | OpenStack | 네트워크 / 라우터 / 서브넷 |
+| [ ] | OpenStack | 보안그룹 |
+| [ ] | 접속 | Floating IP 또는 포트포워딩 구조 |
+| [ ] | SSH | 각 노드 접속 성공 |
+| [ ] | Ansible | ansible --version |
+| [ ] | Ansible | ansible-inventory --list |
+| [ ] | Ansible | ansible all -m ping |
+| [ ] | Ansible | site.yml syntax check |
+| [ ] | Ansible | site.yml 실행 결과 |
+| [ ] | Docker | docker --version |
+| [ ] | Docker | docker compose version |
+| [ ] | Proxy | HAProxy 컨테이너 running |
+| [ ] | Web | WordPress 컨테이너 running |
+| [ ] | DB | MariaDB 컨테이너 running |
+| [ ] | Port | ss -tulnp |
+| [ ] | HTTP | Proxy Node 경유 WordPress 접속 |
+| [ ] | DB | Web Node → DB Node 3306 연결 |
+| [ ] | Validation | health_check.sh 실행 결과 |
+| [ ] | Backup | backup.sh 실행 결과 |
+| [ ] | Restore | restore.md 또는 복구 검증 결과 |
+| [ ] | Troubleshooting | 장애 상황 및 복구 과정 |
 
 ---
 
-## 6. 조민석 - Ansible Automation 검수
+## 7. 문서 검수
 
-### 대상 파일
+## 7.1 필수 문서 검수
 
-~~~text
-ansible/ansible.cfg
-ansible/inventory.ini
-ansible/site.yml
-docs/ansible-automation.md
-screenshots/ansible/
-~~~
-
-### 검수 항목
-
-| 항목 | 확인 기준 | 상태 |
+| 체크 | 문서 | 검수 기준 |
 |---|---|---|
-| ansible.cfg 존재 | inventory 경로와 privilege 설정 포함 | TBD |
-| inventory.ini 존재 | 실제 IP와 사용자 계정 반영 | TBD |
-| site.yml 존재 | 패키지, Docker, wordpress 자동화 포함 | TBD |
-| Ansible 버전 작성 | ansible --version 결과 | TBD |
-| Python 버전 작성 | python3 --version 결과 | TBD |
-| Ping 테스트 성공 | ansible all -m ping 결과 pong | TBD |
-| Syntax Check 성공 | ansible-playbook --syntax-check site.yml | TBD |
-| Playbook 실행 성공 | failed=0 결과 | TBD |
-| WordPress/MariaDB 자동 배포 확인 | docker ps 또는 curl 결과 | TBD |
-
-### 확인할 캡처
-
-~~~text
-screenshots/ansible/ansible-version.png
-screenshots/ansible/inventory.png
-screenshots/ansible/ping-test.png
-screenshots/ansible/playbook-result.png
-screenshots/ansible/wordpress-deploy-result.png
-~~~
+| [ ] | README.md | 프로젝트 전체 흐름과 Phase 구조 반영 |
+| [ ] | docs/architecture.md | Control / Proxy / Web / DB / Backup 구조 반영 |
+| [ ] | docs/network-design.md | 보안그룹, 포트, 접속 경로 반영 |
+| [ ] | docs/server-setup.md | WordPress / MariaDB / HAProxy 구성 반영 |
+| [ ] | docs/ansible-automation.md | Ansible inventory, site.yml, roles 기준 반영 |
+| [ ] | docs/validation-report.md | Phase 1 검증 기준 반영 |
+| [ ] | docs/team-task-guide.md | 팀원별 역할 및 산출물 기준 반영 |
+| [ ] | docs/pre-run-checklist.md | 실행 전 점검 기준 반영 |
+| [ ] | docs/troubleshooting.md | 장애 대응 기준 반영 |
+| [ ] | docs/runbook.md | 실제 실행 순서 반영 |
+| [ ] | docs/scope-control.md | Phase 기반 범위 통제 반영 |
+| [ ] | docs/implementation-roadmap.md | Phase별 구현 순서 반영 |
+| [ ] | docs/final-deliverables.md | 제출 산출물 기준 반영 |
+| [ ] | docs/review-checklist.md | 최종 검수 기준 반영 |
+| [ ] | presentation/presentation-outline.md | 발표 흐름 반영 |
 
 ---
 
-## 7. 박재우 - Monitoring / Backup / Validation 검수
+## 7.2 문서 품질 검수
 
-### 대상 파일
-
-~~~text
-scripts/health_check.sh
-scripts/backup.sh
-scripts/restore.md
-docs/validation-report.md
-screenshots/validation/
-~~~
-
-### 검수 항목
-
-| 항목 | 확인 기준 | 상태 |
+| 체크 | 검수 항목 | 기준 |
 |---|---|---|
-| health_check.sh 존재 | hostname, uptime, free, df, docker ps, curl 포함 | TBD |
-| backup.sh 존재 | /var/www/html → /backup 백업 | TBD |
-| restore.md 존재 | 장애 생성, 복구, 검증 절차 포함 | TBD |
-| 서버 상태 점검 결과 | CPU/Memory/Disk 확인 | TBD |
-| Docker 상태 확인 | active 상태 | TBD |
-| HTTP 확인 | curl 성공 | TBD |
-| 백업 파일 생성 | /backup에 tar.gz 생성 | TBD |
-| 복구 테스트 성공 | index.html 복구 확인 | TBD |
-| 검증 체크리스트 작성 | validation-report.md 표 작성 | TBD |
-
-### 확인할 캡처
-
-~~~text
-screenshots/validation/health-check.png
-screenshots/validation/docker-status.png
-screenshots/validation/http-check.png
-screenshots/validation/backup-created.png
-screenshots/validation/recovery-result.png
-~~~
+| [ ] | 제목 구조 | Markdown heading 계층 일관 |
+| [ ] | 표 형식 | 깨진 표 없음 |
+| [ ] | 코드블록 | Markdown 코드블록 정상 |
+| [ ] | 링크 | 내부 문서 링크 정상 |
+| [ ] | 용어 | Phase 용어 통일 |
+| [ ] | 범위 | Out of Scope 명확 |
+| [ ] | 검증 | 명령어와 성공 기준 포함 |
+| [ ] | 산출물 | 캡처 경로와 제출 기준 포함 |
+| [ ] | 발표 가능성 | 발표자가 읽고 설명 가능한 수준 |
 
 ---
 
-## 8. 민감정보 검수
+## 8. Ansible 검수
 
-GitHub에 올라가면 안 되는 파일과 정보는 아래와 같다.
+| 체크 | 항목 | 명령어 | 기준 |
+|---|---|---|---|
+| [ ] | Ansible 설치 | ansible --version | 버전 출력 |
+| [ ] | Inventory 확인 | ansible-inventory --list | proxy / web / db / backup 그룹 표시 |
+| [ ] | Ping 확인 | ansible all -m ping | 모든 노드 SUCCESS |
+| [ ] | Syntax Check | ansible-playbook site.yml --syntax-check | 통과 |
+| [ ] | Playbook 실행 | ansible-playbook site.yml | 실패 없음 |
+| [ ] | Proxy 배포 | ansible proxy -a "docker ps" | HAProxy running |
+| [ ] | Web 배포 | ansible web -a "docker ps" | WordPress running |
+| [ ] | DB 배포 | ansible db -a "docker ps" | MariaDB running |
 
-| 금지 항목 | 예시 |
+---
+
+## 9. Docker / Service 검수
+
+| 체크 | 항목 | 기준 |
 |---|---|
-| SSH Private Key | *.pem, *.key, id_rsa |
-| 비밀번호 | password, passwd |
-| 환경변수 파일 | .env |
-| 개인 인증정보 | Access Key, Secret Key |
-| 불필요한 로그 | 대량 로그 파일 |
+| [ ] | Docker 설치 | Proxy / Web / DB Node에서 Docker 확인 |
+| [ ] | Compose 설치 | docker compose version 확인 |
+| [ ] | MariaDB | dandelion-mariadb running |
+| [ ] | WordPress | dandelion-wordpress running |
+| [ ] | HAProxy | dandelion-haproxy running |
+| [ ] | DB Port | DB Node 3306 listening |
+| [ ] | Web Port | Web Node 80 listening |
+| [ ] | Proxy Port | Proxy Node 80 listening |
+| [ ] | DB Connection | Web Node에서 DB Node 3306 연결 |
+| [ ] | HTTP Access | Proxy Node 경유 WordPress 접속 |
 
-확인 명령어:
+---
 
-~~~bash
+## 10. Backup / Restore 검수
+
+| 체크 | 항목 | 기준 |
+|---|---|
+| [ ] | health_check.sh | 실행 결과 확보 |
+| [ ] | backup.sh | 실행 결과 확보 |
+| [ ] | MariaDB dump | wordpress_db.sql 생성 |
+| [ ] | WordPress files archive | wordpress_files.tar.gz 생성 |
+| [ ] | Backup file size | 0 byte 아님 |
+| [ ] | Backup path | backup/ 또는 /backup 경로 정리 |
+| [ ] | restore.md | DB / files 복구 절차 포함 |
+| [ ] | Restore warning | 기존 데이터 덮어쓰기 위험 명시 |
+| [ ] | Restore validation | 복구 검증 결과 기록 |
+
+---
+
+## 11. Phase 2 검수
+
+Phase 2는 선택 산출물이다.
+
+| 체크 | 항목 | 기준 |
+|---|---|
+| [ ] | HTTPS | curl -k 또는 브라우저 접속 확인 |
+| [ ] | Redirect | HTTP 80 → HTTPS 443 확인 |
+| [ ] | Cinder Volume | Volume 생성 및 attach 확인 |
+| [ ] | /backup mount | df -h에서 확인 |
+| [ ] | Cinder Backup | /backup 경로에 백업 결과 저장 |
+| [ ] | node_exporter | metrics 출력 |
+| [ ] | cAdvisor | metrics 출력 |
+| [ ] | Prometheus | Target UP |
+| [ ] | Grafana | Dashboard 화면 |
+| [ ] | backup playbook | ansible-playbook backup.yml 실행 |
+| [ ] | validate playbook | ansible-playbook validate.yml 실행 |
+| [ ] | roles 구조 | ansible/roles 구성 확인 |
+
+Phase 2가 일부 실패해도 Phase 1 산출물이 완성되어 있으면 제출 가능하다.
+
+---
+
+## 12. Phase 3 검수
+
+Phase 3은 도전 확장 산출물이다.
+
+| 체크 | 항목 | 기준 |
+|---|---|
+| [ ] | Web Node 2 | 인스턴스 ACTIVE |
+| [ ] | Web Node 2 Ansible ping | SUCCESS |
+| [ ] | Web Node 2 WordPress | 컨테이너 running |
+| [ ] | HAProxy backend | web1 / web2 등록 |
+| [ ] | Round Robin | Web-1 / Web-2 응답 분산 |
+| [ ] | Common DB | 두 Web Node가 동일 DB Node 연결 |
+| [ ] | Failure Test | Web-1 중지 시 Web-2 응답 |
+
+Phase 3에서는 다음 항목을 검수 대상에 포함하지 않는다.
+
+~~~text
+WordPress files 자동 동기화
+wp-content/uploads 공유
+plugin/theme 동기화
+NFS 기반 WordPress shared storage
+Object Storage 연동
+DB Replication
+DB Clustering
+OpenStack LBaaS / Octavia
+Auto Scaling
+~~~
+
+---
+
+## 13. Repository 구조 검수
+
+| 체크 | 경로 | 기준 |
+|---|---|---|
+| [ ] | README.md | 존재 |
+| [ ] | docs/ | 주요 문서 존재 |
+| [ ] | ansible/ | ansible.cfg, inventory.ini, site.yml 존재 |
+| [ ] | docker/wordpress/ | Dockerfile, custom.ini 존재 |
+| [ ] | docker/compose/ | Web / DB compose 파일 존재 |
+| [ ] | docker/proxy/ | HAProxy compose 및 haproxy.cfg 존재 |
+| [ ] | scripts/ | health_check.sh, backup.sh 존재 |
+| [ ] | screenshots/ | 검증 캡처 정리 |
+| [ ] | presentation/ | 발표 개요 존재 |
+| [ ] | submission/ | 제출 패키지 정리 |
+| [ ] | tools/ | 상태 생성 / 검증 스크립트 존재 |
+| [ ] | .github/workflows/ | GitHub Actions workflow 존재 |
+
+---
+
+## 14. Google Drive 제출 검수
+
+| 체크 | 항목 | 기준 |
+|---|---|
+| [ ] | 결과보고서 PPT | 업로드 완료 |
+| [ ] | 결과보고서 PDF | 업로드 완료 |
+| [ ] | 시연 영상 | 업로드 완료 |
+| [ ] | 소스 코드 | GitHub URL 또는 zip 업로드 |
+| [ ] | 회의록 | 날짜별 정리 |
+| [ ] | 작업일지 | 팀원별 정리 |
+| [ ] | 캡처 자료 | 영역별 정리 |
+| [ ] | 트러블슈팅 자료 | 장애 / 조치 / 결과 포함 |
+| [ ] | 기타 자료 | 멘토링 질문, 제출 체크리스트 포함 |
+
+---
+
+## 15. 발표자료 검수
+
+| 체크 | 항목 | 기준 |
+|---|---|
+| [ ] | 프로젝트 배경 | 문제 정의 포함 |
+| [ ] | 목표 | 자동화 / 운영 최적화 목표 명확 |
+| [ ] | Phase 구조 | Phase 1 / 2 / 3 설명 |
+| [ ] | 아키텍처 | Control / Proxy / Web / DB / Backup 구조 |
+| [ ] | OpenStack | 인프라 구성 설명 |
+| [ ] | Ansible | 자동화 흐름 설명 |
+| [ ] | Docker | WordPress / MariaDB / HAProxy 설명 |
+| [ ] | 검증 | 접속 / DB / 백업 / 복구 결과 |
+| [ ] | 장애 대응 | 최소 1개 시나리오 포함 |
+| [ ] | 한계 | Out of Scope 설명 |
+| [ ] | 결과 | 최종 성공 기준 설명 |
+
+---
+
+## 16. 최종 제출 가능 조건
+
+다음 조건을 만족하면 제출 가능 상태로 판단한다.
+
+| 체크 | 조건 |
+|---|---|
+| [ ] | Phase 1 필수 구성 완료 |
+| [ ] | Phase 1 필수 캡처 확보 |
+| [ ] | 필수 문서 작성 완료 |
+| [ ] | Ansible 실행 결과 확보 |
+| [ ] | WordPress / MariaDB / HAProxy 실행 결과 확보 |
+| [ ] | Proxy Node 경유 WordPress 접속 확인 |
+| [ ] | Web Node → DB Node 연결 확인 |
+| [ ] | Health Check 결과 확보 |
+| [ ] | Backup 결과 확보 |
+| [ ] | Restore 절차 검증 |
+| [ ] | 장애 상황 1개 이상 정리 |
+| [ ] | 결과보고서 / 발표자료 작성 |
+| [ ] | 시연 영상 준비 |
+| [ ] | Google Drive 제출자료 정리 |
+| [ ] | GitHub Repository 최신 상태 |
+
+---
+
+## 17. 최종 검수 명령어
+
+문서 내 오래된 표현 검수:
+
+~~~powershell
+Select-String -Path README.md, docs\*.md, presentation\*.md -Pattern "A급|B급|B\+|C급|Nginx|nginx|web-test|docker run"
+~~~
+
+Repository 상태 생성:
+
+~~~powershell
+python tools\generate_project_status.py
+python tools\validate_repository.py
+~~~
+
+Git 상태 확인:
+
+~~~powershell
 git status
-git ls-files
-~~~
-
-민감정보 의심 파일이 있으면 즉시 제거한다.
-
-~~~bash
-git rm --cached 파일명
-git commit -m "Remove sensitive file"
-git push
 ~~~
 
 ---
 
-## 9. README 반영 기준
-
-팀원 자료가 들어오면 README에는 아래 내용만 요약 반영한다.
-
-| 반영 위치 | 내용 |
-|---|---|
-| 팀 구성 | 담당자 역할 유지 |
-| 구성 요소 | 실제 서버 구성 반영 |
-| 작업 흐름 | 변경 없으면 유지 |
-| 최종 결과 | 성공한 결과만 요약 |
-| 문서 목록 | 링크 유지 |
-
-README에는 너무 많은 명령어를 넣지 않는다.  
-상세 명령어는 각 docs 문서에 둔다.
-
----
-
-## 10. 발표자료 반영 기준
-
-발표자료에는 아래 자료를 우선 사용한다.
-
-| 발표 파트 | 우선 반영 자료 |
-|---|---|
-| 프로젝트 개요 | README.md |
-| 아키텍처 | docs/architecture.md |
-| 클라우드 인프라 | docs/network-design.md + screenshots/cloud-infra/ |
-| 서버 / Docker | docs/server-setup.md + screenshots/server/ |
-| Ansible 자동화 | docs/ansible-automation.md + screenshots/ansible/ |
-| 검증 | docs/validation-report.md + screenshots/validation/ |
-| 최종 결과 | docs/final-deliverables.md |
-
----
-
-## 11. 최종 검수 기준
-
-최종 제출 전 아래 조건을 만족해야 한다.
-
-| 기준 | 상태 |
-|---|---|
-| README에서 프로젝트 목적이 명확하게 보인다 | TBD |
-| docs 문서가 모두 존재한다 | TBD |
-| ansible 파일이 존재한다 | TBD |
-| scripts 파일이 존재한다 | TBD |
-| screenshots 폴더에 결과 캡처가 있다 | TBD |
-| 발표 흐름이 정리되어 있다 | TBD |
-| 민감정보가 올라가지 않았다 | TBD |
-| 실행 결과가 검증 가능하다 | TBD |
-
----
-
-## 12. 최종 판단
-
-최종 제출 가능 상태는 아래 한 문장으로 판단한다.
+## 18. 핵심 검수 메시지
 
 ~~~text
-GitHub 저장소만 봐도 프로젝트 목표, 아키텍처, 실행 방법, 자동화 결과, 검증 결과, 발표 흐름이 확인된다.
+최종 검수의 핵심은 기능 개수보다 Phase 1 필수 운영 흐름의 완성도이다.
+
+OpenStack 인프라 구성, Ansible 자동화, Proxy/Web/DB/Backup Node 분리,
+WordPress/MariaDB/HAProxy 실행, Proxy 경유 접속,
+Health Check, Backup, Restore, Troubleshooting 증거가 모두 확보되어야 한다.
+
+Phase 2와 Phase 3은 추가 완성도를 보여주는 선택 산출물로 검수한다.
 ~~~
-
-
-

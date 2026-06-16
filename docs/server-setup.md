@@ -1,136 +1,564 @@
-﻿<!-- STATUS: TEMPLATE -->
-# TEMP: 팀원 실제 작업 결과 반영 필요
+﻿<!-- STATUS: COMPLETE -->
 
 # Server Setup
 
-## 1. OS Information
+## 1. 문서 목적
 
-| 항목 | 내용 |
-|---|---|
-| OS | TBD |
-| Kernel | TBD |
-| User | TBD |
-| Package Manager | apt |
+본 문서는 Team Dandelion 프로젝트의 서버 구성 기준을 정의한다.
 
-## 2. Basic Package Setup
+본 프로젝트는 Phase 1에서 Control Node, Proxy Node, Web Node, DB Node, Backup / Validation Node를 분리하여 구성한다.
 
-~~~bash
-sudo apt update
-sudo apt install -y curl wget git vim net-tools
+각 서버는 Ubuntu 기반 인스턴스로 구성하며, Ansible을 통해 Docker 설치와 역할별 컨테이너 배포를 자동화한다.
+
+---
+
+## 2. Phase 기반 서버 구성 전략
+
+본 프로젝트는 Phase 기반 구현 로드맵을 사용한다.
+
+~~~text
+Phase 1: 필수 구성 및 기본 검증 단계
+Phase 2: 운영 확장 및 검증 고도화 단계
+Phase 3: 도전 확장 단계
+Out of Scope: 제외 범위
 ~~~
 
-## 3. Docker Setup
+Phase 1에서는 다음 서버 구성을 필수로 한다.
+
+~~~text
+Control Node
+→ Ansible 실행
+
+Proxy Node
+→ HAProxy HTTP Reverse Proxy
+
+Web Node
+→ Custom WordPress Container
+
+DB Node
+→ MariaDB Container
+
+Backup / Validation Node
+→ health_check.sh
+→ backup.sh
+→ restore.md 검증
+~~~
+
+---
+
+## 3. 서버 역할 정의
+
+| Node | Role | Required Service |
+|---|---|---|
+| Control Node | Ansible 실행 및 전체 자동화 제어 | Ansible |
+| Proxy Node | 외부 HTTP 접속 진입점 | Docker, HAProxy |
+| Web Node | WordPress 서비스 실행 | Docker, Custom WordPress |
+| DB Node | WordPress 데이터 저장 | Docker, MariaDB |
+| Backup / Validation Node | 상태 점검, 백업, 복구 검증 | health_check.sh, backup.sh |
+
+---
+
+## 4. 공통 서버 기본 설정
+
+모든 Ubuntu 인스턴스에서 기본적으로 확인해야 할 항목은 다음과 같다.
+
+| 항목 | 확인 내용 |
+|---|---|
+| OS | Ubuntu 기반 인스턴스 |
+| SSH | Control Node에서 접속 가능 |
+| Package Update | apt update 가능 |
+| Time | 서버 시간 확인 |
+| Disk | df -h 기준 디스크 여유 공간 확인 |
+| Memory | free -h 기준 메모리 확인 |
+| Network | 노드 간 통신 가능 |
+
+확인 명령어:
 
 ~~~bash
-sudo apt install -y docker.io
+hostname
+cat /etc/os-release
+ip addr
+ip route
+df -h
+free -h
+uptime
+~~~
+
+---
+
+## 5. Docker 설치 기준
+
+Proxy Node, Web Node, DB Node에는 Docker가 설치되어야 한다.
+
+Backup / Validation Node는 백업 스크립트 방식에 따라 Docker가 필요할 수 있다.
+
+Docker 설치 후 다음 명령어로 확인한다.
+
+~~~bash
+docker --version
+docker compose version
+sudo systemctl status docker
+~~~
+
+Docker 서비스가 실행 중이어야 한다.
+
+~~~bash
 sudo systemctl enable docker
 sudo systemctl start docker
-sudo systemctl status docker
-docker --version
 ~~~
 
-## 4. WordPress/MariaDB Container Test
+권한이 필요한 경우 ubuntu 사용자를 docker 그룹에 추가한다.
 
 ~~~bash
-docker compose up -d
+sudo usermod -aG docker ubuntu
+~~~
+
+적용 후 재접속한다.
+
+---
+
+## 6. Proxy Node 구성
+
+## 6.1 역할
+
+Proxy Node는 외부 HTTP 요청을 받아 Web Node로 전달한다.
+
+Phase 1에서 Proxy Node는 HAProxy HTTP Reverse Proxy까지만 담당한다.
+
+~~~text
+Client
+→ Proxy Node:80
+→ HAProxy
+→ Web Node:80
+~~~
+
+HTTPS와 HTTP to HTTPS Redirect는 Phase 2에서 처리한다.
+
+---
+
+## 6.2 HAProxy 컨테이너 구성
+
+권장 경로:
+
+~~~text
+docker/proxy/
+├── docker-compose.yml
+└── haproxy.cfg
+~~~
+
+예시 `docker/proxy/docker-compose.yml`:
+
+~~~yaml
+services:
+  haproxy:
+    image: haproxy:2.9
+    container_name: dandelion-haproxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+~~~
+
+예시 `docker/proxy/haproxy.cfg`:
+
+~~~text
+global
+    log stdout format raw local0
+
+defaults
+    log global
+    mode http
+    option httplog
+    timeout connect 5s
+    timeout client  50s
+    timeout server  50s
+
+frontend http_front
+    bind *:80
+    default_backend wordpress_backend
+
+backend wordpress_backend
+    balance roundrobin
+    option httpchk GET /
+    server web1 WEB_NODE_PRIVATE_IP:80 check
+~~~
+
+`WEB_NODE_PRIVATE_IP`는 실제 Web Node 내부 IP로 변경한다.
+
+---
+
+## 6.3 Proxy Node 검증
+
+~~~bash
 docker ps
-curl http://localhost
+sudo ss -tulnp | grep ':80'
+curl -I http://PROXY_NODE_IP
+docker logs dandelion-haproxy --tail 50
 ~~~
 
-## 5. Evidence
+성공 기준:
 
-- OS 정보 캡처
-- Docker 설치 캡처
-- Docker 서비스 상태 캡처
-- Custom WordPress 및 MariaDB 컨테이너 실행 캡처
-- curl 접속 결과 캡처
-
-## 6. Screenshots
-
-### 6.1 OS Information
-
-이미지 파일 위치:
-
-~~~text
-screenshots/server/os-info.png
-~~~
-
-### 6.2 Docker Service Status
-
-이미지 파일 위치:
-
-~~~text
-screenshots/server/docker-status.png
-~~~
-
-### 6.3 WordPress/MariaDB Containers Running
-
-이미지 파일 위치:
-
-~~~text
-screenshots/server/docker-ps.png
-~~~
-
-### 6.4 HTTP Test Result
-
-이미지 파일 위치:
-
-~~~text
-screenshots/server/curl-result.png
-~~~
-
-## 7. 담당자 제출 체크리스트
-
-| 항목 | 완료 여부 |
+| 항목 | 기준 |
 |---|---|
-| OS 정보 정리 | TBD |
-| Kernel 정보 정리 | TBD |
-| Docker 설치 명령어 정리 | TBD |
-| Docker 서비스 상태 캡처 | TBD |
-| Custom WordPress 및 MariaDB 컨테이너 실행 캡처 | TBD |
-| curl 접속 결과 캡처 | TBD |
+| Container | dandelion-haproxy running |
+| Port | Proxy Node 80 listening |
+| Backend | Web Node 80 연결 |
+| HTTP | Proxy Node 경유 WordPress 응답 |
 
-<!-- AUTO_IMAGES_START -->
-## 자동 반영 이미지
+---
 
-아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
+## 7. Web Node 구성
 
-### OS Information
+## 7.1 역할
 
-../screenshots/server/os-info.png 이미지가 아직 업로드되지 않았다.
+Web Node는 Custom WordPress 컨테이너를 실행한다.
 
-### Docker Service Status
+DB는 Web Node 내부에 두지 않고 DB Node의 MariaDB에 연결한다.
 
-../screenshots/server/docker-status.png 이미지가 아직 업로드되지 않았다.
+~~~text
+Web Node
+→ Custom WordPress Container
+→ DB Node MariaDB
+~~~
 
-### WordPress/MariaDB Containers Running
+---
 
-../screenshots/server/docker-ps.png 이미지가 아직 업로드되지 않았다.
+## 7.2 Custom WordPress Image
 
-### HTTP Test Result
+권장 경로:
 
-../screenshots/server/curl-result.png 이미지가 아직 업로드되지 않았다.
-<!-- AUTO_IMAGES_END -->
+~~~text
+docker/wordpress/
+├── Dockerfile
+├── custom.ini
+└── README.md
+~~~
 
-<!-- AUTO_IMAGES_START -->
-## 자동 반영 이미지
+예시 `docker/wordpress/Dockerfile`:
 
-아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
+~~~dockerfile
+FROM wordpress:php8.2-apache
 
-### OS Information
+COPY custom.ini /usr/local/etc/php/conf.d/custom.ini
 
-../screenshots/server/os-info.png 이미지가 아직 업로드되지 않았다.
+LABEL project="Dandelion"
+LABEL service="custom-wordpress"
+LABEL base_image="wordpress:php8.2-apache"
+LABEL description="Custom WordPress image for Ansible-based cloud infrastructure automation project"
+~~~
 
-### Docker Service Status
+예시 `docker/wordpress/custom.ini`:
 
-../screenshots/server/docker-status.png 이미지가 아직 업로드되지 않았다.
+~~~ini
+upload_max_filesize=64M
+post_max_size=64M
+memory_limit=256M
+max_execution_time=300
+~~~
 
-### WordPress/MariaDB Containers Running
+---
 
-../screenshots/server/docker-ps.png 이미지가 아직 업로드되지 않았다.
+## 7.3 Web Node Docker Compose
 
-### HTTP Test Result
+권장 경로:
 
-../screenshots/server/curl-result.png 이미지가 아직 업로드되지 않았다.
+~~~text
+docker/compose/web/docker-compose.yml
+~~~
 
+예시:
 
+~~~yaml
+services:
+  wordpress:
+    build:
+      context: ../../wordpress
+      dockerfile: Dockerfile
+    container_name: dandelion-wordpress
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: DB_NODE_PRIVATE_IP:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wordpress_data:/var/www/html
+
+volumes:
+  wordpress_data:
+~~~
+
+`DB_NODE_PRIVATE_IP`는 실제 DB Node 내부 IP로 변경한다.
+
+---
+
+## 7.4 Web Node 검증
+
+~~~bash
+docker ps
+sudo ss -tulnp | grep ':80'
+curl -I http://localhost
+curl -I http://WEB_NODE_PRIVATE_IP
+~~~
+
+성공 기준:
+
+| 항목 | 기준 |
+|---|---|
+| Container | dandelion-wordpress running |
+| Port | Web Node 80 listening |
+| DB Connection | WordPress가 DB Node MariaDB에 연결 |
+| HTTP | Web Node 내부 HTTP 응답 |
+
+---
+
+## 8. DB Node 구성
+
+## 8.1 역할
+
+DB Node는 MariaDB 컨테이너를 단독으로 실행한다.
+
+~~~text
+DB Node
+→ MariaDB Container
+→ WordPress Database
+~~~
+
+DB Node의 3306 포트는 전체 공개하지 않고 Web Node와 Backup / Validation Node에서만 접근하도록 제한한다.
+
+---
+
+## 8.2 DB Node Docker Compose
+
+권장 경로:
+
+~~~text
+docker/compose/db/docker-compose.yml
+~~~
+
+예시:
+
+~~~yaml
+services:
+  db:
+    image: mariadb:10.11
+    container_name: dandelion-mariadb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+~~~
+
+---
+
+## 8.3 DB Node 검증
+
+DB Node에서 확인:
+
+~~~bash
+docker ps
+sudo ss -tulnp | grep ':3306'
+docker logs dandelion-mariadb --tail 50
+~~~
+
+Web Node에서 DB 연결 확인:
+
+~~~bash
+nc -zv DB_NODE_PRIVATE_IP 3306
+~~~
+
+또는:
+
+~~~bash
+telnet DB_NODE_PRIVATE_IP 3306
+~~~
+
+성공 기준:
+
+| 항목 | 기준 |
+|---|---|
+| Container | dandelion-mariadb running |
+| Port | DB Node 3306 listening |
+| Access | Web Node에서 DB Node 3306 접근 가능 |
+| Security | DB Node 3306은 전체 공개하지 않음 |
+
+---
+
+## 9. Backup / Validation Node 구성
+
+## 9.1 역할
+
+Backup / Validation Node는 서비스 상태 점검, DB dump, WordPress files archive 생성, 복구 절차 검증을 담당한다.
+
+~~~text
+Backup / Validation Node
+→ Proxy Node HTTP 확인
+→ Web Node WordPress files backup
+→ DB Node MariaDB dump
+→ restore.md 기반 복구 절차 검증
+~~~
+
+---
+
+## 9.2 상태 점검 기준
+
+`health_check.sh`는 다음 항목을 확인한다.
+
+| 항목 | 확인 대상 |
+|---|---|
+| Proxy | Proxy Node HTTP 응답 |
+| Web | Web Node HTTP 응답 |
+| DB | DB Node 3306 연결 |
+| Docker | 대상 컨테이너 running |
+| Disk | df -h |
+| Memory | free -h |
+
+예시 실행:
+
+~~~bash
+bash scripts/health_check.sh
+~~~
+
+---
+
+## 9.3 백업 기준
+
+`backup.sh`는 다음 결과물을 생성해야 한다.
+
+| Backup Target | Output |
+|---|---|
+| MariaDB | wordpress_db.sql |
+| WordPress files | wordpress_files.tar.gz |
+
+백업 대상:
+
+~~~text
+DB Node
+→ MariaDB dump
+
+Web Node
+→ WordPress files archive
+~~~
+
+예시 저장 경로:
+
+~~~text
+backup/
+└── YYYYMMDD_HHMMSS/
+    ├── wordpress_db.sql
+    └── wordpress_files.tar.gz
+~~~
+
+---
+
+## 9.4 복구 검증 기준
+
+복구는 `restore.md` 기준으로 절차를 검증한다.
+
+복구 검증은 운영 데이터를 무리하게 덮어쓰는 방식이 아니라, 복구 절차와 명령어가 재현 가능한지 확인하는 것을 우선한다.
+
+---
+
+## 10. Phase 2 서버 확장
+
+Phase 2에서는 다음 서버 기능을 추가할 수 있다.
+
+| 확장 항목 | 대상 노드 | 설명 |
+|---|---|---|
+| HTTPS | Proxy Node | self-signed 인증서 기반 HTTPS |
+| Redirect | Proxy Node | HTTP 80 → HTTPS 443 |
+| Cinder Backup Volume | Backup / Validation Node | /backup 마운트 |
+| node_exporter | Web Node / DB Node / Proxy Node | OS Metrics |
+| cAdvisor | Web Node / DB Node / Proxy Node | Container Metrics |
+| Prometheus | Monitoring Node | Metrics 수집 |
+| Grafana | Monitoring Node | Dashboard 시각화 |
+| Ansible roles | Control Node | Playbook 구조 개선 |
+
+---
+
+## 11. Phase 3 서버 확장
+
+Phase 3에서는 Web Node를 2대로 확장할 수 있다.
+
+~~~text
+Client
+→ Proxy Node / HAProxy Load Balancer
+→ Web Node 1 / WordPress
+→ Web Node 2 / WordPress
+→ DB Node / MariaDB
+~~~
+
+Phase 3에서 DB Node는 기존 Phase 1 구조를 유지한다.
+
+검증 기준:
+
+| 항목 | 기준 |
+|---|---|
+| Web Node 2 | WordPress 컨테이너 running |
+| HAProxy LB | Web-1 / Web-2 backend 등록 |
+| 분산 확인 | roundrobin 응답 분산 |
+| 공통 DB | 두 Web Node가 동일 DB Node 연결 |
+| 장애 확인 | Web-1 중지 시 Web-2 응답 |
+
+---
+
+## 12. 제외 기준
+
+다음 항목은 서버 구성 범위에서 제외한다.
+
+~~~text
+Kubernetes
+Docker Swarm
+DB Replication
+DB Clustering
+WordPress files 자동 동기화
+wp-content/uploads 공유
+OpenStack LBaaS / Octavia
+Production-level HTTPS
+실서비스 도메인 및 공인 인증서 자동 갱신
+~~~
+
+---
+
+## 13. 필수 캡처 기준
+
+| 영역 | 캡처 항목 |
+|---|---|
+| OS | cat /etc/os-release |
+| Docker | docker --version |
+| Docker Compose | docker compose version |
+| Proxy Node | dandelion-haproxy running |
+| Web Node | dandelion-wordpress running |
+| DB Node | dandelion-mariadb running |
+| Port | ss -tulnp |
+| HTTP | Proxy Node 경유 WordPress 접속 |
+| DB | Web Node에서 DB Node 3306 연결 확인 |
+| Backup | DB dump 및 WordPress files archive 생성 |
+| Restore | restore.md 절차 검증 |
+
+---
+
+## 14. 핵심 서버 구성 메시지
+
+~~~text
+본 프로젝트는 WordPress와 MariaDB를 같은 서버에 배치하는 단순 구조가 아니라,
+Proxy Node, Web Node, DB Node, Backup / Validation Node를 분리한 기본 운영 구조를 사용한다.
+
+Proxy Node는 HAProxy HTTP Reverse Proxy를 담당하고,
+Web Node는 Custom WordPress 컨테이너를 실행하며,
+DB Node는 MariaDB 컨테이너를 단독으로 제공한다.
+
+Backup / Validation Node는 상태 점검, 백업, 복구 절차 검증을 담당한다.
+~~~
