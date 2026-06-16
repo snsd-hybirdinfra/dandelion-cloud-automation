@@ -42,7 +42,7 @@ OpenStack 인프라 구성
 ## 4. 평가 기준 대응 전략
 
 | 평가항목 | 배점 | 프로젝트 대응 방향 |
-|------|---:|---|
+|------|-----|---|
 | 전문성 | 25 | OpenStack 인프라, Ubuntu Instance, Ansible IaC, Docker Compose, Custom WordPress Image, MariaDB 연동, 백업/복구 검증 |
 | 차별성 | 25 | 수동 운영 편차 문제를 Ansible 표준화, Dockerfile 기반 이미지 커스터마이징, GitHub Actions 기반 산출물 상태 자동 갱신으로 개선 |
 | 완성도 | 25 | SSH 접속, Ansible ping, Playbook 실행, WordPress/MariaDB 배포, Health Check, Backup/Restore 성공 검증 |
