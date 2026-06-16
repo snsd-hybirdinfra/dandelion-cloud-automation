@@ -21,7 +21,7 @@
 
 WordPress는 웹 개발 대상이 아니라, Ansible 자동화, Docker Compose 배포, HTTP 상태 점검, DB dump, 파일 백업, 복구 검증을 위한 운영 서비스 대상이다.
 
-현재 프로젝트는 기존 A급 / B급 / B+ 방식이 아니라 Phase 기반 구현 로드맵으로 범위를 정의한다.
+현재 프로젝트는 Phase 기반 구현 로드맵으로 범위를 정의한다.
 
 ~~~text
 Phase 1: 필수 구성 및 기본 검증 단계
