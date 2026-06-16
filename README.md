@@ -80,13 +80,10 @@ OpenStack 인프라 구성
 ---
 
 
-## 최종 아키텍처 완성본
+## 7. 최종 아키텍처 완성본
 
 ![Final Phase 3 Architecture](./docs/assets/final-phase3-architecture.png)
 
-## 7. 시스템 아키텍처 다이어그램
-
-![System Architecture](./docs/assets/system-architecture.png)
 
 ---
 
