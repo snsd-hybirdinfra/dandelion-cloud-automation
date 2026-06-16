@@ -1,6 +1,6 @@
 # Validation Summary
 
-Last Updated: 2026-06-16 08:38:57
+Last Updated: 2026-06-16 08:57:17
 
 ## 1. Required Directory Check
 
@@ -58,6 +58,7 @@ No blocked sensitive files detected.
 |---|---:|
 | docs/runbook.md | 0 |
 | docs/pre-run-checklist.md | 0 |
+| docs/resource-plan.md | 0 |
 | docs/validation-report.md | 15 |
 | docs/mentoring-work-order-summary.md | 0 |
 | docs/project-status.md | 0 |
