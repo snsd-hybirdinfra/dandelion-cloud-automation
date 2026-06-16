@@ -562,3 +562,25 @@ DB Node는 MariaDB 컨테이너를 단독으로 제공한다.
 
 Backup / Validation Node는 상태 점검, 백업, 복구 절차 검증을 담당한다.
 ~~~
+
+<!-- AUTO_IMAGES_START -->
+## 자동 반영 이미지
+
+아래 이미지는 screenshots/ 폴더에 파일이 업로드되면 자동으로 표시된다.
+
+### OS Information
+
+../screenshots/server/os-info.png 이미지가 아직 업로드되지 않았다.
+
+### Docker Service Status
+
+../screenshots/server/docker-status.png 이미지가 아직 업로드되지 않았다.
+
+### WordPress/MariaDB Containers Running
+
+../screenshots/server/docker-ps.png 이미지가 아직 업로드되지 않았다.
+
+### HTTP Test Result
+
+../screenshots/server/curl-result.png 이미지가 아직 업로드되지 않았다.
+<!-- AUTO_IMAGES_END -->

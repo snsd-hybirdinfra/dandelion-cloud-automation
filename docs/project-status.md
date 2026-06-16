@@ -1,23 +1,23 @@
 # Project Status
 
-Last Updated: 2026-06-16 03:25:20
+Last Updated: 2026-06-16 05:59:23
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
-| Cloud Infrastructure | 백서빈 | 0 | 5 | 0% | ❌ 미착수 |
-| Server / Virtualization | 이진욱 | 0 | 5 | 0% | ❌ 미착수 |
-| Ansible Automation | 조민석 | 0 | 9 | 0% | ❌ 미착수 |
+| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | 🟡 진행 중 |
+| Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 16 | 51 | 31% |
+| 20 | 51 | 39% |
 
 ## 3. 상세 파일 상태
 
@@ -42,7 +42,7 @@ Last Updated: 2026-06-16 03:25:20
 
 | 파일 | 상태 |
 |---|---|
-| docs/network-design.md | 🟡 작성 필요 |
+| docs/network-design.md | ✅ 완료 |
 | screenshots/cloud-infra/instance-list.png | ❌ 미완료 |
 | screenshots/cloud-infra/network-subnet.png | ❌ 미완료 |
 | screenshots/cloud-infra/security-group.png | ❌ 미완료 |
@@ -52,7 +52,7 @@ Last Updated: 2026-06-16 03:25:20
 
 | 파일 | 상태 |
 |---|---|
-| docs/server-setup.md | 🟡 작성 필요 |
+| docs/server-setup.md | ✅ 완료 |
 | screenshots/server/os-info.png | ❌ 미완료 |
 | screenshots/server/docker-status.png | ❌ 미완료 |
 | screenshots/server/docker-ps.png | ❌ 미완료 |
@@ -65,7 +65,7 @@ Last Updated: 2026-06-16 03:25:20
 | ansible/ansible.cfg | 🟡 작성 필요 |
 | ansible/inventory.ini | 🟡 작성 필요 |
 | ansible/site.yml | 🟡 작성 필요 |
-| docs/ansible-automation.md | 🟡 작성 필요 |
+| docs/ansible-automation.md | ✅ 완료 |
 | screenshots/ansible/ansible-version.png | ❌ 미완료 |
 | screenshots/ansible/inventory.png | ❌ 미완료 |
 | screenshots/ansible/ping-test.png | ❌ 미완료 |
@@ -90,7 +90,7 @@ Last Updated: 2026-06-16 03:25:20
 
 | 파일 | 상태 |
 |---|---|
-| docs/submission-package.md | ❌ 미완료 |
+| docs/submission-package.md | ✅ 완료 |
 | presentation/presentation-outline.md | ✅ 완료 |
 | submission/result-report-lms.md | 🟡 작성 필요 |
 | submission/demo-video.md | 🟡 작성 필요 |

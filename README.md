@@ -305,6 +305,23 @@ Docker Compose 기반 WordPress/MariaDB 서비스 배포, HAProxy HTTP Reverse P
 
 아래 상태는 팀원이 파일을 push할 때 자동으로 갱신된다.
 
+## 2. 전체 진행률
+
+| 완료 | 전체 | 진행률 |
+|---:|---:|---:|
+| 20 | 51 | 39% |
+
+## 담당자별 진행 상태
+
+| 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
+|---|---|---:|---:|---:|---|
+| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
+| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | 🟡 진행 중 |
+| Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
+| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
+
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
