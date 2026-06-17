@@ -511,3 +511,171 @@ Post-Phase Extension:
 DB Node 이중화 / MariaDB Replication / DB Failover 검토
 ~~~
 
+
+---
+
+## 16. 추가 결정 사항: 금일 팀원별 작업 진행 현황 정리
+
+금일은 멘토링 이후 정리된 Phase 기반 구조를 바탕으로 각 담당자별 실제 구축 작업을 진행하였다.
+
+전체 구조는 Control / HAProxy / Web / DB / Backup Node 기준으로 유지하며, 세부 구축은 서비스 담당과 자동화 담당, 검증 담당 중심으로 진행하였다.
+
+### 16.1 백서빈 작업 현황
+
+백서빈은 OpenStack 인프라 담당으로 보안그룹 및 서브넷 구성을 진행하였다.
+
+현재 4개 서브넷 중 3개 서브넷에 대한 구성 및 검증을 완료하였으며, Backup / Validation 관련 서브넷 또는 인스턴스가 정상적으로 올라가지 않는 문제를 조치 중이다.
+
+| 항목 | 진행 상태 |
+|---|---|
+| 보안그룹 생성 | 진행 완료 |
+| 서브넷 생성 | 4개 중 3개 완료 |
+| 인스턴스 생성 | 일부 완료 |
+| 검증 / 복구 서브넷 인스턴스 | 생성 또는 부팅 문제 조치 중 |
+| 후속 작업 | 원인 확인 후 인스턴스 재생성 또는 네트워크 설정 점검 |
+
+확인할 항목은 다음과 같다.
+
+~~~text
+1. 서브넷 CIDR 중복 여부
+2. 라우터 연결 여부
+3. 보안그룹 SSH / HTTP / DB 포트 허용 여부
+4. 인스턴스 flavor 리소스 부족 여부
+5. Floating IP 또는 포트포워딩 접속 가능 여부
+6. 인스턴스 ACTIVE 상태 확인
+~~~
+
+---
+
+### 16.2 이진욱 작업 현황
+
+이진욱은 서버 초기 환경 구성 및 노드별 패키지 설치 기준을 정리하였다.
+
+노드별 리소스 기준은 다음과 같이 정리하였다.
+
+| Node | vCPU | Disk | RAM |
+|---|---:|---:|---:|
+| control | 2 Core | 20 GB | 2 GB |
+| haproxy | 1 Core | 15 GB | 2 GB |
+| web | 2 Core | 20 GB | 2 GB |
+| db | 2 Core | 20 GB | 4 GB |
+| backup | 1 Core | 80 GB | 2 GB |
+
+기존 리소스 산정에서 HAProxy Node RAM은 1 GB로 검토하였으나, 실제 구성 안정성을 고려하여 2 GB로 조정 가능성을 반영한다.
+
+이진욱이 정리한 공통 초기 설정은 다음과 같다.
+
+~~~text
+1. sudoers 파일에 user1 NOPASSWD 권한 추가
+2. 모든 노드 공통 패키지 설치
+   - vim
+   - curl
+   - wget
+3. Control Node에 Ansible 설치
+4. HAProxy Node에 HAProxy 또는 Docker 설치
+5. Web Node에 Docker 설치
+6. DB Node에 mariadb-server 설치
+7. Backup Node에 mariadb-client 설치
+~~~
+
+최종 기준은 다음과 같이 정리한다.
+
+| Node | 설치 기준 |
+|---|---|
+| control | ansible |
+| haproxy | docker 또는 haproxy container 실행 환경 |
+| web | docker, docker compose plugin |
+| db | mariadb-server, systemd service |
+| backup | mariadb-client, backup.sh, health_check.sh |
+
+---
+
+### 16.3 조민석 작업 현황
+
+조민석은 Ansible 자동화 담당으로 inventory.ini 및 ansible.cfg 구성을 진행하였다.
+
+현재 inventory는 proxy, web, db, backup 그룹을 분리하고 managed 그룹으로 묶는 구조로 작성되었다.
+
+~~~text
+[proxy]
+proxy-node ansible_host=PROXY_NODE_PRIVATE_IP
+
+[web]
+web-node ansible_host=WEB_NODE_PRIVATE_IP
+
+[db]
+db-node ansible_host=DB_NODE_PRIVATE_IP
+
+[backup]
+backup-node ansible_host=BACKUP_NODE_PRIVATE_IP
+
+[managed:children]
+proxy
+web
+db
+backup
+~~~
+
+ansible.cfg는 inventory.ini를 기본 inventory로 사용하고, remote_user와 SSH key, become 설정을 포함하는 구조로 작성되었다.
+
+후속 작업은 실제 OpenStack 인스턴스의 Private IP를 inventory에 반영하고, Control Node에서 ansible ping을 수행하는 것이다.
+
+~~~text
+ansible all -m ping
+ansible managed -m ping
+~~~
+
+확인할 항목은 다음과 같다.
+
+| 항목 | 확인 기준 |
+|---|---|
+| inventory IP | 실제 노드 Private IP 반영 |
+| SSH Key | Control Node에서 접근 가능한 키 사용 |
+| remote_user | ubuntu 또는 실제 접속 사용자와 일치 |
+| become | sudo 권한 정상 동작 |
+| ping 검증 | ansible all -m ping 성공 |
+
+---
+
+### 16.4 박재우 작업 현황
+
+박재우는 검증 및 백업 담당으로 healthcheck-example.sh와 backup.sh 초안을 작성하였다.
+
+healthcheck-example.sh는 web1, web2, db, proxy, backup 노드에 대해 ping, curl, ssh 기반 상태 확인을 수행하는 구조로 작성되었다.
+
+backup.sh는 DB Node에 SSH 접속하여 mysqldump를 수행하고 날짜별 백업 디렉터리에 SQL 백업 파일을 저장하는 구조로 작성되었다.
+
+현재 스크립트는 초안 단계이므로 최종 아키텍처 기준에 맞게 다음 항목을 수정한다.
+
+| 항목 | 현재 초안 | 수정 방향 |
+|---|---|---|
+| DB 서비스명 | mysqld | mariadb |
+| Proxy 점검 | systemctl haproxy | HAProxy Container 기준 또는 최종 실행 방식 기준으로 정리 |
+| Web2 재시작 | root@web1에서 web2 restart | root@web2에서 web2 restart로 수정 |
+| 백업 경로 | /tmp/YYYY-MM-DD | /backup/YYYY-MM-DD 또는 제출 기준 경로 |
+| DB 인증정보 | 사용자이름 / 비밀번호 placeholder | 실제 테스트 계정 또는 변수화 |
+| SSH 사용자 | root | ubuntu 또는 실제 운영 사용자 기준 정리 |
+
+검증 담당 후속 작업은 다음과 같다.
+
+~~~text
+1. healthcheck-example.sh를 현재 노드명과 서비스명에 맞게 수정
+2. backup.sh 백업 저장 경로를 /backup 기준으로 수정
+3. DB 접속 계정 및 비밀번호 변수화
+4. MariaDB dump 파일 생성 여부 검증
+5. WordPress files archive 추가
+6. restore.md 기준 복구 절차와 연결
+~~~
+
+---
+
+### 16.5 금일 진행 요약
+
+| 담당자 | 주요 작업 | 상태 |
+|---|---|---|
+| 백서빈 | 보안그룹 및 서브넷 생성, 인스턴스 구성 | 4개 중 3개 구성 완료, Backup / Validation 관련 인스턴스 문제 조치 중 |
+| 이진욱 | 노드별 환경 구성 및 패키지 설치 기준 정리 | 진행 |
+| 조민석 | inventory.ini, ansible.cfg 작성 | 초안 작성 완료 |
+| 박재우 | healthcheck-example.sh, backup.sh 작성 | 초안 작성 완료, 현재 구조 기준 수정 필요 |
+| 정주헌 | 회의록, 작업일지, 문서 기준 정리 및 구조 검수 | 진행 |
+
