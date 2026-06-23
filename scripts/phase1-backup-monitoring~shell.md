@@ -1,21 +1,5 @@
 # Dandelion 백업 및 모니터링 작업 문서
 
-## 작업 개요
-
-현재 인프라는 다음과 같이 구성되어 있다.
-
-| 서버명        | IP            |
-| ---------- | ------------- |
-| backup     | 192.168.4.134 |
-| monitoring | 192.168.4.179 |
-| db         | 192.168.4.201 |
-| control    | 192.168.4.89  |
-| proxy      | 192.168.4.32  |
-| web1       | 192.168.4.4   |
-| web2       | 192.168.4.35  |
-
----
-
 # 1. Cron 등록
 
 ## Backup 서버
@@ -264,6 +248,12 @@ ubuntu@backup \
 * web1 복구 절차 추가
 * 압축 파일 존재 여부 검증
 * 복구 전 백업 수행 여부 검토
+* 복구 시나리오 별 케이스 작성
+
+### Advanced
+* 로그 관리
+* 오픈 스택 등 인증 백업
+* DB 이중화 또는 클러스터링
 
 ---
 
@@ -310,64 +300,11 @@ df -h
 DB 장애 시
 
 ```bash
-sudo systemctl restart mysqld
+sudo systemctl restart mysql
 ```
 
 실패 시
 
 * 최신 백업본 자동 복원
 
-### Alert
 
-향후 연동 예정
-
-* Slack
-* Email
-* Telegram
-* Discord
-
----
-
-# 주의 사항
-
-현재 health check 스크립트에서 발견된 사항
-
-## control-check.sh
-
-오타 확인
-
-현재
-
-```bash
-ubuntu@ccontrol
-```
-
-수정
-
-```bash
-ubuntu@control
-```
-
----
-
-## db-check.sh
-
-배포 환경에 따라 서비스명 확인 필요
-
-현재
-
-```bash
-systemctl status mysqld
-```
-
-Ubuntu 기본
-
-```bash
-systemctl status mysql
-```
-
-실제 서비스명 확인 후 적용 필요
-
-```bash
-systemctl list-units --type=service | grep mysql
-```
