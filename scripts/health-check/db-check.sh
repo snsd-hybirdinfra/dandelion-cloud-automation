@@ -17,7 +17,7 @@ then
 else
   ssh -o ConnectTimeout=2   -i /home/ubuntu/.ssh/dandelion.pem ubuntu@db 'sudo systemctl restart mysql'
 # ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem \
-# ubuntu@backup 'cat /tmp/backup/$(ls -td /tmp/backup/ | head -n 1)/backup.sql'  | \
+# ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup.sql' \
 # ssh ubuntu@db "mysql -u사용자이름 -p'비밀번호' wordpress "
 fi
 

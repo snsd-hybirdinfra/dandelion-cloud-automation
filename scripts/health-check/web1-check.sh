@@ -19,7 +19,7 @@ then
 else
   ssh  -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem  ubuntu@web1 'docker container restart web1'
 # ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
-# ubuntu@backup 'cat /tmp/backup/$(ls -td /tmp/backup/ | head -n 1)/'backup-web1.tar.gz | \
+# ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup-web1.tar.gz' \
 # ssh ubunutu@web1 "tar -xzf - -C /var/www/html/"
 
 fi
