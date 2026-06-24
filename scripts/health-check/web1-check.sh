@@ -6,7 +6,7 @@ result_web1=false
 ping -c 3 web1
 ping_result_web1=$?
 
-#curl -s -o /dev/null -w "%{http_code}" http://web1
+#curl -fsS http://web1 | exit 1
 #curl_result_web1=$?
 
 #ssh  -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web1 'docker container ls -a | grep web1 | grep healthy'
