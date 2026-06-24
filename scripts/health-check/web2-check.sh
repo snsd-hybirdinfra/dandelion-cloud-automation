@@ -6,21 +6,22 @@ result_web2=false
 ping -c 3 web2
 ping_result_web2=$?
 
-#curl -fsS http://web2 | exit 1
-#curl_result_web2=$?
+curl -fsS http://web2
+curl_result_web2=$?
 
-#ssh  -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web2 'docker container ls -a | grep web2 | grep healthy'
-#ssh_result_web2=$?
+ssh  -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web2 'docker container ls | grep dandelion-wp'
+ssh_result_web2=$?
 
-if [ $ping_result_web2 -eq 0 ] #&& [ $curl_result_web2 -eq 0 ] && [ $ssh_result_web2 -eq 0 ]
+if [ $ping_result_web2 -eq 0 ] && [ $curl_result_web2 -eq 0 ] && [ $ssh_result_web2 -eq 0 ]
 then
   result_web2=true
   echo 'success web2'
 else
-  ssh   -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web2 'docker container restart web2'
-# ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem \
-# ubuntu@backup 'cat /tmp/backup/$(ls -td /tmp/backup/ | head -n 1)/backup-web2.tar.gz' | \
+  ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web2 'docker container restart dandelion-wp'
+# ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
+# ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/'backup-web2.tar.gz | \
 # ssh ubunutu@web2 "tar -xzf - -C /var/www/html/"
+
 fi
 
 export result_web2=$result_web2

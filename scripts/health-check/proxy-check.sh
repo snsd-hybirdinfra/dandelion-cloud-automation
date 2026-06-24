@@ -9,7 +9,7 @@ ping_result_proxy=$?
 ssh  -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem  ubuntu@proxy 'sudo systemctl status haproxy | grep active'
 ssh_result_proxy=$?
 
-if [ $ping_result_proxy -eq 0 ] #&& [ $ssh_result_proxy -eq 0 ]
+if [ $ping_result_proxy -eq 0 ] && [ $ssh_result_proxy -eq 0 ]
 then
   result_proxy=true
   echo 'success proxy'
