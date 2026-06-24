@@ -18,10 +18,10 @@ then
   echo 'success web1'
 else
   ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@web1 'docker container restart dandelion-wp'
-# ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
-# ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/'backup-web1.tar.gz | \
-# ssh ubunutu@web1 "tar -xzf - -C /var/www/html/"
-
+  #ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
+  #ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup-web1.tar.gz' | \
+  #ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
+  ##ubuntu@web1 "docker exec -i dandelion-wp tar xzf - -C /"
 fi
 
 export result_web1=$result_web1
