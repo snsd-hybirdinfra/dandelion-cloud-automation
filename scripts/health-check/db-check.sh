@@ -15,10 +15,8 @@ then
   result_db=true
   echo 'success db'
 else
-  ssh -o ConnectTimeout=2   -i /home/ubuntu/.ssh/dandelion.pem ubuntu@db 'sudo systemctl restart mysqld'
-# ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem \
-# ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup.sql'  | \
-# ssh ubuntu@db "mysql -u사용자이름 -p'비밀번호' wordpress "
+  ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup.sql' | mysql -h db -u wp_monitor -ptest123 wordpress_db
+  ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@db 'sudo systemctl restart mysqld'
 fi
 
 export result_db=$result_db

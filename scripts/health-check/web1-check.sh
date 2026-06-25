@@ -1,4 +1,3 @@
-#!/bin/bash
 
 ### TODO : 도커 컨테이너로 조건 변경 && 백업본 교체 조건 확인 및 교체
 result_web1=false
@@ -23,5 +22,6 @@ else
   #ssh -o ConnectTimeout=2  -i /home/ubuntu/.ssh/dandelion.pem \
   ##ubuntu@web1 "docker exec -i dandelion-wp tar xzf - -C /"
 fi
+
 
 export result_web1=$result_web1
