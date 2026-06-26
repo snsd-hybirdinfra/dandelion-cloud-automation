@@ -101,13 +101,19 @@ web1, web2 컨테이너 장애 시 우선 컨테이너 재시작(docker containe
 
 스크립트 파일 분리 이후 실행한 작업의 결과가 잘 저장되지 않는 문제가 있어 작업의 결과를 저장할 수 있도록 수정했습니다.
 
+# phase1에서 있었던 문제점과 조치
+1. db 계정의 권한이 ssh를 요청하는 서버에서만 가능해 backup 및 monitoring 노드에 mysql-client 설치 후 ssh 명령어에서 mysql 및 mysqldump 명령어로 수정
+2. 실행 결과를 저장하기 위한 변수를 export해도 가져오지 못해 work_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"로 실행 경로를 잡아줌
+3. http 요청의 결과가 정상적인지 판별해 결과를 판단해야 하는데, 이 과정에서 [curl -f http://web1 => curl -s -o /dev/null -w "%{http_code}" http://web2 => curl -fsS http://web1 로 변경]
+4. 쉘 스크립트 실행 중 중단되는 문제가 있어서 | exit 1을 제거
+5. docker container healthy 조건 변경
+
 
 # 향후 수행 과제 (TODO)
 
 [!IMPORTANT]
 
 인프라 고도화 및 보안 강화를 위해 다음 작업들이 순차적으로 진행되어야 합니다.
-
 
 
 ## TODO 1. 복구 시나리오 작성 및 검증
