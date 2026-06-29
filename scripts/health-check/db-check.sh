@@ -15,7 +15,7 @@ then
   result_db=true
   echo 'success db'
 else
-  ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup.sql' | mysql -h db -u wp_monitor -ptest123 wordpress_db
+  ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@backup 'cat $(ls -td /tmp/backup/* | head -n 1)/backup.sql' | mysql --defaults-extra-file=/home/ubuntu/dandeliondir/.my.cnf wordpress_db
   ssh -o ConnectTimeout=2 -i /home/ubuntu/.ssh/dandelion.pem ubuntu@db 'sudo systemctl restart mysqld'
 fi
 

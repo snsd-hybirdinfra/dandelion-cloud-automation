@@ -2,7 +2,7 @@
 
 
 ### TODO : include cinder
-mysqldump -u wp_backup -ptest123 -h db wordpress_db > /tmp/backup/$date/backup.sql
+mysqldump --defaults-extra-file=/home/ubuntu/dandeliondir/.my.cnf wordpress_db > /tmp/backup/$date/backup.sql
 ping -c 3 db
 db_backup_result=$?
 
