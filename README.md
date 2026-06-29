@@ -311,14 +311,14 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 20 | 51 | 39% |
+| 22 | 51 | 43% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
-| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | 🟡 진행 중 |
+| Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
 | Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
