@@ -1,13 +1,13 @@
 # Project Status
 
-Last Updated: 2026-06-29 05:07:58
+Last Updated: 2026-06-29 05:25:02
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
-| Cloud Infrastructure | 백서빈 | 1 | 5 | 20% | 🟡 진행 중 |
+| Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
 | Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
@@ -17,7 +17,7 @@ Last Updated: 2026-06-29 05:07:58
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 20 | 51 | 39% |
+| 22 | 51 | 43% |
 
 ## 3. 상세 파일 상태
 
@@ -43,8 +43,8 @@ Last Updated: 2026-06-29 05:07:58
 | 파일 | 상태 |
 |---|---|
 | docs/network-design.md | ✅ 완료 |
-| screenshots/cloud-infra/instance-list.png | ❌ 미완료 |
-| screenshots/cloud-infra/network-subnet.png | ❌ 미완료 |
+| screenshots/cloud-infra/instance-list.png | ✅ 완료 |
+| screenshots/cloud-infra/network-subnet.png | ✅ 완료 |
 | screenshots/cloud-infra/security-group.png | ❌ 미완료 |
 | screenshots/cloud-infra/ssh-test.png | ❌ 미완료 |
 
