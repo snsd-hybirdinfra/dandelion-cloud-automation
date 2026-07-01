@@ -1,338 +1,198 @@
-﻿<!-- STATUS: COMPLETE -->
+﻿<!-- STATUS: CURRENT -->
 
-# Final Deliverables Checklist
+# Final Deliverables
 
 ## 1. 문서 목적
 
-본 문서는 Team Dandelion 프로젝트의 최종 제출 산출물 기준을 정의한다.
+본 문서는 Team Dandelion 프로젝트의 최종 산출물을 정의한다.
 
-본 프로젝트는 Phase 기반 구현 로드맵을 사용한다.
+최종 제출물은 단순 구현 결과가 아니라 다음 항목을 함께 증명해야 한다.
 
-~~~text
-Phase 1: 필수 구성 및 기본 검증 단계
-Phase 2: 운영 확장 및 검증 고도화 단계
-Phase 3: 도전 확장 단계
-Out of Scope: 제외 범위
-~~~
-
-최종 제출은 Phase 1 필수 구성과 검증 결과를 기준으로 완성되어야 하며, Phase 2와 Phase 3은 시간이 남을 경우 추가 산출물로 포함한다.
-
----
-
-## 2. 최종 제출 패키지 기준
-
-최종 제출 패키지는 다음 항목을 포함한다.
-
-| 구분 | 산출물 | 필수 여부 |
-|---|---|---|
-| 결과보고서 | 프로젝트 결과보고서 PPT / PDF | 필수 |
-| 시연 영상 | 구현 및 검증 시연 영상 | 필수 |
-| 소스 코드 | GitHub Repository 또는 압축 파일 | 필수 |
-| 작업 일지 | 팀 회의록 / 작업일지 | 필수 |
-| 기타 자료 | 캡처, 트러블슈팅 로그, 검증 자료 | 필수 |
-| 발표자료 | 발표용 PPT / PDF | 필수 |
-| 멘토링 자료 | 멘토링 질문 및 피드백 정리 | 선택 |
-| 확장 검증 자료 | HTTPS / Cinder / Monitoring / LB 검증 자료 | 선택 |
+```text
+구현 결과
+자동화 범위
+운영 검증
+백업 / 복구
+문서화
+발표 가능성
+```
 
 ---
 
-## 3. Phase 1 필수 산출물
+## 2. 최종 산출물 분류
 
-Phase 1은 최종 제출과 발표를 위해 반드시 확보해야 하는 기본 산출물이다.
-
-## 3.1 인프라 산출물
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | OpenStack 인스턴스 목록 캡처 | Control / Proxy / Web / DB / Backup Node 확인 |
-| [ ] | Ubuntu 이미지 사용 캡처 | 사용 이미지 확인 |
-| [ ] | 네트워크 구성 캡처 | Network / Subnet / Router 확인 |
-| [ ] | 보안그룹 캡처 | SSH / HTTP / DB 포트 정책 확인 |
-| [ ] | Floating IP 또는 포트포워딩 구조 캡처 | 외부 접속 경로 설명 |
-| [ ] | IP 주소표 | 각 노드 Private IP 및 접속 경로 정리 |
-
----
-
-## 3.2 접속 및 Ansible 산출물
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | SSH 접속 성공 캡처 | Control Node에서 각 노드 접속 |
-| [ ] | ansible --version 캡처 | Ansible 설치 확인 |
-| [ ] | ansible-inventory --list 캡처 | proxy / web / db / backup 그룹 확인 |
-| [ ] | ansible all -m ping 캡처 | 모든 Managed Node SUCCESS |
-| [ ] | ansible-playbook site.yml --syntax-check 캡처 | 문법 검증 통과 |
-| [ ] | ansible-playbook site.yml 실행 결과 캡처 | Playbook 실행 성공 |
-
----
-
-## 3.3 서비스 배포 산출물
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | Docker 설치 확인 캡처 | docker --version |
-| [ ] | Docker Compose 확인 캡처 | docker compose version |
-| [ ] | DB Node MariaDB 서비스 캡처 | mariadb service active |
-| [ ] | Web Node WordPress 컨테이너 캡처 | dandelion-wordpress running |
-| [ ] | Proxy Node HAProxy 컨테이너 캡처 | dandelion-haproxy running |
-| [ ] | 포트 확인 캡처 | ss -tulnp |
-| [ ] | Web Node → DB Node 연결 확인 캡처 | 3306 연결 성공 |
-| [ ] | Proxy Node 경유 WordPress 접속 캡처 | HTTP 응답 또는 브라우저 화면 |
-
----
-
-## 3.4 상태 점검 / 백업 / 복구 산출물
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | health_check.sh 실행 결과 | Proxy / Web / DB 상태 확인 |
-| [ ] | backup.sh 실행 결과 | DB dump 및 files archive 생성 |
-| [ ] | MariaDB dump 파일 캡처 | wordpress_db.sql 생성 |
-| [ ] | WordPress files archive 캡처 | wordpress_files.tar.gz 생성 |
-| [ ] | restore.md | 복구 절차 문서화 |
-| [ ] | Restore 검증 캡처 또는 결과 기록 | 복구 절차 검증 |
-| [ ] | 장애 상황 1개 이상 정리 | 원인 / 조치 / 결과 포함 |
-
----
-
-## 3.5 필수 문서 산출물
-
-| 체크 | 문서 | 목적 |
-|---|---|---|
-| [ ] | README.md | 프로젝트 전체 소개 |
-| [ ] | docs/architecture.md | 시스템 아키텍처 |
-| [ ] | docs/network-design.md | 네트워크 및 보안그룹 |
-| [ ] | docs/server-setup.md | 서버 및 Docker 구성 |
-| [ ] | docs/ansible-automation.md | Ansible 자동화 |
-| [ ] | docs/validation-report.md | 검증 기준 및 결과 |
-| [ ] | docs/team-task-guide.md | 팀원별 작업 기준 |
-| [ ] | docs/pre-run-checklist.md | 실행 전 점검 |
-| [ ] | docs/troubleshooting.md | 장애 대응 |
-| [ ] | docs/runbook.md | 실행 절차 |
-| [ ] | docs/scope-control.md | 구현 범위 통제 |
-| [ ] | docs/implementation-roadmap.md | Phase 기반 구현 순서 |
-| [ ] | docs/final-deliverables.md | 최종 산출물 기준 |
-| [ ] | docs/review-checklist.md | 제출 전 검수 기준 |
-| [ ] | presentation/presentation-outline.md | 발표 흐름 |
-
----
-
-## 4. Phase 2 선택 산출물
-
-Phase 2는 Phase 1 완료 후 추가로 확보할 수 있는 운영 확장 산출물이다.
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | HTTPS 접속 캡처 | curl -k 또는 브라우저 HTTPS |
-| [ ] | HTTP to HTTPS Redirect 캡처 | 301 또는 302 확인 |
-| [ ] | self-signed 인증서 캡처 | 인증서 확인 |
-| [ ] | Cinder Volume 생성 캡처 | openstack volume list |
-| [ ] | Cinder Volume attach 캡처 | Backup Node attach 확인 |
-| [ ] | /backup mount 캡처 | df -h |
-| [ ] | Cinder Volume 백업 파일 캡처 | /backup 내 백업 파일 확인 |
-| [ ] | node_exporter metrics 캡처 | /metrics 출력 |
-| [ ] | cAdvisor metrics 캡처 | /metrics 출력 |
-| [ ] | Prometheus Target UP 캡처 | Target 상태 UP |
-| [ ] | Grafana Dashboard 캡처 | Dashboard 화면 |
-| [ ] | backup playbook 실행 캡처 | ansible-playbook backup.yml |
-| [ ] | validate playbook 실행 캡처 | ansible-playbook validate.yml |
-| [ ] | Ansible roles 구조 캡처 | roles 디렉터리 구성 |
-
----
-
-## 5. Phase 3 도전 산출물
-
-Phase 3은 도전 확장 단계이며 필수 제출 범위가 아니다.
-
-| 체크 | 산출물 | 기준 |
-|---|---|---|
-| [ ] | Web Node 2 인스턴스 캡처 | ACTIVE 상태 |
-| [ ] | Web Node 2 Ansible ping 캡처 | SUCCESS |
-| [ ] | Web Node 2 WordPress 컨테이너 캡처 | running |
-| [ ] | HAProxy backend 2개 설정 캡처 | web1 / web2 등록 |
-| [ ] | roundrobin 응답 분산 캡처 | Web-1 / Web-2 응답 분산 |
-| [ ] | 공통 DB 연결 검증 캡처 | Web Node 1/2가 동일 DB Node 사용 |
-| [ ] | Web Node 장애 테스트 캡처 | Web-1 중지 시 Web-2 응답 |
-
-Phase 3에서는 다음 항목을 산출물로 요구하지 않는다.
-
-~~~text
-WordPress files 자동 동기화
-wp-content/uploads 공유
-plugin/theme 동기화
-DB Replication
-DB Clustering
-OpenStack LBaaS / Octavia
-Auto Scaling
-~~~
-
----
-
-## 6. Google Drive 제출 구조
-
-최종 제출용 Google Drive는 다음 구조를 권장한다.
-
-~~~text
-02. [기본 프로젝트] 결과 산출물_260714/
-├── 01. 결과보고서/
-│   ├── Dandelion_결과보고서.pptx
-│   └── Dandelion_결과보고서.pdf
-├── 02. 시연영상/
-│   └── Dandelion_시연영상.mp4
-├── 03. 소스코드/
-│   ├── GitHub_URL.txt
-│   └── source-code.zip
-├── 04. 작업일지_회의록/
-│   ├── 회의록/
-│   └── 작업일지/
-├── 05. 캡처_검증자료/
-│   ├── OpenStack/
-│   ├── Ansible/
-│   ├── Docker/
-│   ├── Proxy_Web_DB/
-│   ├── Backup_Restore/
-│   ├── Troubleshooting/
-│   └── Optional_Phase2_Phase3/
-└── 06. 기타자료/
-    ├── 멘토링_질문.md
-    └── 제출_체크리스트.md
-~~~
-
----
-
-## 7. GitHub Repository 제출 기준
-
-GitHub Repository에는 다음 항목이 포함되어야 한다.
-
-| 체크 | 항목 | 기준 |
-|---|---|---|
-| [ ] | README.md | 프로젝트 전체 설명 |
-| [ ] | docs/ | 주요 문서 포함 |
-| [ ] | ansible/ | ansible.cfg, inventory.ini, site.yml |
-| [ ] | docker/wordpress/ | Dockerfile, custom.ini |
-| [ ] | docker/compose/ | Web / MariaDB service configuration 파일 |
-| [ ] | docker/proxy/ | HAProxy compose 및 haproxy.cfg |
-| [ ] | scripts/ | health_check.sh, backup.sh |
-| [ ] | screenshots/ | 주요 검증 캡처 |
-| [ ] | presentation/ | 발표 개요 |
-| [ ] | submission/ | 제출 패키지 정리 |
-| [ ] | tools/ | 상태 자동 갱신 및 검증 스크립트 |
-| [ ] | .github/workflows/ | GitHub Actions workflow |
-
----
-
-## 8. 발표자료 포함 기준
-
-결과보고서 또는 발표자료에는 다음 흐름이 들어가야 한다.
-
-~~~text
-1. 프로젝트 배경
-2. 문제 정의
-3. 목표
-4. Phase 기반 구현 범위
-5. 전체 아키텍처
-6. OpenStack 인프라 구성
-7. Ansible 자동화 구조
-8. Docker Compose 기반 서비스 배포
-9. Proxy / Web / DB / Backup Node 분리
-10. HAProxy HTTP Reverse Proxy
-11. WordPress / MariaDB 연결
-12. Health Check
-13. Backup / Restore
-14. 장애 대응
-15. Phase 2 확장 결과
-16. Phase 3 도전 결과
-17. 최종 결과 및 한계
-~~~
-
-Phase 2 또는 Phase 3을 수행하지 못한 경우에는 발표자료에서 다음과 같이 처리한다.
-
-~~~text
-Phase 1 필수 구성 및 기본 검증을 최종 성공 기준으로 제시하고,
-Phase 2와 Phase 3은 추가 확장 계획 또는 도전 과제로 설명한다.
-~~~
-
----
-
-## 9. 시연 영상 포함 기준
-
-시연 영상에는 다음 항목을 우선 포함한다.
-
-| 순서 | 시연 항목 |
-|---:|---|
-| 1 | OpenStack 인스턴스 목록 |
-| 2 | Control / Proxy / Web / DB / Backup Node 구조 설명 |
-| 3 | ansible all -m ping |
-| 4 | ansible-playbook site.yml 실행 |
-| 5 | DB Node MariaDB 서비스 확인 |
-| 6 | Web Node WordPress 컨테이너 확인 |
-| 7 | Proxy Node HAProxy 컨테이너 확인 |
-| 8 | Proxy Node 경유 WordPress HTTP 접속 |
-| 9 | Web Node → DB Node 연결 확인 |
-| 10 | health_check.sh 실행 |
-| 11 | backup.sh 실행 |
-| 12 | restore.md 복구 절차 설명 |
-| 13 | 장애 상황 1개와 복구 결과 설명 |
-
-선택 시연:
-
-| Phase | 선택 시연 |
+| 분류 | 산출물 |
 |---|---|
-| Phase 2 | HTTPS, Cinder Backup Volume, Prometheus/Grafana |
-| Phase 3 | Web Node 2대, HAProxy Load Balancing |
+| Repository | GitHub 저장소 |
+| Documentation | README, Architecture, Automation Scope, Runbook |
+| Ansible | Inventory, Playbooks, Provisioning Design |
+| Infrastructure | OpenStack 인스턴스 구성 자료 |
+| Service | Web / DB / Proxy 구성 자료 |
+| Monitoring | Prometheus / Exporter / Grafana / Alertmanager 자료 |
+| Backup / Recovery | Restic 백업, 복구 테스트, 복구 시나리오 |
+| Validation | 검증 체크리스트, 결과 캡처 |
+| Submission | 회의록, 작업일지, 결과보고서, 발표자료 |
 
 ---
 
-## 10. 제출 전 최종 검수
+## 3. 필수 문서 산출물
 
-| 체크 | 검수 항목 |
+| 문서 | 목적 | 상태 |
+|---|---|---|
+| README.md | 저장소 메인 설명 | 최신 기준 반영 |
+| docs/current-status.md | 최신 진행 상태 | 작성 |
+| docs/architecture.md | 최신 아키텍처 | 작성 |
+| docs/resource-plan.md | 노드 스펙 및 리소스 | 작성 |
+| docs/automation-scope.md | 자동화 범위 정의 | 작성 |
+| docs/ansible-execution-design.md | Ansible 실행 구조 | 작성 |
+| docs/provisioning-playbook-design.md | OpenStack Provisioning 설계 | 작성 |
+| docs/runbook.md | 실행 절차 | 작성 |
+| docs/pre-run-checklist.md | 실행 전 점검 | 작성 |
+| docs/validation-plan.md | 검증 계획 | 작성 |
+| docs/backup-recovery-plan.md | 백업 / 복구 계획 | 작성 |
+| docs/monitoring-plan.md | 모니터링 계획 | 작성 |
+| docs/implementation-roadmap.md | 남은 작업 계획 | 작성 |
+| docs/mentoring-brief.md | 멘토링 대비 요약 | 작성 |
+| docs/document-cleanup-policy.md | 문서 정리 기준 | 작성 |
+
+---
+
+## 4. Ansible 산출물
+
+| 산출물 | 설명 | 상태 |
+|---|---|---|
+| ansible.cfg | Ansible 실행 설정 | 필요 |
+| inventory.ini | 관리 대상 노드 정의 | 필요 |
+| site.yml | 통합 실행 Playbook | 필요 |
+| provision.yml | OpenStack 인스턴스 생성 자동화 | 보완 필요 |
+| wait-ssh.yml | SSH 접속 대기 | 예정 |
+| common.yml | 공통 환경 설정 | 필요 |
+| docker-swarm.yml | Docker Swarm 기반 Web 구성 | 필요 |
+| database.yml | MariaDB / Replica 구성 | 필요 |
+| proxy.yml | HAProxy 구성 | 필요 |
+| monitoring.yml | Monitoring Stack 구성 | 필요 |
+| backup.yml | Restic 백업 구성 | 필요 |
+| validate.yml | 운영 검증 | 예정 |
+
+---
+
+## 5. 구현 증빙 산출물
+
+| 영역 | 증빙 |
 |---|---|
-| [ ] | Phase 1 필수 구성 완료 |
-| [ ] | 필수 캡처 누락 없음 |
-| [ ] | README 링크 정상 |
-| [ ] | 문서 내 오래된 용어 제거 |
-| [ ] | WordPress / MariaDB / HAProxy 기준 일관성 유지 |
-| [ ] | Nginx 관련 표현 제거 |
-| [ ] | web-test 관련 표현 제거 |
-| [ ] | DB Node 분리 구조 반영 |
-| [ ] | Proxy Node 경유 접속 구조 반영 |
-| [ ] | Backup / Restore 검증 반영 |
-| [ ] | Out of Scope 항목 명확히 정리 |
-| [ ] | Google Drive 제출 폴더 정리 |
-| [ ] | GitHub Repository 최신 상태 |
-| [ ] | 결과보고서 PPT / PDF 생성 |
-| [ ] | 시연 영상 업로드 |
-| [ ] | 팀원별 작업일지 및 회의록 정리 |
+| Infrastructure | OpenStack 인스턴스 목록, IP, 보안그룹, 볼륨 캡처 |
+| Timezone | KST 설정 확인 캡처 |
+| Ansible | ansible ping, playbook syntax-check, playbook 실행 결과 |
+| Web | Docker Swarm 상태, Web 응답 캡처 |
+| Proxy | HAProxy 상태, Proxy 경유 응답 캡처 |
+| DB | MariaDB 상태, DB 접속, Replica 검증 캡처 |
+| Monitoring | Prometheus target, Grafana dashboard, Alertmanager 화면 |
+| Backup | Restic snapshots, 백업 스크립트 실행 결과 |
+| Recovery | 복구 테스트 전/후 결과, 복구 시나리오 문서 |
+| GitHub | commit log, 문서 구조, README |
 
 ---
 
-## 11. 제출 가능 판단 기준
+## 6. Backup / Recovery 산출물
 
-다음 조건을 만족하면 최종 제출 가능 상태로 판단한다.
-
-| 기준 | 설명 |
-|---|---|
-| Phase 1 완성 | 필수 구성 및 기본 검증 완료 |
-| Evidence 확보 | 핵심 검증 캡처 확보 |
-| Runbook 확보 | 실행 절차 문서화 |
-| Troubleshooting 확보 | 장애 상황 및 복구 절차 기록 |
-| Source Code 확보 | Ansible / Docker / Scripts 정리 |
-| Presentation 확보 | 발표자료 및 시연 흐름 정리 |
-| Submission 확보 | Google Drive 제출 패키지 정리 |
+| 산출물 | 설명 | 상태 |
+|---|---|---|
+| Restic 설치 증빙 | Restic version 출력 | 완료 필요 |
+| Web 백업 결과 | Web Node 백업 snapshot | 완료 |
+| DB 백업 결과 | DB dump 또는 snapshot | 완료 |
+| Proxy 백업 결과 | HAProxy 설정 백업 | 완료 |
+| Monitoring 백업 결과 | Prometheus / Grafana / Alertmanager 설정 백업 | 예정 |
+| 복구 테스트 결과 | Restore Test 결과 | 완료 |
+| 복구 시나리오 5종 | Web / DB / Proxy / Repository / Composite Recovery | 문서화 진행 |
 
 ---
 
-## 12. 핵심 제출 메시지
+## 7. Monitoring 산출물
 
-~~~text
-최종 제출의 핵심은 기능 개수보다 Phase 1 필수 운영 흐름을 끝까지 검증한 증거이다.
+| 산출물 | 설명 | 상태 |
+|---|---|---|
+| Prometheus 설치 증빙 | Prometheus UI / systemd 상태 | 완료 |
+| node_exporter | Target UP | 완료 |
+| cAdvisor | Target UP | 완료 |
+| mysqld_exporter | Target UP | 완료 |
+| blackbox_exporter | Target UP | 완료 |
+| Grafana | Dashboard / Data Source | 설정 진행 |
+| Alertmanager | Alert Rule / Receiver | 설정 진행 |
 
-OpenStack 인프라 구성, Ansible 자동화, Proxy/Web/DB/Backup Node 분리,
-WordPress와 MariaDB/HAProxy 배포, Proxy 경유 접속,
-Health Check, Backup, Restore, Troubleshooting 결과가 모두 남아 있어야 한다.
+---
 
-Phase 2와 Phase 3은 추가 완성도를 보여주는 선택 산출물로 관리한다.
-~~~
+## 8. 제출 패키지 구성
 
+최종 제출 패키지는 다음 구조를 기준으로 한다.
 
+```text
+submission/
+├── meeting-notes/
+├── work-logs/
+├── screenshots/
+├── final-report/
+└── presentation/
+```
 
+권장 제출 항목:
+
+```text
+1. 최종 결과보고서 PDF
+2. 최종 발표자료 PDF/PPT
+3. GitHub 저장소 링크
+4. 주요 캡처 자료
+5. 회의록
+6. 작업일지
+7. 검증 결과 요약
+8. 백업 / 복구 시나리오 문서
+```
+
+---
+
+## 9. 최종 발표에서 보여줄 핵심 증빙
+
+| 순서 | 증빙 | 목적 |
+|---:|---|---|
+| 1 | 전체 아키텍처 | 구조 이해 |
+| 2 | Ansible 실행 구조 | 자동화 증명 |
+| 3 | Provisioning 설계 또는 실행 | 인스턴스 생성 자동화 목표 증명 |
+| 4 | Docker Swarm / HAProxy | 서비스 구성 증명 |
+| 5 | Prometheus Target | 모니터링 증명 |
+| 6 | Grafana Dashboard | 운영 시각화 증명 |
+| 7 | Restic Snapshot | 백업 증명 |
+| 8 | Restore Test | 복구 검증 증명 |
+| 9 | 복구 시나리오 5종 | 운영 대응력 증명 |
+| 10 | GitHub 문서 구조 | 프로젝트 관리 증명 |
+
+---
+
+## 10. 완료 기준
+
+최종 산출물 완료 기준은 다음과 같다.
+
+```text
+1. README에서 최신 기준 문서로 이동 가능
+2. architecture.md와 presentation-outline.md 내용 일치
+3. automation-scope.md에서 완료 / 진행 / 예정 범위 구분
+4. ansible-execution-design.md에서 site.yml 목표 구조 설명 가능
+5. backup-recovery-plan.md에서 복구 시나리오 5종 설명 가능
+6. monitoring-plan.md에서 Exporter별 역할 설명 가능
+7. implementation-roadmap.md에서 남은 작업 방어 가능
+8. 회의록 / 작업일지 누락 없음
+9. 캡처 자료와 문서 내용 일치
+10. 발표자가 질문에 대해 문서 기준으로 답변 가능
+```
+
+---
+
+## 11. 결론
+
+최종 산출물은 다음 메시지를 증명해야 한다.
+
+```text
+Team Dandelion은 OpenStack 기반 클라우드 인프라 위에서
+Ansible을 통해 구성 자동화와 운영 자동화를 구현하고,
+Prometheus / Grafana 기반 모니터링,
+Restic 기반 백업 및 복구 검증,
+복구 시나리오 기반 운영 대응 체계를 구축하였다.
+```

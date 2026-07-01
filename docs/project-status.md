@@ -1,23 +1,23 @@
 # Project Status
 
-Last Updated: 2026-06-29 06:36:37
+Last Updated: 2026-07-01 08:28:48
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
+| PM / Architecture | 정주헌 | 11 | 12 | 92% | 🟡 진행 중 |
 | Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
-| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
 ## 2. 전체 진행률
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 22 | 51 | 43% |
+| 21 | 51 | 41% |
 
 ## 3. 상세 파일 상태
 
@@ -35,7 +35,7 @@ Last Updated: 2026-06-29 06:36:37
 | docs/review-checklist.md | ✅ 완료 |
 | docs/scope-control.md | ✅ 완료 |
 | docs/mentoring-brief.md | ✅ 완료 |
-| docs/mentoring-questions.md | ✅ 완료 |
+| docs/mentoring-questions.md | 🟡 작성 필요 |
 | presentation/presentation-outline.md | ✅ 완료 |
 
 ## Cloud Infrastructure - 백서빈
@@ -64,7 +64,7 @@ Last Updated: 2026-06-29 06:36:37
 |---|---|
 | ansible/ansible.cfg | 🟡 작성 필요 |
 | ansible/inventory.ini | 🟡 작성 필요 |
-| ansible/site.yml | 🟡 작성 필요 |
+| ansible/site.yml | ✅ 완료 |
 | docs/ansible-automation.md | ✅ 완료 |
 | screenshots/ansible/ansible-version.png | ❌ 미완료 |
 | screenshots/ansible/inventory.png | ❌ 미완료 |
@@ -90,7 +90,7 @@ Last Updated: 2026-06-29 06:36:37
 
 | 파일 | 상태 |
 |---|---|
-| docs/submission-package.md | ✅ 완료 |
+| docs/submission-package.md | 🟡 작성 필요 |
 | presentation/presentation-outline.md | ✅ 완료 |
 | submission/result-report-lms.md | 🟡 작성 필요 |
 | submission/demo-video.md | 🟡 작성 필요 |

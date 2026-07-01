@@ -1,287 +1,278 @@
-﻿<!-- STATUS: COMPLETE -->
+﻿<!-- STATUS: CURRENT -->
 
 # Team Dandelion - Cloud Infrastructure Automation
 
 ## 1. 프로젝트 주제
 
+```text
 Ansible 기반 클라우드 인프라 자동화 및 운영 최적화 시스템 구축
+```
 
 ---
 
 ## 2. 프로젝트 개요
 
-본 프로젝트는 OpenStack 기반 클라우드 인프라 환경에서 Ubuntu 인스턴스를 구성하고, Ansible을 활용하여 서버 설정, Docker 설치, Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, HAProxy Reverse Proxy 구성, 상태 점검, 백업 및 복구 검증을 자동화하는 것을 목표로 한다.
+본 프로젝트는 OpenStack 기반 클라우드 인프라 위에 Web, DB, Proxy, Monitoring, Backup / Recovery 구성 요소를 배치하고, Control Node에서 Ansible Playbook과 운영 스크립트를 실행하여 인프라 구성, 서비스 배포, 모니터링, 백업 및 복구 검증을 자동화하는 것을 목표로 한다.
 
-단순한 서버 생성이나 애플리케이션 배포가 아니라, 반복적인 인프라 운영 작업을 코드화하고, 자동화 결과를 검증 가능한 산출물로 남기는 데 중점을 둔다.
+최종 목표는 다음과 같다.
 
-서비스 계층은 Docker Hub 공식 WordPress 이미지를 기반으로 생성한 Custom WordPress Image와 MariaDB Service를 Docker Compose로 구성한다.
+```text
+Control Node에서 Ansible Playbook 실행
+→ OpenStack 인스턴스 생성
+→ 네트워크 / 보안그룹 / 볼륨 구성
+→ Inventory 구성
+→ 공통 환경 설정
+→ 서비스 배포
+→ 모니터링 구성
+→ 백업 및 복구 검증
+→ 운영 상태 검증
+```
 
-본 프로젝트에서 WordPress는 웹 개발 대상이 아니라, Ansible 기반 배포 자동화, HTTP 상태 점검, MariaDB dump, WordPress files 백업, Restore 검증을 위한 컨테이너 서비스 대상이다.
-
----
-
-## 3. Phase 기반 구현 전략
-
-본 프로젝트는 기존 A급 / B급 / B+ 방식이 아니라 Phase 기반 구현 로드맵으로 범위를 정의한다.
-
-~~~text
-Phase 1: 필수 구성 및 기본 검증 단계
-Phase 2: 운영 확장 및 검증 고도화 단계
-Phase 3: 도전 확장 단계
-Out of Scope: 제외 범위
-~~~
+현재는 생성된 OpenStack 인스턴스를 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 nsible/provision.yml 기준으로 최소 구현 범위를 관리하며, 실제 환경 값 반영 후 실행 검증한다.
 
 ---
 
-## 4. 핵심 구현 흐름
+## 3. 최신 기준 문서
 
-~~~text
-OpenStack 인프라 구성
-→ Ubuntu 인스턴스 생성
-→ Control / Proxy / Web / DB / Backup Node 분리
-→ SSH 접속 환경 구성
-→ Ansible Inventory 작성
-→ Ansible Playbook 실행
-→ Docker 설치
-→ DB Node에 MariaDB 직접 설치
-→ Web Node에 Custom WordPress 배포
-→ Proxy Node에 HAProxy HTTP Reverse Proxy 구성
-→ Proxy Node 경유 WordPress HTTP 접속 확인
-→ Health Check
-→ MariaDB dump 및 WordPress files 백업
-→ Restore 절차 검증
-→ GitHub 및 Google Drive 산출물 관리
-~~~
+멘토링 및 최종 발표 기준은 다음 문서를 우선 참조한다.
 
----
-
-## 5. 평가 기준 대응 전략
-
-| 평가항목 | 배점 | 프로젝트 대응 방향 |
-|---|---:|---|
-| 전문성 | 25 | OpenStack 인프라, Ubuntu Instance, Proxy/Web/DB/Backup 계층 분리, Ansible IaC, Docker Compose, WordPress와 MariaDB, HAProxy Reverse Proxy, 백업/복구 검증 |
-| 차별성 | 25 | 수동 운영 편차 문제를 Ansible 표준화, Dockerfile 기반 이미지 커스터마이징, Proxy/Web/DB 계층 분리, GitHub Actions 기반 산출물 상태 자동 갱신으로 개선 |
-| 완성도 | 25 | SSH 접속, Ansible ping, Playbook 실행, WordPress와 MariaDB/HAProxy 배포, Health Check, Backup/Restore 성공 검증 |
-| 프로젝트 관리 | 15 | GitHub Repository, 문서화, 팀원별 산출물 분리, 회의록/작업일지/제출자료 관리 |
-| 발표 및 시연 | 10 | 인프라 구현 → 자동화 → 서비스 배포 → Proxy 경유 접속 → 상태 점검 → 백업/복구 검증 흐름 중심 시연 |
+| 문서 | 목적 |
+|---|---|
+| [Current Status](docs/current-status.md) | 최신 프로젝트 진행 상태 |
+| [Architecture](docs/architecture.md) | 최신 아키텍처 기준 |
+| [Automation Scope](docs/automation-scope.md) | Ansible / OpenStack 자동화 범위 |
+| [Ansible Execution Design](docs/ansible-execution-design.md) | Ansible 실행 구조와 site.yml 목표 |
+| [Provisioning Playbook Design](docs/provisioning-playbook-design.md) | OpenStack 인스턴스 생성 자동화 설계 |
+| [Implementation Roadmap](docs/implementation-roadmap.md) | 남은 구현 작업과 우선순위 |
+| [Mentoring Brief](docs/mentoring-brief.md) | 멘토링 대비 요약 및 질문 |
+| [Mentoring Questions](docs/mentoring-questions.md) | 멘토링 당일 확인 질문 |
+| [Mentoring Explanation Script](docs/mentoring-explanation-script.md) | 멘토링 설명 스크립트 |
+| [Mentoring Checklist](docs/mentoring-checklist.md) | 멘토링 전 최종 점검표 |
+| [Runbook](docs/runbook.md) | 운영 실행 절차 |
+| [Validation Plan](docs/validation-plan.md) | 검증 계획 |
+| [Backup and Recovery Plan](docs/backup-recovery-plan.md) | 백업 및 복구 계획 |
+| [Monitoring Plan](docs/monitoring-plan.md) | 모니터링 계획 |
+| [Final Deliverables](docs/final-deliverables.md) | 최종 산출물 기준 |
+| [Submission Package](docs/submission-package.md) | 제출 패키지 구성 기준 |
+| [Document Cleanup Policy](docs/document-cleanup-policy.md) | 최신 문서와 과거 기록 구분 기준 |
 
 ---
 
-## 6. 팀 구성
+## 4. 최신 아키텍처 요약
 
-| 이름 | 역할 | 담당 영역 |
+```text
+Admin
+→ Control Node
+→ Ansible Playbook
+→ OpenStack Managed Nodes
+→ Web / DB / Proxy / Monitoring / Backup 구성
+```
+
+서비스 흐름은 다음과 같다.
+
+```text
+User
+→ Proxy / HAProxy
+→ Docker Swarm 기반 Web Service
+→ MariaDB DB
+```
+
+운영 흐름은 다음과 같다.
+
+```text
+Monitoring
+→ Prometheus / Exporter / Grafana / Alertmanager
+
+Backup / Recovery
+→ Restic
+→ Web / DB / Proxy 백업
+→ 복구 테스트
+→ 복구 시나리오 문서화
+```
+
+---
+
+## 5. 노드 구성
+
+| 노드 | 역할 | 주요 구성 |
 |---|---|---|
-| 정주헌 | PM / 아키텍처 | 전체 구조 설계, GitHub 관리, 문서 통합, 발표 흐름 정리 |
-| 백서빈 | 클라우드 인프라 | OpenStack 인스턴스, Ubuntu 이미지, 네트워크, 보안그룹, Floating IP 또는 포트포워딩 접속 구성 |
-| 이진욱 | 서버 / 가상화 | Linux 기본 설정, Docker 설치, Custom WordPress, MariaDB, HAProxy 컨테이너 구성 |
-| 조민석 | Ansible 자동화 | ansible.cfg, inventory.ini, site.yml 작성 및 실행 |
-| 박재우 | 모니터링 / 백업 / 검증 | health_check, backup, restore 검증 및 결과 정리 |
+| Control Node | 중앙 관리 및 Ansible 실행 | Ansible, Inventory, Playbooks |
+| Proxy Node | 외부 요청 전달 및 Proxy 처리 | HAProxy |
+| Web Node | Web 서비스 실행 | Docker, Docker Swarm, WordPress |
+| DB Node | 데이터베이스 서비스 | MariaDB, Replica 검증 |
+| Monitoring Node | 운영 모니터링 | Prometheus, node_exporter, cAdvisor, mysqld_exporter, blackbox_exporter, Grafana, Alertmanager |
+| Backup / Recovery Node | 백업 및 복구 검증 | Restic, Backup Scripts, Restore Test, Recovery Scenarios |
 
 ---
 
+## 6. 자동화 범위
 
-## 7. 최종 아키텍처 완성본
+본 프로젝트의 자동화 범위는 다음과 같이 구분한다.
 
-![Final Phase 3 Architecture](./docs/assets/final-phase3-architecture.png)
-
+| 계층 | 설명 | 현재 상태 |
+|---|---|---|
+| Provisioning Automation | OpenStack 인스턴스, 네트워크, 보안그룹, 볼륨 생성 자동화 | 보완 필요 |
+| Configuration Automation | 생성된 서버의 공통 설정 및 패키지 구성 | 진행 / 일부 완료 |
+| Service Deployment Automation | Web, DB, Proxy 서비스 구성 | 진행 / 구조 변경 반영 중 |
+| Monitoring Automation | Prometheus, Exporter, Grafana, Alertmanager 구성 | 설치 완료 / 설정 진행 |
+| Backup Automation | Restic 기반 백업 구성 | Web / DB / Proxy 완료 |
+| Recovery Validation | 복구 테스트 및 복구 시나리오 검증 | 테스트 실시 / 문서화 진행 |
+| Operation Optimization | 운영 상태 검증 및 장애 대응 문서화 | 진행 중 |
 
 ---
 
-## 8. Phase 1: 필수 구성 및 기본 검증 단계
+## 7. 현재 완료 항목
 
-Phase 1은 최종 발표와 시연을 위해 반드시 완료해야 하는 필수 구성 단계이다.
-
-Phase 1의 목표는 OpenStack 위에 Ubuntu 기반 인스턴스를 구성하고, Control Node, Proxy Node, Web Node, DB Node, Backup / Validation Node를 분리한 뒤, Ansible을 통해 Docker 기반 서비스를 배포하고, 상태 점검과 백업/복구 검증까지 완료하는 것이다.
-
-~~~text
-Client
-→ Proxy Node
-   └── HAProxy HTTP Reverse Proxy
-
-→ Web Node
-   └── Custom WordPress Container
-
-→ DB Node
-   └── MariaDB Service
-
-→ Backup / Validation Node
-   ├── health_check.sh
-   ├── backup.sh
-   ├── MariaDB dump
-   ├── WordPress files archive
-   └── restore.md 검증
-
-Control Node
-→ Ansible 실행
-→ Proxy / Web / DB / Backup Node 관리
-~~~
-
-### Phase 1 필수 구성사항
-
-| 구분 | 필수 구현 내용 |
+| 분류 | 완료 내용 |
 |---|---|
-| 인프라 | OpenStack 기반 Ubuntu 인스턴스 생성 |
-| 노드 구성 | Control Node, Proxy Node, Web Node, DB Node, Backup / Validation Node 구분 |
-| 네트워크 | 네트워크, 라우터, 서브넷 구성 |
-| 접속 | SSH 접속 및 포트포워딩 또는 Floating IP 접속 검증 |
-| 보안 | 보안그룹을 통한 SSH 및 HTTP 접근 제어 |
-| Ansible | ansible.cfg, inventory.ini, site.yml 작성 및 실행 |
-| 서비스 | Docker 설치 및 Docker Compose 실행 |
-| DB | DB Node에 MariaDB 서비스 구성 |
-| Web | Web Node에 Custom WordPress 컨테이너 구성 |
-| Proxy | Proxy Node에 HAProxy HTTP Reverse Proxy 구성 |
-| 검증 | Proxy Node 경유 WordPress HTTP 응답 확인 |
-| 상태 점검 | health_check.sh 실행 |
-| 백업 | MariaDB dump 및 WordPress files archive 생성 |
-| 복구 | restore.md 기반 복구 절차 검증 |
-| 문서 | IP 주소표, 보안그룹 및 포트표, 담당자별 수행 내역, 트러블슈팅 로그 정리 |
-| 산출물 | 담당자별 캡처 및 제출자료 정리 |
+| Infrastructure | OpenStack 기반 인스턴스 구성 |
+| Infrastructure | 인스턴스 구조 수정 |
+| Infrastructure | 한국표준시 기준 시간 설정 |
+| Web | 단일 Web Node 기반 Docker Swarm 재구성 |
+| Proxy | HAProxy 구성 |
+| Monitoring | Prometheus 설치 |
+| Monitoring | node_exporter 설치 |
+| Monitoring | cAdvisor 설치 |
+| Monitoring | mysqld_exporter 설치 |
+| Monitoring | blackbox_exporter 설치 |
+| Monitoring | Grafana 설치 |
+| Monitoring | Alertmanager 설치 |
+| Backup | Restic 설치 |
+| Backup | Web / DB / Proxy Node 백업 진행 |
+| Recovery | 백업 데이터 기반 복구 테스트 실시 |
+| Recovery | 복구 시나리오 5종 구성 |
 
 ---
 
-## 9. Phase 2: 운영 확장 및 검증 고도화 단계
+## 8. 현재 진행 중 항목
 
-Phase 2는 Phase 1 구현과 필수 캡처가 완료된 이후 가능한 범위에서 진행한다.
-
-Phase 2는 Phase 1 구조를 변경하는 것이 아니라, Phase 1 구조 위에 보안 강화, 스토리지 분리, 관측 가능성, 자동화 개선 요소를 추가하는 방향으로 진행한다.
-
-| 우선순위 | 확장 항목 | 목적 |
-|---:|---|---|
-| 1 | HTTPS self-signed | HTTPS 접속 검증 |
-| 2 | HTTP 80 → HTTPS 443 Redirect | 접속 보안 흐름 개선 |
-| 3 | Cinder Backup Volume | 백업 저장소 분리 |
-| 4 | node_exporter / cAdvisor | OS / Container 메트릭 수집 |
-| 5 | Prometheus | 메트릭 수집 서버 구성 |
-| 6 | Grafana | 대시보드 시각화 |
-| 7 | backup / restore playbook화 | 운영 절차 자동화 개선 |
-| 8 | Ansible roles 구조 분리 | playbook 구조 개선 |
-| 9 | 상세 검증 리포트 고도화 | 발표 근거 강화 |
-| 10 | 운영 장애 시나리오 확장 | 운영성 설명 강화 |
-
-Phase 2가 실패하더라도 Phase 1 결과를 기준으로 발표할 수 있도록 범위를 분리한다.
-
----
-
-## 10. Phase 3: 도전 확장 단계
-
-Phase 3은 Phase 1과 Phase 2가 조기에 안정화되었을 경우 시도하는 도전 확장 단계이다.
-
-Phase 3의 목표는 기존 Phase 1 구조를 유지하면서 Web Node를 2대로 확장하고, HAProxy를 통해 roundrobin 방식의 Load Balancing을 검증하는 것이다.
-
-~~~text
-Client
-→ Proxy Node / HAProxy Load Balancer
-→ Web Node 1 / WordPress
-→ Web Node 2 / WordPress
-→ DB Node / MariaDB
-→ Backup / Validation Node
-~~~
-
-| 항목 | 검증 기준 |
+| 분류 | 진행 내용 |
 |---|---|
-| Web Node 2대 구성 | Web-1 / Web-2 모두 WordPress 응답 |
-| HAProxy LB | roundrobin 기반 Web-1 / Web-2 분산 |
-| 공통 DB Node | 두 Web Node가 동일 DB Node에 연결 |
-| 장애 확인 | Web-1 중지 시 Web-2 응답 가능 여부 확인 |
-
-Phase 3 시연은 HAProxy roundrobin, Web-1/Web-2 응답 분산, 공통 DB 연결 확인 수준으로 제한한다.
+| Provisioning Automation | OpenStack 인스턴스 생성 자동화 Playbook 보완 |
+| Ansible | 구조 변경 대응 Playbook 수정 및 검증 |
+| Database | MariaDB Replica 이중화 검증 |
+| Monitoring | Grafana 세부 설정 |
+| Monitoring | Alertmanager 세부 설정 |
+| Backup | Monitoring 파트 백업 항목 추가 |
+| Recovery | 복구 시나리오 문서 작성 |
+| Documentation | 최신 아키텍처 기준 문서 정리 |
+| Presentation | 멘토링 및 최종 발표자료 반영 |
 
 ---
 
-## 11. Out of Scope
+## 9. Ansible 실행 목표
 
-다음 항목은 프로젝트 범위를 과도하게 확장할 수 있으므로 이번 구현 범위에서는 제외한다.
+최종 목표는 Control Node에서 다음 명령으로 전체 자동화 흐름을 실행하는 것이다.
 
-| 제외 항목 | 제외 이유 |
-|---|---|
-| OpenStack LBaaS / Octavia | OpenStack 서비스 의존성과 설정 난이도가 높음 |
-| DB Replication | DB 복제 검증 범위가 별도 프로젝트 수준으로 확장됨 |
-| DB Clustering | 장애 대응 및 데이터 정합성 검증 부담 증가 |
-| Auto Scaling | 모니터링, 이미지, 배포 자동화까지 범위 확장 |
-| Kubernetes | 현재 프로젝트의 Ansible / Docker Compose 중심과 범위 불일치 |
-| Docker Swarm | Docker Compose 기반 실습 범위를 벗어남 |
-| WordPress files 자동 동기화 | 파일 충돌, 권한, 공유 스토리지 이슈 발생 |
-| Production-level HTTPS | 공인 도메인 및 인증서 자동 갱신 범위 필요 |
+```bash
+ansible-playbook -i inventory.ini site.yml
+```
+
+권장 실행 구조는 다음과 같다.
+
+```text
+site.yml
+├── provision.yml
+├── wait-ssh.yml
+├── common.yml
+├── docker-swarm.yml
+├── database.yml
+├── proxy.yml
+├── monitoring.yml
+├── backup.yml
+└── validate.yml
+```
+
+현재는 생성된 인스턴스를 대상으로 구성 자동화와 운영 검증 자동화를 우선 구현하고 있으며, `provision.yml`을 통해 OpenStack 인스턴스 생성 자동화를 보완한다.
+
+---
+
+## 10. Backup / Recovery
+
+백업 및 복구는 Restic을 기준으로 구성한다.
+
+| 대상 | 내용 | 상태 |
+|---|---|---|
+| Web Node | Web 서비스 구성 및 파일 백업 | 완료 |
+| DB Node | MariaDB 백업 | 완료 |
+| Proxy Node | HAProxy 설정 백업 | 완료 |
+| Monitoring Node | Prometheus / Grafana / Alertmanager 설정 백업 | 예정 |
+| Recovery Test | 백업 데이터 기반 복구 테스트 | 실시 |
+| Recovery Scenario | 복구 시나리오 5종 구성 | 완료 / 문서화 진행 |
+
+---
+
+## 11. Monitoring
+
+Monitoring Stack은 다음 구성 요소를 기준으로 한다.
+
+| 구성 요소 | 역할 | 상태 |
+|---|---|---|
+| Prometheus | 메트릭 수집 및 저장 | 설치 완료 |
+| node_exporter | Host OS 메트릭 수집 | 설치 완료 |
+| cAdvisor | Container 메트릭 수집 | 설치 완료 |
+| mysqld_exporter | MariaDB 메트릭 수집 | 설치 완료 |
+| blackbox_exporter | HTTP / Endpoint 상태 점검 | 설치 완료 |
+| Grafana | Dashboard 시각화 | 설치 완료 / 설정 진행 |
+| Alertmanager | 알림 관리 | 설치 완료 / 설정 진행 |
 
 ---
 
 ## 12. 디렉터리 구조
 
-~~~text
+```text
 dandelion-cloud-automation/
 ├── README.md
-├── docs/
 ├── ansible/
+│   ├── site.yml
+│   ├── ansible.cfg
+│   ├── inventory.ini
+│   └── *.yml
 ├── docker/
-│   ├── wordpress/
-│   │   ├── Dockerfile
-│   │   ├── custom.ini
-│   │   └── README.md
-│   ├── compose/
-│   │   └── docker-compose.yml
-│   ├── proxy/
-│   │   ├── docker-compose.yml
-│   │   └── haproxy.cfg
-│   └── monitoring/
-│       ├── docker-compose.yml
-│       └── prometheus.yml
-├── scripts/
-├── screenshots/
+├── docs/
 ├── presentation/
+├── scripts/
+│   ├── backup/
+│   └── health-check/
+├── screenshots/
 ├── submission/
+│   ├── meeting-notes/
+│   └── work-logs/
 ├── tools/
 └── .github/workflows/
-~~~
+```
 
 ---
 
-## 13. 문서 목록
+## 13. 평가 기준 대응
 
-| 문서 | 설명 |
+| 평가 항목 | 대응 방향 |
 |---|---|
-| [Architecture](./docs/architecture.md) | 전체 시스템 아키텍처 |
-| [Network Design](./docs/network-design.md) | 클라우드 인프라 및 네트워크 구성 |
-| [Server Setup](./docs/server-setup.md) | 서버 및 Docker 구성 |
-| [Ansible Automation](./docs/ansible-automation.md) | Ansible 자동화 구성 |
-| [Validation Report](./docs/validation-report.md) | 모니터링, 백업, 복구 검증 |
-| [Team Task Guide](./docs/team-task-guide.md) | 팀원별 작업 기준 |
-| [Pre-Run Checklist](./docs/pre-run-checklist.md) | 실행 전 점검 기준 |
-| [Troubleshooting Guide](./docs/troubleshooting.md) | 문제 해결 기준 |
-| [Project Runbook](./docs/runbook.md) | 실행 절차 |
-| [Scope Control Policy](./docs/scope-control.md) | Phase 기반 구현 범위 통제 기준 |
-| [Implementation Roadmap](./docs/implementation-roadmap.md) | Phase 1 / Phase 2 / Phase 3 구현 순서 |
-| [Mentoring Brief](./docs/mentoring-brief.md) | 멘토링용 프로젝트 현황 요약 |
-| [Mentoring Questions](./docs/mentoring-questions.md) | 멘토링 질문 목록 |
-| [Final Deliverables Checklist](./docs/final-deliverables.md) | 최종 산출물 체크리스트 |
-| [Review Checklist](./docs/review-checklist.md) | 팀원 자료 검수 기준 |
-| [Project Status](./docs/project-status.md) | 자동 생성 프로젝트 상태 |
-| [Validation Summary](./docs/validation-summary.md) | 자동 검수 결과 |
-| [Presentation Outline](./presentation/presentation-outline.md) | 발표 흐름 및 멘트 |
-| [Submission Package](./docs/submission-package.md) | Google Drive 최종 제출 산출물 기준 |
-| [Custom WordPress Image](./docker/wordpress/README.md) | 커스텀 WordPress 이미지 설명 |
+| 전문성 | OpenStack, Ansible, Docker Swarm, MariaDB, HAProxy, Prometheus, Grafana, Alertmanager, Restic 활용 |
+| 차별성 | 구축 자동화뿐 아니라 모니터링, 백업, 복구 검증까지 운영 흐름으로 연결 |
+| 완성도 | 서비스 구성, 모니터링 설치, 백업/복구 테스트, 복구 시나리오 문서화 |
+| 프로젝트 관리 | GitHub 문서 구조, 회의록, 작업일지, 제출 패키지 관리 |
+| 발표 및 시연 | Ansible 실행 구조, 서비스 응답, Prometheus Target, Restic Snapshot, Restore Test 중심 시연 |
 
 ---
 
-## 14. 최종 성공 기준
+## 14. 멘토링 설명 기준
 
-| 단계 | 성공 기준 |
-|---|---|
-| 인프라 | OpenStack 기반 Ubuntu 인스턴스 생성 완료 |
-| 노드 | Control / Proxy / Web / DB / Backup Node 구분 완료 |
-| 접속 | Control Node에서 Managed Node SSH 접속 성공 |
-| Ansible | ansible all -m ping 성공 |
-| 자동화 | ansible-playbook site.yml 실행 성공 |
-| DB | DB Node에서 MariaDB 서비스 running |
-| Web | Web Node에서 Custom WordPress 컨테이너 running |
-| Proxy | Proxy Node에서 HAProxy HTTP Reverse Proxy 동작 |
-| 연결 | Web Node WordPress가 DB Node MariaDB에 연결 |
-| 접속 검증 | Proxy Node 경유 WordPress HTTP 응답 확인 |
-| 검증 | health_check, backup, restore 결과 확인 |
-| 운영 | 주요 장애 시나리오와 트러블슈팅 절차 정리 |
-| 관리 | GitHub 상태표 및 산출물 자동 갱신 확인 |
+멘토링 시 다음 문장을 기준으로 설명한다.
+
+```text
+현재 프로젝트는 OpenStack 기반 인프라 위에 Web, DB, Proxy, Monitoring, Backup / Recovery 구성 요소를 배치하고,
+Control Node에서 Ansible을 통해 구성 자동화와 운영 검증 자동화를 수행하는 구조입니다.
+
+현재까지는 생성된 인스턴스 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증을 구현했습니다.
+
+최종 목표는 OpenStack 인스턴스 생성부터 Ansible Playbook으로 연결하는 것이며,
+이를 위해 Provisioning Playbook을 추가 보완 범위로 정리했습니다.
+```
 
 ---
 
+<<<<<<< HEAD
 ## 15. 구현 일정 기준
 
 | 구분 | 목표 완료일 | 기준 |
@@ -311,18 +302,18 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 22 | 51 | 43% |
+| 21 | 51 | 41% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
+| PM / Architecture | 정주헌 | 11 | 12 | 92% | 🟡 진행 중 |
 | Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
-| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
@@ -330,5 +321,22 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 
 
 
+
+=======
+## 15. 문서 기준
+>>>>>>> 71122c9 (Add OpenStack provisioning and validation baseline playbooks)
+
+과거 회의록, 작업일지, 날짜별 작업 문서에는 작성 당시 기준의 구조가 포함될 수 있다.
+
+최신 기준은 다음 문서를 우선한다.
+
+```text
+docs/current-status.md
+docs/architecture.md
+docs/automation-scope.md
+docs/ansible-execution-design.md
+docs/provisioning-playbook-design.md
+docs/mentoring-brief.md
+```
 
 
