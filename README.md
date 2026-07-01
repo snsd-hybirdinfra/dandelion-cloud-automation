@@ -272,71 +272,17 @@ Control Node에서 Ansible을 통해 구성 자동화와 운영 검증 자동화
 
 ---
 
-<<<<<<< HEAD
-## 15. 구현 일정 기준
-
-| 구분 | 목표 완료일 | 기준 |
-|---|---|---|
-| Phase 1 필수 구성 | 2026-06-26 | OpenStack, Ubuntu Instance, Control / Proxy / Web / DB / Backup Node, SSH, Ansible, Docker Compose, WordPress와 MariaDB, HAProxy HTTP Reverse Proxy, Health Check, Backup/Restore, 필수 캡처 완료 |
-| Phase 2 운영 확장 | 2026-07-10 | HTTPS, Cinder Backup Volume, node_exporter, cAdvisor, Prometheus/Grafana, Playbook 개선 중 가능한 항목 |
-| Phase 3 도전 확장 | 2026-07-10 이전 여유 시 | Web Node 2대, HAProxy Load Balancing, 공통 DB 연결 검증 |
-| 최종 정리 | 2026-07-14 | 결과보고서, 시연 영상, 소스코드, 작업일지, 회의록, Google Drive 제출자료 정리 |
-
----
-
-## 16. 프로젝트 핵심 메시지
-
-~~~text
-OpenStack 인프라 구성부터 Ansible 자동화, Proxy / Web / DB / Backup 계층 분리,
-Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, HAProxy HTTP Reverse Proxy,
-상태 점검, DB 및 파일 백업, 복구 절차 검증, GitHub 기반 산출물 관리까지
-하나의 인프라 운영 자동화 흐름으로 연결한다.
-~~~
-
-<!-- AUTO_STATUS_START -->
-## 자동 생성 프로젝트 상태
-
-아래 상태는 팀원이 파일을 push할 때 자동으로 갱신된다.
-
-## 2. 전체 진행률
-
-| 완료 | 전체 | 진행률 |
-|---:|---:|---:|
-| 21 | 51 | 41% |
-
-## 담당자별 진행 상태
-
-| 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
-|---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 11 | 12 | 92% | 🟡 진행 중 |
-| Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
-| Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
-| Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
-| Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
-
-상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
-
-<!-- AUTO_STATUS_END -->
-
-
-
-
-=======
 ## 15. 문서 기준
->>>>>>> 71122c9 (Add OpenStack provisioning and validation baseline playbooks)
 
 과거 회의록, 작업일지, 날짜별 작업 문서에는 작성 당시 기준의 구조가 포함될 수 있다.
 
 최신 기준은 다음 문서를 우선한다.
 
-```text
+~~~text
 docs/current-status.md
 docs/architecture.md
 docs/automation-scope.md
 docs/ansible-execution-design.md
 docs/provisioning-playbook-design.md
 docs/mentoring-brief.md
-```
-
-
+~~~
