@@ -28,7 +28,7 @@ Control Node에서 Ansible Playbook 실행
 → 운영 상태 검증
 ```
 
-현재는 생성된 OpenStack 인스턴스를 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 nsible/provision.yml 기준으로 최소 구현 범위를 관리하며, 실제 환경 값 반영 후 실행 검증한다.
+현재는 생성된 OpenStack 인스턴스를 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 ansible/provision.yml 기준으로 최소 구현 범위를 관리하며, 실제 환경 값 반영 후 실행 검증한다.
 
 ---
 
