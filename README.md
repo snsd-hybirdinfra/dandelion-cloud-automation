@@ -331,7 +331,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 22 | 51 | 43% |
+| 21 | 51 | 41% |
 
 ## 담당자별 진행 상태
 
@@ -342,7 +342,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
 | Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
-| Submission Package | 정주헌 | 5 | 11 | 45% | 🟡 진행 중 |
+| Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
