@@ -1,6 +1,6 @@
 # Validation Summary
 
-Last Updated: 2026-06-30 08:43:44
+Last Updated: 2026-07-01 05:17:04
 
 ## 1. Required Directory Check
 
@@ -56,8 +56,10 @@ No blocked sensitive files detected.
 
 | Document | TBD Count |
 |---|---:|
+| docs/automation-scope.md | 0 |
 | docs/runbook.md | 0 |
 | docs/pre-run-checklist.md | 0 |
+| docs/document-cleanup-policy.md | 0 |
 | docs/resource-plan.md | 0 |
 | docs/validation-report.md | 15 |
 | docs/mentoring-work-order-summary.md | 0 |
@@ -66,6 +68,7 @@ No blocked sensitive files detected.
 | docs/implementation-roadmap.md | 0 |
 | docs/mentoring-questions.md | 0 |
 | docs/scope-control.md | 0 |
+| docs/current-status.md | 0 |
 | docs/validation-summary.md | 2 |
 | docs/troubleshooting.md | 0 |
 | docs/team-task-guide.md | 0 |
