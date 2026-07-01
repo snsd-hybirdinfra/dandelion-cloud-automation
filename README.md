@@ -45,6 +45,9 @@ Control Node에서 Ansible Playbook 실행
 | [Provisioning Playbook Design](docs/provisioning-playbook-design.md) | OpenStack 인스턴스 생성 자동화 설계 |
 | [Implementation Roadmap](docs/implementation-roadmap.md) | 남은 구현 작업과 우선순위 |
 | [Mentoring Brief](docs/mentoring-brief.md) | 멘토링 대비 요약 및 질문 |
+| [Mentoring Questions](docs/mentoring-questions.md) | 멘토링 당일 확인 질문 |
+| [Mentoring Explanation Script](docs/mentoring-explanation-script.md) | 멘토링 설명 스크립트 |
+| [Mentoring Checklist](docs/mentoring-checklist.md) | 멘토링 전 최종 점검표 |
 | [Runbook](docs/runbook.md) | 운영 실행 절차 |
 | [Validation Plan](docs/validation-plan.md) | 검증 계획 |
 | [Backup and Recovery Plan](docs/backup-recovery-plan.md) | 백업 및 복구 계획 |
@@ -299,7 +302,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 22 | 51 | 43% |
+| 21 | 51 | 41% |
 
 ## 담당자별 진행 상태
 
@@ -308,7 +311,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
-| Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
 | Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
@@ -335,4 +338,5 @@ docs/ansible-execution-design.md
 docs/provisioning-playbook-design.md
 docs/mentoring-brief.md
 ```
+
 
