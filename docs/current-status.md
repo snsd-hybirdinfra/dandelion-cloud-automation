@@ -154,3 +154,27 @@ OpenStack 기반 클라우드 인프라
 
 따라서 현재 문서 정리에서는 완료된 Day-1 / Day-2 자동화 범위와, 추가 구현할 OpenStack Provisioning 자동화 범위를 분리해서 정리하고 있습니다.
 ```
+
+---
+
+## 10. 2026-07-01 최신 진행상황
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 이진욱 | DB Primary - Replica 연동 완료, Primary 장애 시 Replica 전환 자동화 또는 Failover 검증 진행 중 | 진행 |
+| 백서빈 | 장애대응 절차서 작성 완료, 보안그룹 수정 완료 | 완료 |
+| 조민석 | Docker Swarm Playbook 작성 및 적용 완료, Restic Playbook 작성 및 적용 완료 | 완료 |
+| 박재우 | Prometheus - Alertmanager 연동 완료, Container / DB / WordPress 장애 알림 Python Daemon 구현 완료, Grafana 연동 예정 | 진행 |
+| 정주헌 | 멘토링 대비 자료 준비 및 검증 시나리오 작성 중 | 진행 |
+
+### 10.1 멘토링 기준 업데이트
+
+~~~text
+최근 진행 결과로 Ansible 자동화와 운영 검증 범위가 강화되었다.
+
+Docker Swarm과 Restic은 Playbook 작성 및 적용 완료로 설명할 수 있으며,
+Monitoring은 Prometheus - Alertmanager 연동 및 장애 알림 Daemon 구현 완료로 설명한다.
+
+DB는 Primary - Replica 연동 완료 상태이며,
+Failover 자동화 또는 장애 시 Replica 전환 검증은 진행 중으로 구분한다.
+~~~
