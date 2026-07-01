@@ -1,12 +1,12 @@
 # Project Status
 
-Last Updated: 2026-07-01 06:44:00
+Last Updated: 2026-07-01 06:45:43
 
 ## 1. 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
-| PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
+| PM / Architecture | 정주헌 | 11 | 12 | 92% | 🟡 진행 중 |
 | Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
 | Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
@@ -17,7 +17,7 @@ Last Updated: 2026-07-01 06:44:00
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 22 | 51 | 43% |
+| 21 | 51 | 41% |
 
 ## 3. 상세 파일 상태
 
@@ -35,7 +35,7 @@ Last Updated: 2026-07-01 06:44:00
 | docs/review-checklist.md | ✅ 완료 |
 | docs/scope-control.md | ✅ 완료 |
 | docs/mentoring-brief.md | ✅ 완료 |
-| docs/mentoring-questions.md | ✅ 완료 |
+| docs/mentoring-questions.md | 🟡 작성 필요 |
 | presentation/presentation-outline.md | ✅ 완료 |
 
 ## Cloud Infrastructure - 백서빈
