@@ -1,4 +1,22 @@
-﻿<!-- STATUS: COMPLETE -->
+﻿<!-- CURRENT PROJECT BASELINE -->
+
+## Current Project Baseline
+
+본 저장소의 최신 기준 문서는 다음을 우선 참조한다.
+
+| 문서 | 목적 |
+|---|---|
+| [Current Status](docs/current-status.md) | 최신 프로젝트 진행 상태 |
+| [Automation Scope](docs/automation-scope.md) | Ansible / OpenStack 자동화 범위 |
+| [Mentoring Brief](docs/mentoring-brief.md) | 멘토링 대비 요약 및 질문 |
+| [Document Cleanup Policy](docs/document-cleanup-policy.md) | 최신 문서와 과거 기록 구분 기준 |
+
+본 프로젝트의 최종 목표는 Control Node에서 Ansible Playbook을 실행하여 OpenStack 인스턴스 생성부터 서비스 구성, 모니터링, 백업 및 복구 검증까지 자동화하는 것이다.
+
+현재는 생성된 인스턴스 기반의 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 최종 목표 달성을 위한 보완 범위로 관리한다.
+
+---
+<!-- STATUS: COMPLETE -->
 
 # Team Dandelion - Cloud Infrastructure Automation
 
@@ -327,6 +345,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
+
 
 
 
