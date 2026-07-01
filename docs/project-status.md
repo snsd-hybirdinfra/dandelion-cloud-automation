@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-07-01 06:17:16
+Last Updated: 2026-07-01 06:44:00
 
 ## 1. 담당자별 진행 상태
 
@@ -9,7 +9,7 @@ Last Updated: 2026-07-01 06:17:16
 | PM / Architecture | 정주헌 | 12 | 12 | 100% | ✅ 완료 |
 | Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
-| Ansible Automation | 조민석 | 1 | 9 | 11% | 🟡 진행 중 |
+| Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
 | Submission Package | 정주헌 | 4 | 11 | 36% | 🟡 진행 중 |
 
@@ -17,7 +17,7 @@ Last Updated: 2026-07-01 06:17:16
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 21 | 51 | 41% |
+| 22 | 51 | 43% |
 
 ## 3. 상세 파일 상태
 
@@ -64,7 +64,7 @@ Last Updated: 2026-07-01 06:17:16
 |---|---|
 | ansible/ansible.cfg | 🟡 작성 필요 |
 | ansible/inventory.ini | 🟡 작성 필요 |
-| ansible/site.yml | 🟡 작성 필요 |
+| ansible/site.yml | ✅ 완료 |
 | docs/ansible-automation.md | ✅ 완료 |
 | screenshots/ansible/ansible-version.png | ❌ 미완료 |
 | screenshots/ansible/inventory.png | ❌ 미완료 |
