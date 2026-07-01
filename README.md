@@ -10,6 +10,8 @@
 | [Automation Scope](docs/automation-scope.md) | Ansible / OpenStack 자동화 범위 |
 | [Mentoring Brief](docs/mentoring-brief.md) | 멘토링 대비 요약 및 질문 |
 | [Document Cleanup Policy](docs/document-cleanup-policy.md) | 최신 문서와 과거 기록 구분 기준 |
+| [Ansible Execution Design](docs/ansible-execution-design.md) | Ansible 실행 구조와 site.yml 목표 |
+| [Provisioning Playbook Design](docs/provisioning-playbook-design.md) | OpenStack 인스턴스 생성 자동화 설계 |
 
 본 프로젝트의 최종 목표는 Control Node에서 Ansible Playbook을 실행하여 OpenStack 인스턴스 생성부터 서비스 구성, 모니터링, 백업 및 복구 검증까지 자동화하는 것이다.
 
@@ -345,6 +347,7 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
+
 
 
 
