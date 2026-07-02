@@ -89,7 +89,13 @@ Backup / Recovery
 → 복구 테스트
 → 복구 시나리오 문서화
 ```
+### 현재 구현 아키텍처
 
+![Current Implementation Architecture](docs/assets/current-implementation-architecture.png)
+
+### 최종 목표 아키텍처
+
+![Final Target Architecture](docs/assets/final-target-architecture.png)
 ---
 
 ## 5. 노드 구성
