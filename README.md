@@ -48,6 +48,7 @@ Control Node에서 Ansible Playbook 실행
 | [Mentoring Questions](docs/mentoring-questions.md) | 멘토링 당일 확인 질문 |
 | [Mentoring Explanation Script](docs/mentoring-explanation-script.md) | 멘토링 설명 스크립트 |
 | [Mentoring Checklist](docs/mentoring-checklist.md) | 멘토링 전 최종 점검표 |
+| [Final Mentoring Action Plan](docs/final-mentoring-action-plan.md) | 멘토링 이후 3주차 / 4주차 작업 계획 |
 | [Runbook](docs/runbook.md) | 운영 실행 절차 |
 | [Validation Plan](docs/validation-plan.md) | 검증 계획 |
 | [Backup and Recovery Plan](docs/backup-recovery-plan.md) | 백업 및 복구 계획 |
@@ -319,3 +320,4 @@ docs/mentoring-brief.md
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
+
