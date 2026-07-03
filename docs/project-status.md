@@ -1,6 +1,6 @@
 # Project Status
 
-Last Updated: 2026-07-02 08:53:22
+Last Updated: 2026-07-03 08:40:56
 
 ## 1. 담당자별 진행 상태
 
