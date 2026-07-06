@@ -110,3 +110,40 @@ Restore 자동화는 구현을 완료했으며,
 4주차에는 인프라와 서비스 담당자를 모니터링 / 자동화 파트 보조로 투입하여
 가용성 테스트, 부하 테스트, 임계치 검증, DR 점검, 발표자료 준비에 집중합니다.
 ~~~
+
+---
+
+## 10. 2026-07-06 진행상황 업데이트
+
+| 영역 | 내용 | 상태 |
+|---|---|---|
+| Monitoring | Prometheus - Alertmanager 연동 완료 | 완료 |
+| Monitoring | Dashboard Alert 상태 출력 | 진행 |
+| Recovery | Monitoring 제외 복구 Playbook 작성 및 검증 완료 | 완료 |
+| Provisioning | Ansible 기반 인스턴스 생성 Playbook 작성 완료 | 완료 |
+| Provisioning | 보안그룹 / 서브넷 / Flavor / Image 생성 Playbook 작성 | 예정 |
+| Alert | Alertmanager 설정 수정 및 Mail Alert 테스트 점검 | 진행 |
+
+### 10.1 4주차 반영 방향
+
+~~~text
+4주차에는 Monitoring, Alert, Recovery, Provisioning 결과를 검증 가능한 산출물로 정리한다.
+
+Monitoring은 Alert 상태 출력 화면과 메일 알림 결과를 캡처한다.
+Recovery는 복구 Playbook 실행 전 / 후 결과를 캡처한다.
+Provisioning은 인스턴스 생성 및 보안그룹 / 서브넷 / Flavor / Image 생성 Playbook 작성 결과를 정리한다.
+~~~
+
+### 10.2 발표 반영 문장
+
+~~~text
+Prometheus와 Alertmanager 연동은 완료되었고,
+현재 Dashboard에서 Alert 상태를 출력하는 작업을 진행 중입니다.
+
+Monitoring을 제외한 복구 Playbook 작성과 검증은 완료되었습니다.
+
+OpenStack 인스턴스 생성 Playbook을 작성했으며,
+다음 단계로 보안그룹, 서브넷, Flavor, Image 생성 Playbook을 작성할 예정입니다.
+
+Alertmanager 설정 수정 후 Mail Alert 테스트를 점검하고 있습니다.
+~~~

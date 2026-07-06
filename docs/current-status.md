@@ -230,3 +230,28 @@ Restore 자동화는 구현 완료 상태이며,
 다음 주에는 인프라 담당자와 서비스 담당자가 각각 모니터링 파트와 자동화 파트를 보조하여
 가용성 테스트, 부하 테스트, 임계치 검증, DR 점검, 발표자료 준비를 지원한다.
 ~~~
+
+---
+
+## 15. 2026-07-06 진행상황 업데이트
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 백서빈 | Prometheus - Alertmanager 연동 완료, Dashboard Alert 상태 출력 진행 중 | 진행 |
+| 조민석 | Monitoring 제외 복구 Playbook 작성 및 검증 완료 | 완료 |
+| 이진욱 | Ansible 기반 인스턴스 생성 Playbook 작성 완료, 보안그룹 / 서브넷 / Flavor / Image 생성 Playbook 작성 예정 | 진행 |
+| 박재우 | Alertmanager 설정 수정 후 Mail Alert 테스트 점검 | 진행 |
+
+### 15.1 업데이트 후 기준
+
+~~~text
+Monitoring 파트는 Prometheus - Alertmanager 연동 완료 상태이며,
+Dashboard에서 Alert 상태를 출력하는 작업을 진행 중이다.
+
+Recovery Automation 파트는 Monitoring을 제외한 복구 Playbook 작성 및 검증이 완료된 상태로 정리한다.
+
+OpenStack Provisioning 파트는 인스턴스 생성 Playbook 작성 완료 상태이며,
+보안그룹, 서브넷, Flavor, Image 생성 Playbook은 예정 항목으로 분리한다.
+
+Alert Notification 파트는 Alertmanager 설정 수정 후 Mail Alert 테스트를 점검 중인 상태로 정리한다.
+~~~
