@@ -147,3 +147,40 @@ OpenStack 인스턴스 생성 Playbook을 작성했으며,
 
 Alertmanager 설정 수정 후 Mail Alert 테스트를 점검하고 있습니다.
 ~~~
+
+---
+
+## 11. 2026-07-07 작업내용 업데이트
+
+| 영역 | 내용 | 상태 |
+|---|---|---|
+| Monitoring | Dashboard Alert 상태 출력 완료 | 완료 |
+| DB Automation | DB 이중화 자동화 Playbook 작성 | 작성 |
+| Provisioning | 보안그룹 / 서브넷 / Flavor / Image / Keypair 생성 Playbook 작성 | 작성 |
+| Alert / Backup | Alertmanager / Prometheus Time Sync 점검 | 진행 |
+| Alert / Backup | Backup Node의 Prometheus 백업 부분 수정 | 수정 |
+
+### 11.1 4주차 반영 방향
+
+~~~text
+4주차 후반에는 작성된 Playbook과 수정된 백업 항목을 실행 검증하고,
+최종 발표자료에 캡처 기반 증빙으로 반영한다.
+
+Monitoring은 Dashboard Alert 출력 완료 화면을 중심으로 정리한다.
+DB Automation은 DB 이중화 자동화 Playbook 작성 및 실행 검증 결과를 정리한다.
+Provisioning은 보안그룹, 서브넷, Flavor, Image, Keypair 생성 Playbook 작성 결과를 정리한다.
+Alert / Backup은 Time Sync 점검과 Prometheus 백업 수정 결과를 정리한다.
+~~~
+
+### 11.2 발표 반영 문장
+
+~~~text
+Dashboard에서 Alert 상태를 출력하는 작업을 완료했습니다.
+
+DB 이중화 자동화 Playbook을 작성하여 기존 DB 이중화 및 Failover 검증 결과를 자동화 산출물로 확장했습니다.
+
+OpenStack Provisioning 자동화를 위해 보안그룹, 서브넷, Flavor, Image, Keypair 생성 Playbook을 작성했습니다.
+
+Alertmanager와 Prometheus의 Time Sync를 점검하고,
+Backup Node에서 Prometheus 백업 부분을 수정했습니다.
+~~~
