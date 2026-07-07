@@ -28,7 +28,7 @@ Control Node에서 Ansible Playbook 실행
 → 운영 상태 검증
 ```
 
-현재는 생성된 OpenStack 인스턴스를 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 nsible/provision.yml 기준으로 최소 구현 범위를 관리하며, 실제 환경 값 반영 후 실행 검증한다.
+현재는 생성된 OpenStack 인스턴스를 기반으로 서비스 구성, 모니터링, 백업 및 복구 검증 자동화를 우선 구현하였으며, OpenStack Provisioning 자동화는 ansible/provision.yml 기준으로 최소 구현 범위를 관리하며, 실제 환경 값 반영 후 실행 검증한다.
 
 ---
 
@@ -48,6 +48,7 @@ Control Node에서 Ansible Playbook 실행
 | [Mentoring Questions](docs/mentoring-questions.md) | 멘토링 당일 확인 질문 |
 | [Mentoring Explanation Script](docs/mentoring-explanation-script.md) | 멘토링 설명 스크립트 |
 | [Mentoring Checklist](docs/mentoring-checklist.md) | 멘토링 전 최종 점검표 |
+| [Final Mentoring Action Plan](docs/final-mentoring-action-plan.md) | 멘토링 이후 3주차 / 4주차 작업 계획 |
 | [Runbook](docs/runbook.md) | 운영 실행 절차 |
 | [Validation Plan](docs/validation-plan.md) | 검증 계획 |
 | [Backup and Recovery Plan](docs/backup-recovery-plan.md) | 백업 및 복구 계획 |
@@ -89,7 +90,13 @@ Backup / Recovery
 → 복구 테스트
 → 복구 시나리오 문서화
 ```
+### 현재 구현 아키텍처
 
+![Current Implementation Architecture](docs/assets/current-implementation-architecture.png)
+
+### 최종 목표 아키텍처
+
+![Final Target Architecture](docs/assets/final-target-architecture.png)
 ---
 
 ## 5. 노드 구성
@@ -272,26 +279,21 @@ Control Node에서 Ansible을 통해 구성 자동화와 운영 검증 자동화
 
 ---
 
-<<<<<<< HEAD
-## 15. 구현 일정 기준
+## 15. 문서 기준
 
-| 구분 | 목표 완료일 | 기준 |
-|---|---|---|
-| Phase 1 필수 구성 | 2026-06-26 | OpenStack, Ubuntu Instance, Control / Proxy / Web / DB / Backup Node, SSH, Ansible, Docker Compose, WordPress와 MariaDB, HAProxy HTTP Reverse Proxy, Health Check, Backup/Restore, 필수 캡처 완료 |
-| Phase 2 운영 확장 | 2026-07-10 | HTTPS, Cinder Backup Volume, node_exporter, cAdvisor, Prometheus/Grafana, Playbook 개선 중 가능한 항목 |
-| Phase 3 도전 확장 | 2026-07-10 이전 여유 시 | Web Node 2대, HAProxy Load Balancing, 공통 DB 연결 검증 |
-| 최종 정리 | 2026-07-14 | 결과보고서, 시연 영상, 소스코드, 작업일지, 회의록, Google Drive 제출자료 정리 |
+과거 회의록, 작업일지, 날짜별 작업 문서에는 작성 당시 기준의 구조가 포함될 수 있다.
 
----
-
-## 16. 프로젝트 핵심 메시지
+최신 기준은 다음 문서를 우선한다.
 
 ~~~text
-OpenStack 인프라 구성부터 Ansible 자동화, Proxy / Web / DB / Backup 계층 분리,
-Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, HAProxy HTTP Reverse Proxy,
-상태 점검, DB 및 파일 백업, 복구 절차 검증, GitHub 기반 산출물 관리까지
-하나의 인프라 운영 자동화 흐름으로 연결한다.
+docs/current-status.md
+docs/architecture.md
+docs/automation-scope.md
+docs/ansible-execution-design.md
+docs/provisioning-playbook-design.md
+docs/mentoring-brief.md
 ~~~
+
 
 <!-- AUTO_STATUS_START -->
 ## 자동 생성 프로젝트 상태
@@ -318,25 +320,4 @@ Docker Compose 기반 WordPress와 DB Node MariaDB 서비스 서비스 배포, H
 상세 상태는 [Project Status](./docs/project-status.md) 문서에서 확인한다.
 
 <!-- AUTO_STATUS_END -->
-
-
-
-
-=======
-## 15. 문서 기준
->>>>>>> 71122c9 (Add OpenStack provisioning and validation baseline playbooks)
-
-과거 회의록, 작업일지, 날짜별 작업 문서에는 작성 당시 기준의 구조가 포함될 수 있다.
-
-최신 기준은 다음 문서를 우선한다.
-
-```text
-docs/current-status.md
-docs/architecture.md
-docs/automation-scope.md
-docs/ansible-execution-design.md
-docs/provisioning-playbook-design.md
-docs/mentoring-brief.md
-```
-
 

@@ -42,6 +42,10 @@ Control Node에서 Ansible Playbook 실행
 
 ## 4. 최신 아키텍처 기준
 
+## 현재 구현 아키텍처
+
+![Current Implementation Architecture](assets/current-implementation-architecture.png)
+
 | 영역 | 최신 기준 |
 |---|---|
 | Control Node | Ansible 실행 및 전체 노드 중앙 관리 |
@@ -154,3 +158,100 @@ OpenStack 기반 클라우드 인프라
 
 따라서 현재 문서 정리에서는 완료된 Day-1 / Day-2 자동화 범위와, 추가 구현할 OpenStack Provisioning 자동화 범위를 분리해서 정리하고 있습니다.
 ```
+
+---
+
+## 10. 2026-07-01 최신 진행상황
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 이진욱 | DB Primary - Replica 연동 완료, Primary 장애 시 Replica 전환 자동화 또는 Failover 검증 진행 중 | 진행 |
+| 백서빈 | 장애대응 절차서 작성 완료, 보안그룹 수정 완료 | 완료 |
+| 조민석 | Docker Swarm Playbook 작성 및 적용 완료, Restic Playbook 작성 및 적용 완료 | 완료 |
+| 박재우 | Prometheus - Alertmanager 연동 완료, Container / DB / WordPress 장애 알림 Python Daemon 구현 완료, Grafana 연동 예정 | 진행 |
+| 정주헌 | 멘토링 대비 자료 준비 및 검증 시나리오 작성 중 | 진행 |
+
+### 10.1 멘토링 기준 업데이트
+
+~~~text
+최근 진행 결과로 Ansible 자동화와 운영 검증 범위가 강화되었다.
+
+Docker Swarm과 Restic은 Playbook 작성 및 적용 완료로 설명할 수 있으며,
+Monitoring은 Prometheus - Alertmanager 연동 및 장애 알림 Daemon 구현 완료로 설명한다.
+
+DB는 Primary - Replica 연동 완료 상태이며,
+Failover 자동화 또는 장애 시 Replica 전환 검증은 진행 중으로 구분한다.
+~~~
+
+
+---
+
+## 11. 2026-07-02 멘토링 결과 반영
+
+| 구분 | 작업 방향 |
+|---|---|
+| 3주차 | 구현 마무리 작업 |
+| 4주차 | 가용성 테스트, 부하 테스트, 임계치 검증, DR 점검, 발표자료 준비 |
+
+### 11.1 담당자 진행상황 업데이트
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 이진욱 | DB Failover 테스트 진행 중 | 진행 |
+
+### 11.2 멘토링 이후 기준
+
+~~~text
+멘토링 이후 남은 기간에는 신규 기능 확장보다 현재 구현된 기능의 마무리와 검증에 집중한다.
+
+3주차는 구현 마무리,
+4주차는 가용성 테스트, 부하 테스트, 임계치 검증, DR 점검, 발표자료 준비를 중심으로 진행한다.
+~~~
+
+---
+
+## 13. 2026-07-03 진행상황 업데이트
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 조민석 | Restore 자동화 구현 완료, 검증 예정 | 진행 |
+| 이진욱 | DB 이중화 Failover 테스트 및 복구 점검 완료 | 완료 |
+| 인프라 담당 | 다음 주 모니터링 파트 보조 예정 | 예정 |
+| 서비스 담당 | 다음 주 자동화 파트 보조 예정 | 예정 |
+
+### 13.1 업데이트 후 기준
+
+~~~text
+DB 파트는 Primary - Replica 연동 이후 Failover 테스트와 복구 점검까지 완료된 상태로 정리한다.
+
+Restore 자동화는 구현 완료 상태이며,
+실제 복구 동작 검증은 예정 항목으로 분리한다.
+
+다음 주에는 인프라 담당자와 서비스 담당자가 각각 모니터링 파트와 자동화 파트를 보조하여
+가용성 테스트, 부하 테스트, 임계치 검증, DR 점검, 발표자료 준비를 지원한다.
+~~~
+
+---
+
+## 15. 2026-07-06 진행상황 업데이트
+
+| 담당 | 최신 진행상황 | 상태 |
+|---|---|---|
+| 백서빈 | Prometheus - Alertmanager 연동 완료, Dashboard Alert 상태 출력 진행 중 | 진행 |
+| 조민석 | Monitoring 제외 복구 Playbook 작성 및 검증 완료 | 완료 |
+| 이진욱 | Ansible 기반 인스턴스 생성 Playbook 작성 완료, 보안그룹 / 서브넷 / Flavor / Image 생성 Playbook 작성 예정 | 진행 |
+| 박재우 | Alertmanager 설정 수정 후 Mail Alert 테스트 점검 | 진행 |
+
+### 15.1 업데이트 후 기준
+
+~~~text
+Monitoring 파트는 Prometheus - Alertmanager 연동 완료 상태이며,
+Dashboard에서 Alert 상태를 출력하는 작업을 진행 중이다.
+
+Recovery Automation 파트는 Monitoring을 제외한 복구 Playbook 작성 및 검증이 완료된 상태로 정리한다.
+
+OpenStack Provisioning 파트는 인스턴스 생성 Playbook 작성 완료 상태이며,
+보안그룹, 서브넷, Flavor, Image 생성 Playbook은 예정 항목으로 분리한다.
+
+Alert Notification 파트는 Alertmanager 설정 수정 후 Mail Alert 테스트를 점검 중인 상태로 정리한다.
+~~~
