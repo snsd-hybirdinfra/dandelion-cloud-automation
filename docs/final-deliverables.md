@@ -196,3 +196,25 @@ Prometheus / Grafana 기반 모니터링,
 Restic 기반 백업 및 복구 검증,
 복구 시나리오 기반 운영 대응 체계를 구축하였다.
 ```
+
+---
+
+## Source Code Submission Scope
+
+최종 제출 소스코드는 Ansible Playbook 중심으로 정리한다.
+
+| 구분 | 제출 내용 |
+|---|---|
+| OpenStack Provisioning | 인스턴스, 보안그룹, 서브넷, Flavor, Image, Keypair 생성 Playbook |
+| Service Automation | Web, DB, Proxy 구성 Playbook |
+| Monitoring Automation | Prometheus, Alertmanager, Grafana 구성 Playbook |
+| Recovery Automation | Backup / Restore / Recovery Playbook |
+| Validation | 검증 Playbook 및 실행 결과 |
+
+### 제출 기준
+
+~~~text
+소스코드 제출 범위는 Ansible Playbook을 중심으로 구성한다.
+
+각 Playbook은 실행 목적, 대상 노드, 실행 순서, 검증 방법을 문서와 함께 정리한다.
+~~~

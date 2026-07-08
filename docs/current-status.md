@@ -281,3 +281,27 @@ OpenStack Provisioning 파트는 인스턴스 생성 Playbook 이후
 Alert / Backup 파트는 Alertmanager와 Prometheus Time Sync 점검 및
 Backup Node의 Prometheus 백업 부분 수정 작업을 진행 중인 상태로 정리한다.
 ~~~
+
+---
+
+## 17. 2026-07-08 작업내용 업데이트
+
+| 담당 | 작업내용 | 상태 |
+|---|---|---|
+| 백서빈 | 인프라 발표자료 정리 중 | 진행 |
+| 조민석 | 모니터링 구성 Playbook 작성 완료, 모니터링 Restore Playbook 작성 중 | 진행 |
+| 이진욱 | OpenStack 노드 / 인스턴스 Playbook 문서화 진행 중 | 진행 |
+| 박재우 | 모니터링 설치 및 구성 문서화 진행 중 | 진행 |
+| 전체 | 소스코드는 Ansible Playbook 중심으로 제출 예정 | 예정 |
+
+### 17.1 업데이트 후 기준
+
+~~~text
+7월 8일 기준으로 모니터링 구성 Playbook 작성은 완료되었고,
+모니터링 Restore Playbook 작성은 진행 중이다.
+
+OpenStack 노드 / 인스턴스 Playbook은 문서화 단계로 정리한다.
+
+모니터링 설치 및 구성 문서화가 진행 중이며,
+최종 제출 소스코드는 Ansible Playbook 중심으로 정리한다.
+~~~
