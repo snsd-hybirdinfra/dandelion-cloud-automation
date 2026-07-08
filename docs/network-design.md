@@ -443,7 +443,7 @@ DB Node는 외부에 직접 노출하지 않으며,
 
 ### Cloud Instance List
 
-../screenshots/cloud-infra/instance-list.png 이미지가 아직 업로드되지 않았다.
+![Cloud Instance List](../screenshots/cloud-infra/instance-list.png)
 
 ### Network / Subnet Configuration
 
