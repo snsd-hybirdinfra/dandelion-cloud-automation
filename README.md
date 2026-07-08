@@ -304,14 +304,14 @@ docs/mentoring-brief.md
 
 | 완료 | 전체 | 진행률 |
 |---:|---:|---:|
-| 21 | 51 | 41% |
+| 20 | 51 | 39% |
 
 ## 담당자별 진행 상태
 
 | 영역 | 담당자 | 완료 | 전체 | 진행률 | 상태 |
 |---|---|---:|---:|---:|---|
 | PM / Architecture | 정주헌 | 11 | 12 | 92% | 🟡 진행 중 |
-| Cloud Infrastructure | 백서빈 | 3 | 5 | 60% | 🟡 진행 중 |
+| Cloud Infrastructure | 백서빈 | 2 | 5 | 40% | 🟡 진행 중 |
 | Server / Virtualization | 이진욱 | 1 | 5 | 20% | 🟡 진행 중 |
 | Ansible Automation | 조민석 | 2 | 9 | 22% | 🟡 진행 중 |
 | Monitoring / Backup / Validation | 박재우 | 0 | 9 | 0% | ❌ 미착수 |
